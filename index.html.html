@@ -488,14 +488,16 @@ const SB_URL = 'https://lxdjsiizqoaoypgkohdh.supabase.co';
 const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4ZGpzaWl6cW9hb3lwZ2tvaGRoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyOTIyMTYsImV4cCI6MjA4OTg2ODIxNn0.mqHNGjVE9s8R54pVaYoEp3a7kq7WaDjmghTmwDR-W3s';
 
 async function sbQuery(path, options={}){
-  const res = await fetch(SB_URL+'/rest/v1/'+path, {
+  const sep = path.includes('?') ? '&' : '?';
+  const url = SB_URL+'/rest/v1/'+path+sep+'apikey='+SB_KEY;
+  const res = await fetch(url, {
+    method: options.method || 'GET',
     headers: {
       'apikey': SB_KEY,
       'Authorization': 'Bearer '+SB_KEY,
       'Content-Type': 'application/json',
-      ...options.headers
-    },
-    ...options
+      'Accept': 'application/json'
+    }
   });
   if(!res.ok) return null;
   return res.json();
