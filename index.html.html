@@ -514,7 +514,7 @@ async function doLogin(){
 
   try {
     const rows = await sbQuery(
-      `usuarios?email=eq.${encodeURIComponent(email)}&senha=eq.${encodeURIComponent(senha)}&ativo=eq.true&select=nome,email`,
+      `usu%C3%A1rios?e-mail=eq.${encodeURIComponent(email)}&senha=eq.${encodeURIComponent(senha)}&ativo=eq.true&select=nome,e-mail`,
       { method: 'GET', headers: { 'Accept': 'application/json' } }
     );
 
@@ -527,7 +527,7 @@ async function doLogin(){
     }
 
     const user = rows[0];
-    localStorage.setItem('apard_session', JSON.stringify({email: user.email, nome: user.nome, ts: Date.now()}));
+    localStorage.setItem('apard_session', JSON.stringify({email: user['e-mail'], nome: user.nome, ts: Date.now()}));
     entrarNoApp(user.nome);
 
   } catch(e) {
@@ -563,7 +563,7 @@ function doLogout(){
     if(Date.now()-sess.ts>30*24*60*60*1000){localStorage.removeItem('apard_session');return;}
     // Valida se usuário ainda está ativo no banco
     const rows = await sbQuery(
-      `usuarios?email=eq.${encodeURIComponent(sess.email)}&ativo=eq.true&select=nome,email`,
+      `usu%C3%A1rios?e-mail=eq.${encodeURIComponent(sess.email)}&ativo=eq.true&select=nome,e-mail`,
       { method: 'GET', headers: { 'Accept': 'application/json' } }
     );
     if(!rows || rows.length===0){localStorage.removeItem('apard_session');return;}
