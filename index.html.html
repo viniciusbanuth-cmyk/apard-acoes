@@ -565,6 +565,68 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 .renda-fonte-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
 @media(max-width:768px){.renda-fonte-grid{grid-template-columns:1fr 1fr;}.renda-ref-box{grid-template-columns:1fr;}}
 
+
+/* ── PROJETO DE VIDA ── */
+#pv-app{display:none;min-height:100vh;background:#F5F2E8;flex-direction:column;}
+.pv-hdr{background:linear-gradient(135deg,#1D3828,#0E1912);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.pv-hdr-left{display:flex;align-items:center;gap:14px;}
+.pv-brand{font-size:18px;font-weight:700;letter-spacing:2px;color:#EEEAD6;}
+.pv-brand-sub{font-size:10px;color:rgba(200,181,96,.7);letter-spacing:1px;font-weight:300;}
+.pv-content{padding:24px;max-width:960px;margin:0 auto;width:100%;}
+
+/* Número da Vida */
+.pv-numero-wrap{background:linear-gradient(135deg,#1D3828,#2a4a35);border-radius:20px;padding:32px;text-align:center;margin-bottom:24px;position:relative;overflow:hidden;}
+.pv-numero-wrap::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:rgba(200,181,96,.06);border-radius:50%;}
+.pv-numero-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(200,181,96,.6);font-weight:600;margin-bottom:10px;}
+.pv-numero{font-family:var(--fd);font-size:52px;font-weight:300;color:#C8B560;line-height:1.1;margin-bottom:8px;}
+.pv-numero-sub{font-size:12px;color:rgba(238,234,214,.5);font-weight:300;}
+.pv-numero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
+.pv-numero-item{background:rgba(255,255,255,.05);border-radius:10px;padding:14px;text-align:center;}
+.pv-numero-item-lbl{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:rgba(200,181,96,.5);font-weight:600;margin-bottom:6px;}
+.pv-numero-item-val{font-family:var(--fd);font-size:18px;font-weight:300;color:#EEEAD6;}
+
+/* Seções */
+.pv-section{background:#fff;border:1px solid rgba(29,56,40,.1);border-radius:14px;padding:22px;margin-bottom:18px;}
+.pv-section-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#1D3828;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.pv-diagnostico-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.pv-diag-card{background:rgba(29,56,40,.04);border-radius:10px;padding:14px;text-align:center;}
+.pv-diag-lbl{font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#638968;font-weight:600;margin-bottom:6px;}
+.pv-diag-val{font-family:var(--fd);font-size:20px;font-weight:300;color:#1D3828;}
+.pv-diag-val.pos{color:#5cb87a;}
+.pv-diag-val.warn{color:#d4a843;}
+.pv-diag-val.neg{color:#e05c5c;}
+.pv-diag-sub{font-size:9px;color:#638968;margin-top:4px;}
+
+/* Linha do tempo */
+.pv-timeline{display:flex;align-items:center;gap:0;margin:16px 0;overflow-x:auto;}
+.pv-tl-node{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+.pv-tl-dot{width:14px;height:14px;border-radius:50%;background:#C8B560;border:2px solid #fff;box-shadow:0 0 0 2px #C8B560;z-index:1;}
+.pv-tl-dot.futuro{background:#355E3B;}
+.pv-tl-dot.hoje{background:#C8B560;width:18px;height:18px;}
+.pv-tl-line{height:2px;flex:1;background:linear-gradient(90deg,rgba(200,181,96,.3),rgba(53,94,59,.3));min-width:30px;}
+.pv-tl-label{font-size:8px;color:#638968;text-align:center;margin-top:5px;max-width:70px;line-height:1.3;}
+.pv-tl-val{font-size:10px;font-weight:700;color:#1D3828;text-align:center;max-width:70px;}
+
+/* Ritmo */
+.pv-ritmo-bar{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.pv-ritmo-lbl{font-size:11px;color:#638968;width:130px;flex-shrink:0;}
+.pv-ritmo-bg{flex:1;background:rgba(29,56,40,.08);border-radius:4px;height:10px;overflow:hidden;}
+.pv-ritmo-fill{height:10px;border-radius:4px;transition:width 1s ease;}
+.pv-ritmo-val{font-size:11px;font-weight:700;color:#1D3828;width:90px;text-align:right;flex-shrink:0;}
+
+/* Inputs configuração */
+.pv-config-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
+
+/* Diagnóstico final */
+.pv-diagnostico-final{border-radius:12px;padding:18px;margin-top:16px;font-size:12px;line-height:1.8;color:#1D3828;}
+
+@media(max-width:768px){
+  .pv-numero{font-size:36px;}
+  .pv-numero-grid{grid-template-columns:1fr;}
+  .pv-diagnostico-grid{grid-template-columns:1fr 1fr;}
+  .pv-config-grid{grid-template-columns:1fr 1fr;}
+}
+
 /* ── FINANCEIRO ── */
 #fin-app{display:none;}
 .fin-hdr{background:linear-gradient(135deg,#070E09,#122018);border-bottom:1px solid rgba(200,181,96,.18);padding:12px 22px;display:flex;align-items:center;justify-content:space-between;}
@@ -884,7 +946,7 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
   </div>
   <div class="hub-user" id="hub-user-name">Olá! <span class="hub-logout" onclick="doLogout()">Sair</span></div>
   <div class="hub-title">Escolha o módulo que deseja acessar</div>
-  <div class="hub-cards">
+  <div class="hub-cards" style="grid-template-columns:repeat(4,1fr);">
     <div class="hub-card" onclick="irParaAcoes()">
       <div class="hub-card-ico">📊</div>
       <div class="hub-card-title">Ações B3</div>
@@ -900,6 +962,11 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
       <div class="hub-card-title">Simulador</div>
       <div class="hub-card-desc">Calcule valor futuro, aportes necessários, taxa, prazo e compare até 4 cenários.</div>
     </div>
+    <div class="hub-card" onclick="irParaProjetoVida()" style="border-color:rgba(200,181,96,.35);background:rgba(200,181,96,.04);">
+      <div class="hub-card-ico">🧭</div>
+      <div class="hub-card-title" style="color:#C8B560;">Projeto de Vida</div>
+      <div class="hub-card-desc">Descubra seu Número — quanto você precisa acumular para realizar todos os seus sonhos e se aposentar com tranquilidade.</div>
+    </div>
   </div>
   <div id="hub-saude" style="display:none;margin-top:20px;width:100%;max-width:600px;background:rgba(255,255,255,.04);border:1px solid rgba(200,181,96,.18);border-radius:14px;padding:16px 22px;text-align:center;">
   <div style="font-size:9px;letter-spacing:2px;color:rgba(200,181,96,.6);text-transform:uppercase;font-weight:600;margin-bottom:8px;">Saúde Financeira · Mês Atual</div>
@@ -909,6 +976,179 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 </div>
 <div class="hub-footer">APARD Capital · Cuidar do que sustenta.</div>
 </div>
+
+
+<!-- ══════════════════ PROJETO DE VIDA ══════════════════ -->
+<div id="pv-app" style="display:none;flex-direction:column;">
+
+  <!-- Header -->
+  <div class="pv-hdr">
+    <div class="pv-hdr-left">
+      <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 5 L88 22 L88 58 Q88 82 50 95 Q12 82 12 58 L12 22 Z" fill="none" stroke="#638968" stroke-width="2.5" opacity=".65"/>
+        <path d="M50 18 L36 72 L41 72 L50 40 L59 72 L64 72 Z" fill="#355E3B"/>
+        <rect x="47" y="51" width="5" height="21" fill="#638968" opacity=".9"/>
+        <line x1="22" y1="77" x2="78" y2="26" stroke="#C8B560" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
+        <polygon points="78,26 64,29 70,37" fill="#C8B560" opacity=".85"/>
+      </svg>
+      <div>
+        <div class="pv-brand">APARD</div>
+        <div class="pv-brand-sub">Projeto de Vida · Seu Número</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <span style="font-size:12px;color:rgba(238,234,214,.6);">Olá, <span id="pv-user-name" style="color:#EEEAD6;font-weight:600;"></span></span>
+      <span class="fin-back" onclick="voltarHub()" style="font-size:11px;">← Módulos</span>
+    </div>
+  </div>
+
+  <div class="pv-content">
+
+    <!-- Aviso se sem dados -->
+    <div id="pv-sem-dados" style="display:none;background:rgba(200,181,96,.08);border:1px solid rgba(200,181,96,.2);border-radius:12px;padding:20px;text-align:center;margin-bottom:20px;">
+      <div style="font-size:24px;margin-bottom:10px;">🧭</div>
+      <div style="font-size:13px;font-weight:700;color:#1D3828;margin-bottom:6px;">Configure seu Projeto de Vida</div>
+      <div style="font-size:11px;color:#638968;line-height:1.7;">Preencha as informações abaixo e clique em <strong>Calcular meu Número</strong>. Quanto mais dados você tiver no Controle Financeiro, mais preciso será o resultado.</div>
+    </div>
+
+    <!-- Seção configuração -->
+    <div class="pv-section">
+      <div class="pv-section-title">⚙️ Suas Informações</div>
+      <div class="pv-config-grid">
+        <div class="fin-field">
+          <label>Sua idade atual</label>
+          <input class="fin-inp" id="pv-idade" type="number" placeholder="31" min="18" max="80">
+        </div>
+        <div class="fin-field">
+          <label>Idade de aposentadoria</label>
+          <input class="fin-inp" id="pv-idade-apos" type="number" placeholder="65" min="40" max="85">
+        </div>
+        <div class="fin-field">
+          <label>Expectativa de vida</label>
+          <input class="fin-inp" id="pv-expectativa" type="number" placeholder="85" min="60" max="110">
+        </div>
+        <div class="fin-field">
+          <label>Renda mensal desejada na aposentadoria (R$)</label>
+          <input class="fin-inp" id="pv-renda-apos" type="number" placeholder="8000" step="500">
+        </div>
+        <div class="fin-field">
+          <label>Taxa de retorno esperada (% a.a.)</label>
+          <input class="fin-inp" id="pv-taxa" type="number" placeholder="10" step="0.5" value="10">
+        </div>
+        <div class="fin-field">
+          <label>Inflação estimada (% a.a.)</label>
+          <input class="fin-inp" id="pv-inflacao" type="number" placeholder="5" step="0.5" value="5">
+        </div>
+        <div class="fin-field">
+          <label>Patrimônio investido hoje (R$)</label>
+          <input class="fin-inp" id="pv-patrimonio" type="number" placeholder="50000" step="1000">
+        </div>
+        <div class="fin-field">
+          <label>Aporte mensal atual (R$)</label>
+          <input class="fin-inp" id="pv-aporte" type="number" placeholder="1500" step="100">
+        </div>
+        <div class="fin-field">
+          <label>Reserva de emergência ideal (meses)</label>
+          <input class="fin-inp" id="pv-reserva-meses" type="number" placeholder="6" min="1" max="24" value="6">
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+        <button class="fin-btn" onclick="calcularProjetoVida()" style="padding:11px 28px;font-size:12px;">🧭 Calcular meu Número</button>
+        <button onclick="preencherDadosAutomaticos()" style="background:transparent;border:1px solid rgba(29,56,40,.2);color:#638968;padding:10px 18px;border-radius:7px;cursor:pointer;font-family:var(--f);font-size:11px;font-weight:600;">↩ Preencher com dados do Controle Financeiro</button>
+      </div>
+    </div>
+
+    <!-- Resultado: O Número -->
+    <div id="pv-resultado" style="display:none;">
+
+      <!-- Card principal — O Número da Vida -->
+      <div class="pv-numero-wrap">
+        <div class="pv-numero-label">🧭 O Seu Número — Meta Total de Patrimônio</div>
+        <div class="pv-numero" id="pv-numero-total">R$ —</div>
+        <div class="pv-numero-sub" id="pv-numero-sub">É o patrimônio que, se acumulado, cobre seus objetivos, sua aposentadoria e sua reserva de emergência</div>
+        <div class="pv-numero-grid">
+          <div class="pv-numero-item">
+            <div class="pv-numero-item-lbl">🎯 Objetivos de Vida</div>
+            <div class="pv-numero-item-val" id="pv-total-objetivos">R$ —</div>
+          </div>
+          <div class="pv-numero-item">
+            <div class="pv-numero-item-lbl">🏦 Aposentadoria</div>
+            <div class="pv-numero-item-val" id="pv-total-aposentadoria">R$ —</div>
+          </div>
+          <div class="pv-numero-item">
+            <div class="pv-numero-item-lbl">🛡️ Reserva de Emergência</div>
+            <div class="pv-numero-item-val" id="pv-total-reserva">R$ —</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção 1: Diagnóstico atual -->
+      <div class="pv-section">
+        <div class="pv-section-title">📊 Diagnóstico Atual — Onde você está hoje</div>
+        <div class="pv-diagnostico-grid">
+          <div class="pv-diag-card">
+            <div class="pv-diag-lbl">Renda de Referência</div>
+            <div class="pv-diag-val" id="pv-diag-renda">R$ —</div>
+            <div class="pv-diag-sub">Mensal (base de cálculo)</div>
+          </div>
+          <div class="pv-diag-card">
+            <div class="pv-diag-lbl">Despesa Média Mensal</div>
+            <div class="pv-diag-val" id="pv-diag-desp">R$ —</div>
+            <div class="pv-diag-sub">Média últimos 3 meses</div>
+          </div>
+          <div class="pv-diag-card">
+            <div class="pv-diag-lbl">Taxa de Poupança</div>
+            <div class="pv-diag-val" id="pv-diag-tx">—%</div>
+            <div class="pv-diag-sub">% da renda que sobra</div>
+          </div>
+          <div class="pv-diag-card">
+            <div class="pv-diag-lbl">Reserva Atual</div>
+            <div class="pv-diag-val" id="pv-diag-reserva">— meses</div>
+            <div class="pv-diag-sub">Em relação às despesas</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção 2: Linha do tempo -->
+      <div class="pv-section">
+        <div class="pv-section-title">📅 Linha do Tempo da sua Jornada</div>
+        <div class="pv-timeline" id="pv-timeline"></div>
+      </div>
+
+      <!-- Seção 3: Seu Ritmo -->
+      <div class="pv-section">
+        <div class="pv-section-title">⚡ Seu Ritmo — Quando você chega lá?</div>
+        <div style="font-size:11px;color:#638968;margin-bottom:16px;line-height:1.7;">Com base no seu aporte atual e no rendimento estimado, veja quanto tempo leva para atingir cada parte do seu Número — e o impacto de aumentar o aporte.</div>
+
+        <div id="pv-ritmo-content"></div>
+
+        <!-- Simulador de aumento de aporte -->
+        <div style="background:rgba(200,181,96,.06);border:1px solid rgba(200,181,96,.2);border-radius:10px;padding:14px;margin-top:16px;">
+          <div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#1D3828;font-weight:700;margin-bottom:12px;">💡 E se eu aumentar o aporte?</div>
+          <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;">
+            <div class="fin-field" style="margin:0;flex:1;min-width:160px;">
+              <label>Aporte mensal extra (R$)</label>
+              <input class="fin-inp" id="pv-aporte-extra" type="number" placeholder="500" step="100" oninput="simularAporteExtra()">
+            </div>
+          </div>
+          <div id="pv-simulacao-extra" style="margin-top:12px;"></div>
+        </div>
+      </div>
+
+      <!-- Seção 4: Breakdown dos objetivos -->
+      <div class="pv-section" id="pv-obj-section" style="display:none;">
+        <div class="pv-section-title">🎯 Seus Objetivos no Projeto de Vida</div>
+        <div style="font-size:11px;color:#638968;margin-bottom:14px;line-height:1.7;">Cada objetivo contribui para o seu Número. Veja o peso de cada um e quanto você já acumulou.</div>
+        <div id="pv-obj-lista"></div>
+      </div>
+
+      <!-- Diagnóstico final -->
+      <div id="pv-diagnostico-final" class="pv-diagnostico-final"></div>
+
+    </div><!-- /pv-resultado -->
+  </div><!-- /pv-content -->
+</div><!-- /pv-app -->
+
 
 <!-- ══════════════════ LOGIN ══════════════════ -->
 <div id="login-screen">
@@ -1164,33 +1404,27 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
       <div class="fin-form">
         <div class="fin-field">
           <label>Tipo</label>
-          <select class="fin-inp fin-inp-xs" id="lanc-tipo" onchange="toggleNaturezaField()">
+          <select class="fin-inp fin-inp-xs" id="lanc-tipo" onchange="onTipoLancChange()">
+            <option value="" disabled selected style="color:#aaa;">Selecione...</option>
             <option value="receita">Receita</option>
             <option value="despesa">Despesa</option>
           </select>
         </div>
         <div class="fin-field">
-          <label>Descrição</label>
-          <input class="fin-inp fin-inp-w" id="lanc-desc" type="text" placeholder="Ex: Salário, Aluguel...">
+          <label>Tipo de Gasto</label>
+          <select class="fin-inp fin-inp-s" id="lanc-grupo" onchange="onGrupoLancChange()" disabled>
+            <option value="" disabled selected>Selecione o tipo primeiro</option>
+          </select>
         </div>
         <div class="fin-field">
           <label>Categoria</label>
-          <select class="fin-inp fin-inp-s" id="lanc-cat">
-            <option value="Salário">Salário</option>
-            <option value="Investimentos">Investimentos</option>
-            <option value="Freelance">Freelance</option>
-            <option value="Moradia">Moradia</option>
-            <option value="Alimentação">Alimentação</option>
-            <option value="Mercado">Mercado</option>
-            <option value="Transporte">Transporte</option>
-            <option value="Saúde">Saúde</option>
-            <option value="Educação">Educação</option>
-            <option value="Lazer">Lazer</option>
-            <option value="Vestuário">Vestuário</option>
-            <option value="Cartão de Crédito">Cartão de Crédito</option>
-            <option value="Objetivos">Objetivos</option>
-            <option value="Outros">Outros</option>
+          <select class="fin-inp fin-inp-s" id="lanc-cat" disabled>
+            <option value="" disabled selected>Selecione o tipo de gasto</option>
           </select>
+        </div>
+        <div class="fin-field">
+          <label>Descrição</label>
+          <input class="fin-inp fin-inp-w" id="lanc-desc" type="text" placeholder="Ex: Salário, Aluguel...">
         </div>
         <div class="fin-field">
           <label>Valor (R$)</label>
@@ -1228,9 +1462,9 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
       <span class="lote-cancel" onclick="cancelarLote()">Cancelar</span>
     </div>
     <div class="fin-list" id="lanc-list-wrap" style="grid-template-columns:auto">
-      <div class="fin-list-hdr" style="grid-template-columns:32px 80px 1fr 110px 100px 90px 50px;">
+      <div class="fin-list-hdr" style="grid-template-columns:32px 75px 1fr 120px 120px 100px 90px 60px;">
         <div class="fh"><input type="checkbox" class="lanc-chk" id="chk-all" onclick="toggleAllChk(this)" title="Selecionar todos"></div>
-        <div class="fh">Tipo</div><div class="fh">Descrição</div><div class="fh">Categoria</div><div class="fh">Valor</div><div class="fh">Data</div><div class="fh"></div>
+        <div class="fh">Tipo</div><div class="fh">Descrição</div><div class="fh">Tipo de Gasto</div><div class="fh">Categoria</div><div class="fh">Valor</div><div class="fh">Data</div><div class="fh"></div>
       </div>
       <div id="lanc-rows"><div class="fin-empty">Nenhum lançamento ainda. Adicione o primeiro acima.</div></div>
     </div>
@@ -1272,6 +1506,62 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
         <button class="fin-btn" onclick="addConta()">Adicionar</button>
       </div>
     </div>
+    <!-- Modal editar lançamento -->
+    <div id="lanc-edit-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;">
+      <div style="background:#EEEAD6;border-radius:14px;padding:24px;width:100%;max-width:520px;margin:20px;box-shadow:0 24px 64px rgba(0,0,0,.4);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#1D3828;text-transform:uppercase;">✏️ Editar Lançamento</div>
+          <button onclick="fecharModalEditLanc()" style="background:rgba(224,92,92,.1);border:1px solid rgba(224,92,92,.25);color:#e05c5c;width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:14px;font-weight:700;">✕</button>
+        </div>
+        <input type="hidden" id="lanc-edit-id">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+          <div class="fin-field">
+            <label>Tipo</label>
+            <select class="fin-inp" id="lanc-edit-tipo" onchange="onLancEditTipoChange()">
+              <option value="receita">Receita</option>
+              <option value="despesa">Despesa</option>
+            </select>
+          </div>
+          <div class="fin-field">
+            <label>Tipo de Gasto</label>
+            <select class="fin-inp" id="lanc-edit-grupo" onchange="onLancEditGrupoChange()">
+              <option value="">Selecione...</option>
+            </select>
+          </div>
+          <div class="fin-field">
+            <label>Categoria</label>
+            <select class="fin-inp" id="lanc-edit-cat">
+              <option value="">Selecione o tipo de gasto</option>
+            </select>
+          </div>
+          <div class="fin-field">
+            <label>Natureza</label>
+            <select class="fin-inp" id="lanc-edit-natureza">
+              <option value="recorrente">💚 Recorrente</option>
+              <option value="variavel">💛 Variável</option>
+              <option value="eventual">🔵 Eventual</option>
+            </select>
+          </div>
+          <div class="fin-field" style="grid-column:1/-1">
+            <label>Descrição</label>
+            <input class="fin-inp" id="lanc-edit-desc" type="text" placeholder="Descrição do lançamento">
+          </div>
+          <div class="fin-field">
+            <label>Valor (R$)</label>
+            <input class="fin-inp" id="lanc-edit-valor" type="number" step="0.01" min="0" placeholder="0,00">
+          </div>
+          <div class="fin-field">
+            <label>Data</label>
+            <input class="fin-inp" id="lanc-edit-data" type="date">
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="fin-btn" onclick="confirmarEditLanc()" style="flex:1;">Salvar Alterações</button>
+          <button onclick="fecharModalEditLanc()" style="flex:1;background:transparent;border:1px solid rgba(29,56,40,.2);color:#638968;padding:9px 18px;border-radius:7px;cursor:pointer;font-family:var(--f);font-size:11px;font-weight:600;">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Modal editar conta -->
     <div id="conta-edit-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;">
       <div style="background:#EEEAD6;border-radius:14px;padding:24px;width:100%;max-width:400px;margin:20px;box-shadow:0 24px 64px rgba(0,0,0,.4);">
@@ -1281,6 +1571,18 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
         </div>
         <input type="hidden" id="conta-edit-modal-id">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+          <div class="fin-field">
+            <label>Tipo de Gasto</label>
+            <select class="fin-inp" id="conta-edit-grupo" onchange="onContaEditGrupoChange()">
+              <option value="">— Sem categoria —</option>
+            </select>
+          </div>
+          <div class="fin-field">
+            <label>Categoria</label>
+            <select class="fin-inp" id="conta-edit-cat">
+              <option value="">— Sem categoria —</option>
+            </select>
+          </div>
           <div class="fin-field">
             <label>Novo Valor (R$)</label>
             <input class="fin-inp" id="conta-edit-valor" type="number" step="0.01" min="0" placeholder="0,00">
@@ -1298,8 +1600,8 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
     </div>
 
     <div class="fin-list">
-      <div class="fin-list-hdr" style="grid-template-columns:90px 1fr 100px 110px 70px 80px;">
-        <div class="fh">Tipo</div><div class="fh">Descrição</div><div class="fh">Valor</div><div class="fh">Vencimento</div><div class="fh">Pago</div><div class="fh">Ações</div>
+      <div class="fin-list-hdr" style="grid-template-columns:90px 1fr 120px 120px 100px 110px 70px 80px;">
+        <div class="fh">Tipo</div><div class="fh">Descrição</div><div class="fh">Tipo de Gasto</div><div class="fh">Categoria</div><div class="fh">Valor</div><div class="fh">Vencimento</div><div class="fh">Pago</div><div class="fh">Ações</div>
       </div>
       <div id="conta-rows"><div class="fin-empty">Nenhuma conta cadastrada ainda.</div></div>
     </div>
@@ -1790,14 +2092,14 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
       <!-- Aviso educacional fixo -->
       <div id="apos-aviso-ctx" style="background:rgba(200,181,96,.08);border:1px solid rgba(200,181,96,.25);border-radius:9px;padding:11px 14px;margin-bottom:14px;font-size:11px;color:#1D3828;line-height:1.7;display:none;">
         <strong>📌 Como interpretar estes números:</strong><br>
-        O <strong>Patrimônio Acumulado</strong> é o valor nominal em reais do futuro — parece alto porque os juros compostos trabalham por décadas. Em poder de compra real (descontando a inflação), veja o campo <em>"Equivalente Hoje"</em>.<br>
+        O <strong>Patrimônio Acumulado</strong> é o valor futuro projetado — já com IR descontado sobre os rendimentos — e parece alto porque os juros compostos trabalham por décadas. Em poder de compra real de hoje (descontando a inflação acumulada), veja o campo <em>"Equivalente Hoje"</em>.<br>
         A <strong>Renda Mensal</strong> não é lucro — é uma retirada calculada para durar exatamente o período de aposentadoria configurado. Se viver além da expectativa informada, o saldo pode se esgotar.
       </div>
 
       <div class="apos-result-grid">
         <div class="apos-result-card destaque">
           <div class="apos-result-lbl claro">Patrimônio em <span id="ap-res-ano-apos-lbl">—</span></div>
-          <div style="font-size:9px;color:rgba(200,181,96,.6);margin-bottom:4px;line-height:1.4;" id="ap-res-patrimonio-ctx">Valor nominal no futuro (inclui inflação acumulada)</div>
+          <div style="font-size:9px;color:rgba(200,181,96,.6);margin-bottom:4px;line-height:1.4;" id="ap-res-patrimonio-ctx">Valor futuro projetado, já com IR descontado sobre os rendimentos</div>
           <div class="apos-result-val gold" id="ap-res-patrimonio">—</div>
         </div>
         <div class="apos-result-card">
@@ -1806,8 +2108,8 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
           <div class="apos-result-val" id="ap-res-renda">—</div>
         </div>
         <div class="apos-result-card">
-          <div class="apos-result-lbl">Equivalente Hoje (R$ <span id="ap-res-ano-atual-lbl">—</span>)</div>
-          <div style="font-size:9px;color:#638968;margin-bottom:4px;line-height:1.4;">O que essa renda futura compraria hoje, descontando a inflação</div>
+          <div class="apos-result-lbl">Renda Mensal Equivalente Hoje</div>
+          <div style="font-size:9px;color:#638968;margin-bottom:4px;line-height:1.4;">Quanto essa renda futura equivale em poder de compra de <span id="ap-res-ano-atual-lbl">—</span> — descontando a inflação acumulada</div>
           <div class="apos-result-val" id="ap-res-renda-real">—</div>
         </div>
         <div class="apos-result-card">
@@ -1846,8 +2148,12 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 
       <!-- Impacto dos Objetivos -->
       <div id="apos-impacto-section" style="display:none;">
-        <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#1D3828;font-weight:700;margin-bottom:12px;margin-top:16px;">⚡ Custo de Oportunidade — Objetivos vs. Aposentadoria</div>
-        <div style="font-size:11px;color:#638968;margin-bottom:12px;font-weight:300;line-height:1.6;">Se você redirecionasse o valor que investe em cada objetivo para a aposentadoria, o seu patrimônio seria maior em aproximadamente o valor abaixo. É uma forma de visualizar o <strong style="color:#1D3828;">custo de oportunidade</strong> de cada sonho — não significa que o objetivo é errado, mas ajuda a tomar decisões conscientes sobre prioridades.</div>
+        <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#1D3828;font-weight:700;margin-bottom:10px;margin-top:16px;">🎯 Seus Objetivos x Aposentadoria — O que cada sonho "custa" no futuro</div>
+        <div style="font-size:11px;color:#638968;margin-bottom:6px;font-weight:300;line-height:1.7;background:rgba(29,56,40,.04);border-radius:8px;padding:10px 12px;">
+          <strong style="color:#1D3828;">Como ler esta tabela:</strong> Para cada objetivo cadastrado, o sistema calcula quanto dinheiro a mais você teria na aposentadoria <em>se aplicasse o mesmo valor mensal do objetivo diretamente em investimentos para o futuro</em>, pelo período em que o objetivo estará ativo.<br><br>
+          <strong style="color:#1D3828;">Exemplo simples:</strong> Se você poupa R$ 800/mês por 4 anos para comprar uma casa, esse dinheiro investido a 10% a.a. viraria aproximadamente R$ 950 mil até a sua aposentadoria — esse é o "custo" do sonho em termos de patrimônio futuro. <strong style="color:#1D3828;">Isso não significa que o objetivo é errado</strong> — significa que cada escolha financeira tem um impacto e conhecê-lo ajuda a priorizar conscientemente.<br><br>
+          <span style="font-size:10px;">🟢 Verde = impacto pequeno (&lt;15%) · 🟡 Amarelo = impacto médio (15–30%) · 🔴 Vermelho = impacto alto (&gt;30% do patrimônio projetado)</span>
+        </div>
         <div id="apos-impacto-lista"></div>
       </div>
 
@@ -1867,13 +2173,22 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
           <label>Categoria</label>
           <select class="fin-inp fin-inp-s" id="orc-cat">
             <option value="Moradia">Moradia</option>
-            <option value="Alimentação">Alimentação</option>
             <option value="Mercado">Mercado</option>
+            <option value="Alimentação">Alimentação</option>
             <option value="Transporte">Transporte</option>
             <option value="Saúde">Saúde</option>
             <option value="Educação">Educação</option>
+            <option value="Assinaturas">Assinaturas</option>
             <option value="Lazer">Lazer</option>
+            <option value="Esportes">Esportes</option>
             <option value="Vestuário">Vestuário</option>
+            <option value="Beleza e Cuidados">Beleza e Cuidados</option>
+            <option value="Pets">Pets</option>
+            <option value="Presentes">Presentes</option>
+            <option value="Filhos">Filhos</option>
+            <option value="Seguros">Seguros</option>
+            <option value="Casa e Manutenção">Casa e Manutenção</option>
+            <option value="Tecnologia">Tecnologia</option>
             <option value="Outros">Outros</option>
           </select>
         </div>
@@ -2260,17 +2575,28 @@ let userEmail = '';
 function irParaAcoes(){
   document.getElementById('hub-screen').style.display='none';
   document.getElementById('app').style.display='block';
+  salvarNavegacao('acoes');
   loadMacro();showRank('dy',null);
 }
-function irParaFinanceiro(){
+function irParaFinanceiro(abaRestaurar){
   document.getElementById('hub-screen').style.display='none';
   document.getElementById('fin-app').style.display='block';
   document.getElementById('fin-user-name').textContent=document.getElementById('hub-user-name').textContent.replace('Olá, ','').split('<')[0].trim();
-  finTab('lancamentos',document.querySelector('.fin-tab'));
+  const aba = abaRestaurar || 'lancamentos';
+  const btnAba = [...document.querySelectorAll('.fin-tab')].find(b=>b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+aba+"'"));
+  finTab(aba, btnAba || document.querySelector('.fin-tab'));
   loadLancamentos();loadContas();loadOrcamento();loadCartoes();loadObjetivos();loadFontesRenda();
+  if(typeof onTipoLancChange==='function') onTipoLancChange();
+  // Garantir estado inicial dos selects de grupo/categoria
+  if(typeof resetFormLancamento==='function'){
+    const tSel=document.getElementById('lanc-tipo');
+    if(tSel) tSel.value='';
+    resetFormLancamento();
+  }
   const now=new Date();
   document.getElementById('orc-mes').value=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
   document.getElementById('rel-mes').value=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  salvarNavegacao('financeiro', aba);
   renderRelatorios();
 }
 
@@ -2310,14 +2636,44 @@ function irParaSimulador(){
   document.getElementById('hub-screen').style.display='none';
   document.getElementById('sim-app').style.display='block';
   document.getElementById('sim-user-name').textContent=document.getElementById('hub-user-name').textContent.replace('Olá, ','').split('<')[0].trim();
+  salvarNavegacao('simulador');
   showTab('menu');
 }
 function voltarHub(){
   document.getElementById('app').style.display='none';
   document.getElementById('fin-app').style.display='none';
   document.getElementById('sim-app').style.display='none';
+  document.getElementById('pv-app').style.display='none';
   document.getElementById('hub-screen').style.display='flex';
+  salvarNavegacao('hub');
 }
+// ── Persistência de navegação ──
+function salvarNavegacao(modulo, aba){
+  try{
+    const nav = JSON.parse(localStorage.getItem('apard_nav')||'{}');
+    nav.modulo = modulo;
+    if(aba) nav.aba = aba;
+    else delete nav.aba;
+    localStorage.setItem('apard_nav', JSON.stringify(nav));
+  }catch(e){}
+}
+
+function restaurarNavegacao(){
+  try{
+    const nav = JSON.parse(localStorage.getItem('apard_nav')||'{}');
+    if(!nav.modulo || nav.modulo==='hub') return; // hub é o padrão, não precisa restaurar
+    if(nav.modulo==='acoes'){
+      irParaAcoes();
+    } else if(nav.modulo==='financeiro'){
+      irParaFinanceiro(nav.aba||'lancamentos');
+    } else if(nav.modulo==='projetovida'){
+      irParaProjetoVida();
+    } else if(nav.modulo==='simulador'){
+      irParaSimulador();
+    }
+  }catch(e){}
+}
+
 function entrarNoApp(nome, email){
   userEmail = email || '';
   document.getElementById('login-err').style.display='none';
@@ -2331,11 +2687,17 @@ function entrarNoApp(nome, email){
   const hoje=new Date().toISOString().split('T')[0];
   const li=document.getElementById('lanc-data');if(li)li.value=hoje;
   const ci=document.getElementById('conta-venc');if(ci)ci.value=hoje;
+  // Inicializar campo categoria como vazio (usuário deve escolher o tipo primeiro)
+  if(typeof onTipoLancChange==='function') onTipoLancChange();
+  // Restaurar a tela onde o usuário estava antes do F5
+  setTimeout(restaurarNavegacao, 100);
 }
 function doLogout(){
   localStorage.removeItem('apard_session');
+  localStorage.removeItem('apard_nav');
   document.getElementById('app').style.display='none';
   document.getElementById('sim-app').style.display='none';
+  document.getElementById('pv-app').style.display='none';
   document.getElementById('login-screen').style.display='flex';
   document.getElementById('l-email').value='';
   document.getElementById('l-senha').value='';
@@ -2793,6 +3155,10 @@ function finTab(tab, btn){
   document.querySelectorAll('.fin-tab').forEach(b=>b.classList.remove('active'));
   document.getElementById('fin-'+tab).classList.add('active');
   if(btn) btn.classList.add('active');
+  // Persistir aba ativa apenas se já estiver no módulo financeiro
+  if(document.getElementById('fin-app').style.display!=='none'){
+    salvarNavegacao('financeiro', tab);
+  }
   if(tab==='relatorios') renderRelatorios();
   if(tab==='orcamento') renderOrcamento();
   if(tab==='cartoes'){ renderCartoesGrid(); verificarFaturas(); }
@@ -2836,12 +3202,88 @@ async function loadLancamentos(){
   calcularSaude();
 }
 
-function toggleNaturezaField(){
-  const tipo = document.getElementById('lanc-tipo').value;
-  const field = document.getElementById('lanc-natureza-field');
-  if(field) field.style.display = tipo==='receita' ? 'flex' : 'none';
+// Categorias separadas por tipo de lançamento
+// ── Hierarquia: Tipo → Tipo de Gasto (grupo) → Categoria ──
+
+const GRUPOS_RECEITA = {
+  'Trabalho':        ['Salário', 'Freelance', 'Comissão', 'Honorários', 'Bônus'],
+  'Patrimônio':      ['Aluguel Recebido', 'Venda de Bem', 'Venda de Ação / FII'],
+  'Investimentos':   ['Dividendos', 'Juros / Rendimentos', 'Resgate de Investimento'],
+  'Outros Rendimentos': ['Pensão / Alimônios', 'Presente / Doação Recebida', 'Outros Rendimentos'],
+};
+
+const GRUPOS_DESPESA = {
+  'Essenciais do Dia a Dia': ['Moradia', 'Mercado', 'Alimentação', 'Transporte', 'Saúde', 'Educação'],
+  'Estilo de Vida':          ['Assinaturas', 'Lazer', 'Esportes', 'Vestuário', 'Beleza e Cuidados', 'Pets', 'Tecnologia'],
+  'Família e Social':        ['Presentes', 'Filhos', 'Doações', 'Eventos Sociais'],
+  'Financeiro':              ['Cartão de Crédito', 'Empréstimos', 'Impostos', 'Seguros', 'Objetivos', 'Investimento / Aporte'],
+  'Casa e Outros':           ['Casa e Manutenção', 'Trabalho / Home Office', 'Viagem', 'Outros'],
+};
+
+// Lista flat para compatibilidade (relatórios, orçamento, etc.)
+const CATS_RECEITA = Object.values(GRUPOS_RECEITA).flat();
+const CATS_DESPESA = Object.values(GRUPOS_DESPESA).flat();
+
+function atualizarCategorias(tipo){
+  // Mantido para compatibilidade — preenche o select legado sem grupos
+  const sel = document.getElementById('lanc-cat');
+  if(!sel) return;
+  const lista = tipo==='receita' ? CATS_RECEITA : CATS_DESPESA;
+  sel.innerHTML = lista.map(c=>'<option value="'+c+'">'+c+'</option>').join('');
 }
 
+function onTipoLancChange(){
+  const tipo = document.getElementById('lanc-tipo').value;
+  const grupoSel = document.getElementById('lanc-grupo');
+  const catSel   = document.getElementById('lanc-cat');
+  const natureza = document.getElementById('lanc-natureza-field');
+
+  // Resetar tudo
+  if(grupoSel){ grupoSel.innerHTML='<option value="" disabled selected>Selecione o tipo primeiro</option>'; grupoSel.disabled=true; }
+  if(catSel)  { catSel.innerHTML='<option value="" disabled selected>Selecione o tipo de gasto</option>';  catSel.disabled=true; }
+  if(natureza)  natureza.style.display='none';
+
+  if(!tipo) return;
+
+  // Preencher grupos conforme tipo
+  const grupos = tipo==='receita' ? GRUPOS_RECEITA : GRUPOS_DESPESA;
+  if(grupoSel){
+    grupoSel.innerHTML = '<option value="" disabled selected>Selecione...</option>'
+      + Object.keys(grupos).map(g=>'<option value="'+g+'">'+g+'</option>').join('');
+    grupoSel.disabled = false;
+  }
+
+  // Natureza: só para receita
+  if(natureza) natureza.style.display = tipo==='receita' ? 'flex' : 'none';
+}
+
+function onGrupoLancChange(){
+  const tipo   = document.getElementById('lanc-tipo').value;
+  const grupo  = document.getElementById('lanc-grupo').value;
+  const catSel = document.getElementById('lanc-cat');
+  if(!catSel || !grupo) return;
+
+  const grupos = tipo==='receita' ? GRUPOS_RECEITA : GRUPOS_DESPESA;
+  const cats = grupos[grupo] || [];
+  catSel.innerHTML = '<option value="" disabled selected>Selecione...</option>'
+    + cats.map(c=>'<option value="'+c+'">'+c+'</option>').join('');
+  catSel.disabled = false;
+}
+
+// Manter compatibilidade com chamadas antigas
+function toggleNaturezaField(){ onTipoLancChange(); }
+
+
+function resetFormLancamento(){
+  document.getElementById('lanc-desc').value='';
+  document.getElementById('lanc-valor').value='';
+  document.getElementById('lanc-recorrente').checked=false;
+  // Resetar tipo de gasto e categoria para estado inicial
+  const gSel=document.getElementById('lanc-grupo');
+  const cSel=document.getElementById('lanc-cat');
+  if(gSel){gSel.innerHTML='<option value="" disabled selected>Selecione o tipo primeiro</option>';gSel.disabled=true;}
+  if(cSel){cSel.innerHTML='<option value="" disabled selected>Selecione o tipo de gasto</option>';cSel.disabled=true;}
+}
 async function addLancamento(){
   const tipo=document.getElementById('lanc-tipo').value;
   const desc=document.getElementById('lanc-desc').value.trim();
@@ -2850,6 +3292,9 @@ async function addLancamento(){
   const data=document.getElementById('lanc-data').value;
   const recorrente=document.getElementById('lanc-recorrente').checked;
   const natureza=tipo==='receita'?(document.getElementById('lanc-natureza')?.value||'recorrente'):'despesa';
+  if(!tipo){alert('Selecione o Tipo (Receita ou Despesa).');return;}
+  const grupo=document.getElementById('lanc-grupo')?.value||'';
+  if(!grupo){alert('Selecione o Tipo de Gasto.');return;}
   if(!desc||valor<=0||!data){alert('Preencha todos os campos.');return;}
   if(recorrente){
     // Inserir nos próximos 12 meses a partir da data informada
@@ -2864,26 +3309,122 @@ async function addLancamento(){
     let ok=true;
     for(const item of inserts){const r=await sbInsert('lancamentos',item);if(!r)ok=false;}
     if(ok){
-      document.getElementById('lanc-desc').value='';
-      document.getElementById('lanc-valor').value='';
-      document.getElementById('lanc-recorrente').checked=false;
+      resetFormLancamento();
       await loadLancamentos();
     } else { alert('Alguns lançamentos não foram salvos.'); }
   } else {
     const novo={user_email:userEmail,tipo,descricao:desc,categoria:cat,valor,data,natureza};
     const res=await sbInsert('lancamentos',novo);
     if(res){
-      document.getElementById('lanc-desc').value='';
-      document.getElementById('lanc-valor').value='';
+      resetFormLancamento();
       await loadLancamentos();
     } else { alert('Erro ao salvar. Tente novamente.'); }
   }
 }
 
-async function delLancamento(id){
+async function delLancamento(elOuId){
+  const id = (typeof elOuId==='string') ? elOuId : elOuId.dataset.id;
   if(!confirm('Confirma a exclusão deste lançamento?')) return;
   await sbDelete('lancamentos',id);
   await loadLancamentos();
+}
+
+// ── Helper: busca o grupo (Tipo de Gasto) de uma categoria ──
+function getGrupoDaCategoria(tipo, categoria){
+  if(!categoria) return '';
+  const grupos = tipo==='receita' ? GRUPOS_RECEITA : GRUPOS_DESPESA;
+  for(const [grupo, cats] of Object.entries(grupos||{})){
+    if(cats.includes(categoria)) return grupo;
+  }
+  return '';
+}
+
+// ── Preencher select de grupos no modal ──
+function preencherGruposModal(tipoEl, grupoEl, catEl, tipoVal, grupoVal, catVal){
+  const grupos = tipoVal==='receita' ? GRUPOS_RECEITA : GRUPOS_DESPESA;
+  grupoEl.innerHTML = '<option value="">— Sem categoria —</option>'
+    + Object.keys(grupos).map(g=>'<option value="'+g+'"'+(g===grupoVal?' selected':'')+'>'+g+'</option>').join('');
+  // Preencher categorias se grupo já definido
+  if(grupoVal && grupos[grupoVal]){
+    catEl.innerHTML = '<option value="">Selecione...</option>'
+      + grupos[grupoVal].map(c=>'<option value="'+c+'"'+(c===catVal?' selected':'')+'>'+c+'</option>').join('');
+  } else {
+    catEl.innerHTML = '<option value="">Selecione o tipo de gasto</option>';
+  }
+}
+
+// ── Editar Lançamento ──
+function editarLancamento(elOuId){
+  const id = (typeof elOuId==='string') ? elOuId : elOuId.dataset.id;
+  const l = lancamentos.find(x=>x.id===id);
+  if(!l) return;
+  const grupo = getGrupoDaCategoria(l.tipo, l.categoria);
+  document.getElementById('lanc-edit-id').value = id;
+  document.getElementById('lanc-edit-tipo').value = l.tipo;
+  document.getElementById('lanc-edit-desc').value = l.descricao;
+  document.getElementById('lanc-edit-valor').value = l.valor;
+  document.getElementById('lanc-edit-data').value = l.data;
+  document.getElementById('lanc-edit-natureza').value = l.natureza||'recorrente';
+  // Natureza só visível para receita
+  document.getElementById('lanc-edit-natureza').parentElement.style.display = l.tipo==='receita'?'flex':'none';
+  preencherGruposModal(null,
+    document.getElementById('lanc-edit-grupo'),
+    document.getElementById('lanc-edit-cat'),
+    l.tipo, grupo, l.categoria
+  );
+  document.getElementById('lanc-edit-modal').style.display='flex';
+}
+function fecharModalEditLanc(){
+  document.getElementById('lanc-edit-modal').style.display='none';
+}
+function onLancEditTipoChange(){
+  const tipo = document.getElementById('lanc-edit-tipo').value;
+  const grupoEl = document.getElementById('lanc-edit-grupo');
+  const catEl = document.getElementById('lanc-edit-cat');
+  const natEl = document.getElementById('lanc-edit-natureza');
+  if(natEl) natEl.parentElement.style.display = tipo==='receita'?'flex':'none';
+  preencherGruposModal(null, grupoEl, catEl, tipo, '', '');
+}
+function onLancEditGrupoChange(){
+  const tipo = document.getElementById('lanc-edit-tipo').value;
+  const grupo = document.getElementById('lanc-edit-grupo').value;
+  const catEl = document.getElementById('lanc-edit-cat');
+  const grupos = tipo==='receita' ? GRUPOS_RECEITA : GRUPOS_DESPESA;
+  if(grupo && grupos[grupo]){
+    catEl.innerHTML = '<option value="">Selecione...</option>'
+      + grupos[grupo].map(c=>'<option value="'+c+'">'+c+'</option>').join('');
+  }
+}
+async function confirmarEditLanc(){
+  const id = document.getElementById('lanc-edit-id').value;
+  const tipo = document.getElementById('lanc-edit-tipo').value;
+  const grupo = document.getElementById('lanc-edit-grupo').value;
+  const cat = document.getElementById('lanc-edit-cat').value;
+  const desc = document.getElementById('lanc-edit-desc').value.trim();
+  const valor = parseFloat(document.getElementById('lanc-edit-valor').value)||0;
+  const data = document.getElementById('lanc-edit-data').value;
+  const natureza = tipo==='receita'?(document.getElementById('lanc-edit-natureza').value||'recorrente'):'despesa';
+  if(!desc||valor<=0||!data){ alert('Preencha todos os campos.'); return; }
+  await sbUpdate('lancamentos', id, {tipo, descricao:desc, categoria:cat||grupo, valor, data, natureza});
+  lancamentos = lancamentos.map(l=>l.id===id?{...l,tipo,descricao:desc,categoria:cat||grupo,valor,data,natureza}:l);
+  fecharModalEditLanc();
+  renderLancamentos();
+}
+
+// ── Editar Conta — agora com grupo e categoria ──
+function onContaEditGrupoChange(){
+  const tipoContaEl = document.getElementById('conta-edit-modal-id');
+  const conta = tipoContaEl ? contas.find(c=>c.id===tipoContaEl.value) : null;
+  const tipoConta = conta ? (conta.tipo==='pagar'?'despesa':'receita') : 'despesa';
+  const grupo = document.getElementById('conta-edit-grupo').value;
+  const catEl = document.getElementById('conta-edit-cat');
+  const grupos = tipoConta==='receita' ? GRUPOS_RECEITA : GRUPOS_DESPESA;
+  if(grupo && grupos[grupo]){
+    catEl.innerHTML = '<option value="">Selecione...</option>'
+      + grupos[grupo].map(c=>'<option value="'+c+'">'+c+'</option>').join('');
+  } else {
+    catEl.innerHTML = '<option value="">— Sem categoria —</option>';
+  }
 }
 
 function renderLancamentos(){
@@ -2908,19 +3449,25 @@ function renderLancamentos(){
     document.getElementById('lanc-rows').innerHTML='<div class="fin-empty">'+(filtro?'Nenhum lançamento neste mês.':'Nenhum lançamento ainda. Adicione o primeiro acima.')+'</div>';
     return;
   }
-  document.getElementById('lanc-rows').innerHTML=lista.map(l=>`
-    <div class="fin-list-row" style="grid-template-columns:32px 80px 1fr 110px 100px 90px 50px;">
-      <div class="fd lanc-check-col"><input type="checkbox" class="lanc-chk lanc-item-chk" data-id="${l.id}" onclick="atualizarLote()"></div>
-      <div class="fd"><span class="fin-tag ${l.tipo==='receita'?'tag-r':'tag-d'}">${l.tipo==='receita'?'Receita':'Despesa'}</span></div>
-      <div class="fd">
-        ${l.descricao}
-        ${l.tipo==='receita'&&l.natureza?'<span style="font-size:8px;padding:1px 6px;border-radius:8px;margin-left:5px;font-weight:600;background:'+(l.natureza==='recorrente'?'rgba(92,184,122,.12)':l.natureza==='variavel'?'rgba(200,181,96,.18)':'rgba(99,137,104,.12)')+';color:'+(l.natureza==='recorrente'?'#2a7a2a':l.natureza==='variavel'?'#8a6d00':'#355E3B')+'">'+(l.natureza==='recorrente'?'Recorrente':l.natureza==='variavel'?'Variável':'Eventual')+'</span>':''}
-      </div>
-      <div class="fd" style="font-size:11px;color:#638968">${l.categoria}</div>
-      <div class="fd mono">R$ ${Number(l.valor).toLocaleString('pt-BR',{minimumFractionDigits:2})}</div>
-      <div class="fd" style="font-size:11px">${fmtData(l.data)}</div>
-      <div class="fd"><button class="fin-rm" onclick="delLancamento('${l.id}')">✕</button></div>
-    </div>`).join('');
+  document.getElementById('lanc-rows').innerHTML=lista.map(l=>{
+    const grupo = getGrupoDaCategoria(l.tipo, l.categoria);
+    const naturezaBadge = l.tipo==='receita'&&l.natureza
+      ? '<span style="font-size:8px;padding:1px 6px;border-radius:8px;margin-left:5px;font-weight:600;background:'+(l.natureza==='recorrente'?'rgba(92,184,122,.12)':l.natureza==='variavel'?'rgba(200,181,96,.18)':'rgba(99,137,104,.12)')+';color:'+(l.natureza==='recorrente'?'#2a7a2a':l.natureza==='variavel'?'#8a6d00':'#355E3B')+'">'+(l.natureza==='recorrente'?'Recorrente':l.natureza==='variavel'?'Variável':'Eventual')+'</span>'
+      : '';
+    return '<div class="fin-list-row" style="grid-template-columns:32px 75px 1fr 120px 120px 100px 90px 60px;">'
+      +'<div class="fd lanc-check-col"><input type="checkbox" class="lanc-chk lanc-item-chk" data-id="'+l.id+'" onclick="atualizarLote()"></div>'
+      +'<div class="fd"><span class="fin-tag '+(l.tipo==='receita'?'tag-r':'tag-d')+'">'+(l.tipo==='receita'?'Receita':'Despesa')+'</span></div>'
+      +'<div class="fd">'+l.descricao+naturezaBadge+'</div>'
+      +'<div class="fd" style="font-size:11px;color:#638968">'+(grupo||'—')+'</div>'
+      +'<div class="fd" style="font-size:11px;color:#638968">'+(l.categoria||'—')+'</div>'
+      +'<div class="fd mono">R$ '+Number(l.valor).toLocaleString('pt-BR',{minimumFractionDigits:2})+'</div>'
+      +'<div class="fd" style="font-size:11px">'+fmtData(l.data)+'</div>'
+      +'<div class="fd" style="display:flex;gap:3px;">'
+        +'<button class="fin-rm" style="background:rgba(99,137,104,.1);border-color:rgba(99,137,104,.3);color:#355E3B;" onclick="editarLancamento(this)" data-id="'+l.id+'" title="Editar">✏️</button>'
+        +'<button class="fin-rm" onclick="delLancamento(this)" data-id="'+l.id+'">&#x2715;</button>'
+      +'</div>'
+    +'</div>';
+  }).join('');
 }
 
 // ── CONTAS ──
@@ -3019,9 +3566,17 @@ async function togglePago(id, pagoAtual){
 function editarConta(id){
   const conta = contas.find(c=>c.id===id);
   if(!conta) return;
+  const tipoConta = conta.tipo==='pagar'?'despesa':'receita';
+  const grupoAtual = getGrupoDaCategoria(tipoConta, conta.categoria);
   document.getElementById('conta-edit-modal-id').value = id;
   document.getElementById('conta-edit-valor').value = conta.valor;
   document.getElementById('conta-edit-data').value = conta.vencimento;
+  // Preencher grupos e categorias
+  preencherGruposModal(null,
+    document.getElementById('conta-edit-grupo'),
+    document.getElementById('conta-edit-cat'),
+    tipoConta, grupoAtual, conta.categoria
+  );
   document.getElementById('conta-edit-modal').style.display='flex';
 }
 function fecharModalEditConta(){
@@ -3029,13 +3584,18 @@ function fecharModalEditConta(){
 }
 async function confirmarEditConta(){
   const id = document.getElementById('conta-edit-modal-id').value;
+  const grupo = document.getElementById('conta-edit-grupo')?.value||'';
+  const cat = document.getElementById('conta-edit-cat')?.value||'';
   const valor = parseFloat(document.getElementById('conta-edit-valor').value)||0;
   const novaData = document.getElementById('conta-edit-data').value;
   if(!valor||valor<=0){ alert('Informe um valor válido.'); return; }
   if(!novaData){ alert('Selecione uma data de vencimento.'); return; }
-  await sbUpdate('contas', id, {valor, vencimento: novaData});
+  const update = {valor, vencimento: novaData};
+  if(cat) update.categoria = cat;
+  await sbUpdate('contas', id, update);
+  contas = contas.map(c=>c.id===id?{...c,...update}:c);
   fecharModalEditConta();
-  await loadContas();
+  renderContas();
 }
 
 function renderPagoCol(c){
@@ -3069,14 +3629,17 @@ function renderContas(){
     const tipoTag=c.tipo==='pagar'?'<span class="fin-tag tag-d">A Pagar</span>':'<span class="fin-tag tag-r">A Receber</span>';
     const pagoCol=renderPagoCol(c);
     const valor='R$ '+Number(c.valor).toLocaleString('pt-BR',{minimumFractionDigits:2});
-    return '<div class="fin-list-row" style="grid-template-columns:90px 1fr 100px 110px 70px 80px;">'
+    const grupoC = getGrupoDaCategoria(c.tipo==='pagar'?'despesa':'receita', c.categoria);
+    return '<div class="fin-list-row" style="grid-template-columns:90px 1fr 120px 120px 100px 110px 70px 80px;">'
       +'<div class="fd">'+tipoTag+'</div>'
       +'<div class="fd">'+c.descricao+atrasoTag+'</div>'
+      +'<div class="fd" style="font-size:11px;color:#638968">'+( grupoC||'—')+'</div>'
+      +'<div class="fd" style="font-size:11px;color:#638968">'+( c.categoria||'—')+'</div>'
       +'<div class="fd mono">'+valor+'</div>'
       +'<div class="fd" style="font-size:11px;color:'+cor+'">'+fmtData(c.vencimento)+'</div>'
       +'<div class="fd">'+pagoCol+'</div>'
       +'<div class="fd" style="gap:4px;display:flex;">'
-      +'<button class="fin-rm" style="background:rgba(99,137,104,.1);border-color:rgba(99,137,104,.3);color:#355E3B;" onclick="editarConta(\''+c.id+'\')" title="Editar valor e vencimento">✏️</button>'
+      +'<button class="fin-rm" style="background:rgba(99,137,104,.1);border-color:rgba(99,137,104,.3);color:#355E3B;" onclick="editarConta(\''+c.id+'\')" title="Editar">✏️</button>'
       +'<button class="fin-rm" onclick="delConta(\''+c.id+'\')">✕</button>'
       +'</div></div>';
   }).join('');
@@ -4224,13 +4787,21 @@ function calcularAposentadoria(){
       const cor = pctImpacto > 30 ? '#e05c5c' : pctImpacto > 15 ? '#d4a843' : '#638968';
       const ico = o.categoria ? o.categoria.split(' ')[0] : '⭐';
       const anosObj = Math.round(mesesObj/12);
-      return '<div class="apos-impact-bar">'
-        +'<div class="apos-impact-lbl" style="width:160px;">'
-          +'<div>'+ico+' '+o.nome+'</div>'
-          +'<div style="font-size:9px;color:#638968;margin-top:1px;">'+anosObj+' ano(s) · '+fmtR(mensal)+'/mês</div>'
+      const descImpacto = pctImpacto > 30
+        ? 'Alto impacto'
+        : pctImpacto > 15
+          ? 'Impacto médio'
+          : 'Impacto pequeno';
+      return '<div class="apos-impact-bar" style="margin-bottom:14px;">'
+        +'<div style="width:170px;flex-shrink:0;">'
+          +'<div style="font-size:12px;font-weight:600;color:#1D3828;">'+ico+' '+o.nome+'</div>'
+          +'<div style="font-size:9px;color:#638968;margin-top:2px;">Aporte: '+fmtR(mensal)+'/mês por '+anosObj+' ano(s)</div>'
+          +'<div style="font-size:9px;color:'+cor+';font-weight:600;margin-top:1px;">'+descImpacto+'</div>'
         +'</div>'
-        +'<div class="apos-impact-bg"><div class="apos-impact-fill" style="width:'+pctImpacto+'%;background:'+cor+'"></div></div>'
-        +'<div class="apos-impact-val" style="color:'+cor+';width:120px;">'+fmtR(impactoReal)+' ('+pctImpacto.toFixed(0)+'%)</div>'
+        +'<div style="flex:1;display:flex;flex-direction:column;gap:3px;">'
+          +'<div class="apos-impact-bg"><div class="apos-impact-fill" style="width:'+pctImpacto+'%;background:'+cor+'"></div></div>'
+          +'<div style="font-size:9px;color:#638968;">Se investisse esse valor para a aposentadoria, teria a mais: <strong style="color:'+cor+'">'+fmtR(impactoReal)+'</strong> ('+pctImpacto.toFixed(0)+'% do patrimônio projetado)</div>'
+        +'</div>'
         +'</div>';
     }).join('');
     document.getElementById('apos-impacto-lista').innerHTML = listaHtml;
@@ -4848,6 +5419,309 @@ function renderPerfilRenda(){
 
   // Atualizar saúde após recalcular renda
   calcularSaude();
+}
+
+
+
+// ══════════════════════════════════════════
+// PROJETO DE VIDA — Seu Número
+// ══════════════════════════════════════════
+
+// Navegar para o módulo
+function irParaProjetoVida(){
+  document.getElementById('hub-screen').style.display='none';
+  document.getElementById('pv-app').style.display='flex';
+  document.getElementById('pv-user-name').textContent =
+    document.getElementById('hub-user-name').textContent.replace('Olá, ','').split('<')[0].trim();
+  salvarNavegacao('projetovida');
+  preencherDadosAutomaticos();
+}
+
+// Preencher campos com dados já inseridos no Controle Financeiro
+function preencherDadosAutomaticos(){
+  // Idade: tenta pegar do campo de aposentadoria se já preenchido
+  const idadeAposEl = document.getElementById('ap-idade');
+  const idadeEl     = document.getElementById('ap-idade');
+  if(idadeAposEl && idadeAposEl.value) document.getElementById('pv-idade').value = document.getElementById('ap-idade').value || '';
+  const apIdadeApos = document.getElementById('ap-idade-apos');
+  if(apIdadeApos && apIdadeApos.value) document.getElementById('pv-idade-apos').value = apIdadeApos.value;
+  const apExp = document.getElementById('ap-expectativa');
+  if(apExp && apExp.value) document.getElementById('pv-expectativa').value = apExp.value;
+  const apRendaDesej = document.getElementById('ap-renda-desejada');
+  if(apRendaDesej && apRendaDesej.value) document.getElementById('pv-renda-apos').value = apRendaDesej.value;
+  const apTaxa = document.getElementById('ap-taxa');
+  if(apTaxa && apTaxa.value) document.getElementById('pv-taxa').value = apTaxa.value;
+  const apInflacao = document.getElementById('ap-inflacao');
+  if(apInflacao && apInflacao.value) document.getElementById('pv-inflacao').value = apInflacao.value;
+  const apPatr = document.getElementById('ap-patrimonio');
+  if(apPatr && apPatr.value) document.getElementById('pv-patrimonio').value = apPatr.value;
+  const apAporte = document.getElementById('ap-aporte');
+  if(apAporte && apAporte.value) document.getElementById('pv-aporte').value = apAporte.value;
+}
+
+// Cálculo principal
+function calcularProjetoVida(){
+  const idadeAtual  = parseInt(document.getElementById('pv-idade').value)||0;
+  const idadeApos   = parseInt(document.getElementById('pv-idade-apos').value)||65;
+  const expectativa = parseInt(document.getElementById('pv-expectativa').value)||85;
+  const rendaAposDesej = parseFloat(document.getElementById('pv-renda-apos').value)||0;
+  const taxaAA      = parseFloat(document.getElementById('pv-taxa').value)||10;
+  const inflacaoAA  = parseFloat(document.getElementById('pv-inflacao').value)||5;
+  const patrimonioAtual = parseFloat(document.getElementById('pv-patrimonio').value)||0;
+  const aporteAtual = parseFloat(document.getElementById('pv-aporte').value)||0;
+  const reservaMeses= parseInt(document.getElementById('pv-reserva-meses').value)||6;
+
+  if(!idadeAtual||idadeAtual<18){ alert('Informe sua idade atual.'); return; }
+  if(idadeApos<=idadeAtual){ alert('Idade de aposentadoria deve ser maior que a atual.'); return; }
+
+  const anosAcum  = idadeApos - idadeAtual;
+  const anosUsuf  = expectativa - idadeApos;
+  const mesesAcum = anosAcum * 12;
+  const mesesUsuf = Math.max(1, anosUsuf * 12);
+  const anoAtual  = new Date().getFullYear();
+  const anoApos   = anoAtual + anosAcum;
+
+  const tm      = Math.pow(1+taxaAA/100, 1/12)-1;
+  const taxaRealAA = (1+taxaAA/100)/(1+inflacaoAA/100)-1;
+  const tmReal  = Math.pow(1+taxaRealAA, 1/12)-1;
+
+  // ── Diagnóstico atual via lançamentos reais ──
+  const hoje = new Date();
+  let somaDesp=0, mesesDesp=0;
+  for(let i=0;i<3;i++){
+    const d = new Date(hoje.getFullYear(), hoje.getMonth()-i, 1);
+    const str = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+    const despMes = lancamentos.filter(l=>l.tipo==='despesa'&&l.data&&l.data.startsWith(str))
+                               .reduce((s,l)=>s+Number(l.valor),0);
+    if(despMes>0){ somaDesp+=despMes; mesesDesp++; }
+  }
+  const despesaMedia = mesesDesp>0 ? somaDesp/mesesDesp : 0;
+  const rendaRef = getRendaReferencia ? getRendaReferencia() : 0;
+  const txPoupanca = rendaRef>0 ? ((rendaRef-despesaMedia)/rendaRef)*100 : 0;
+  const reservaAtual = despesaMedia>0 ? patrimonioAtual/despesaMedia : 0;
+
+  // ── Parte 1: Patrimônio para a Aposentadoria ──
+  let patrimonioParaApos;
+  if(Math.abs(tmReal)<1e-10){
+    patrimonioParaApos = rendaAposDesej * mesesUsuf;
+  } else {
+    patrimonioParaApos = rendaAposDesej * (1-Math.pow(1+tmReal,-mesesUsuf)) / tmReal;
+  }
+  // Ajuste conservador: precisamos acumular mais para cobrir o IR (estimativa 15%)
+  patrimonioParaApos = patrimonioParaApos / (1-0.15*0.6);
+
+  // ── Parte 2: Total dos objetivos de vida ──
+  const totalObjetivos = objetivos.reduce((s,o)=>s+Math.max(0,Number(o.valor_total)-(Number(o.guardado)||0)),0);
+
+  // ── Parte 3: Reserva de emergência necessária ──
+  const despBase = despesaMedia>0 ? despesaMedia : (rendaRef*0.7);
+  const reservaNecessaria = despBase * reservaMeses;
+  const reservaFalta = Math.max(0, reservaNecessaria - patrimonioAtual*0.1); // assume 10% do patrimônio em liquidez
+
+  // ── O Número Total ──
+  const numeroTotal = patrimonioParaApos + totalObjetivos + reservaFalta;
+
+  // ── Projeção de patrimônio com aporte atual ──
+  let patrimonioProjetado;
+  if(Math.abs(tm)<1e-10){
+    patrimonioProjetado = patrimonioAtual + aporteAtual*mesesAcum;
+  } else {
+    patrimonioProjetado = patrimonioAtual*Math.pow(1+tm,mesesAcum)
+                        + aporteAtual*(Math.pow(1+tm,mesesAcum)-1)/tm;
+  }
+
+  // ── Aporte necessário para atingir O Número ──
+  let aporteNecessario;
+  if(mesesAcum<=0||Math.abs(tm)<1e-10){
+    aporteNecessario = Math.max(0,(numeroTotal-patrimonioAtual)/Math.max(1,mesesAcum));
+  } else {
+    aporteNecessario = Math.max(0,
+      (numeroTotal - patrimonioAtual*Math.pow(1+tm,mesesAcum))
+      * tm / (Math.pow(1+tm,mesesAcum)-1)
+    );
+  }
+
+  // ── Preencher Diagnóstico ──
+  const diagRendaEl = document.getElementById('pv-diag-renda');
+  diagRendaEl.textContent = rendaRef>0 ? fmtR(rendaRef) : 'Sem dados';
+  diagRendaEl.className   = 'pv-diag-val'+(rendaRef<=0?' warn':'');
+
+  const diagDespEl = document.getElementById('pv-diag-desp');
+  diagDespEl.textContent = despesaMedia>0 ? fmtR(despesaMedia) : 'Sem dados';
+  diagDespEl.className   = 'pv-diag-val';
+
+  const diagTxEl = document.getElementById('pv-diag-tx');
+  diagTxEl.textContent = rendaRef>0 ? txPoupanca.toFixed(1)+'%' : '—%';
+  diagTxEl.className   = 'pv-diag-val '+(txPoupanca>=20?'pos':txPoupanca>=10?'warn':'neg');
+
+  const diagResEl = document.getElementById('pv-diag-reserva');
+  diagResEl.textContent = reservaAtual.toFixed(1)+' meses';
+  diagResEl.className   = 'pv-diag-val '+(reservaAtual>=reservaMeses?'pos':reservaAtual>=3?'warn':'neg');
+
+  // ── O Número ──
+  document.getElementById('pv-numero-total').textContent = fmtR(numeroTotal);
+  document.getElementById('pv-total-objetivos').textContent = fmtR(totalObjetivos);
+  document.getElementById('pv-total-aposentadoria').textContent = fmtR(patrimonioParaApos);
+  document.getElementById('pv-total-reserva').textContent = fmtR(reservaFalta);
+  document.getElementById('pv-numero-sub').textContent =
+    'Soma do patrimônio para aposentadoria + seus '+objetivos.length+' objetivo(s) de vida + reserva de emergência';
+
+  // ── Linha do Tempo ──
+  const tlItens = [{ ano: anoAtual, lbl: 'Hoje', val: fmtR(patrimonioAtual), hoje: true }];
+  // Adicionar objetivos ordenados por prazo
+  const objsOrdenados = [...objetivos].sort((a,b)=>a.prazo>b.prazo?1:-1);
+  objsOrdenados.forEach(o=>{
+    const ano = parseInt((o.prazo||'').split('-')[0])||0;
+    if(ano>anoAtual && ano<=anoApos){
+      const ico = o.categoria?o.categoria.split(' ')[0]:'⭐';
+      tlItens.push({ ano, lbl: ico+' '+o.nome, val: fmtR(o.valor_total) });
+    }
+  });
+  tlItens.push({ ano: anoApos, lbl: '🏦 Aposentadoria', val: fmtR(patrimonioProjetado) });
+  tlItens.push({ ano: anoAtual+(expectativa-idadeAtual), lbl: '🌅 Meta de vida', val: fmtR(numeroTotal) });
+
+  let tlHtml = '';
+  tlItens.forEach((item, i)=>{
+    tlHtml += '<div class="pv-tl-node">'
+      +'<div class="pv-tl-val">'+item.ano+'</div>'
+      +'<div class="pv-tl-dot'+(item.hoje?' hoje':i===tlItens.length-1?' futuro':'')+'"></div>'
+      +'<div class="pv-tl-label">'+item.lbl+'</div>'
+      +'<div class="pv-tl-val" style="font-size:9px;color:#638968;">'+item.val+'</div>'
+      +'</div>';
+    if(i < tlItens.length-1) tlHtml += '<div class="pv-tl-line"></div>';
+  });
+  document.getElementById('pv-timeline').innerHTML = tlHtml;
+
+  // ── Ritmo atual ──
+  const pctAtingido = Math.min((patrimonioProjetado/numeroTotal)*100, 100);
+  const anosParaNumero = calcAnosParaNumero(patrimonioAtual, aporteAtual, numeroTotal, tm);
+  const anoAtingimento = anoAtual + Math.round(anosParaNumero);
+
+  const barras = [
+    { lbl:'Reserva de Emergência', meta: reservaFalta, atual: patrimonioAtual*0.1, cor:'#638968' },
+    { lbl:'Objetivos de Vida', meta: totalObjetivos,
+      atual: objetivos.reduce((s,o)=>s+(Number(o.guardado)||0),0), cor:'#C8B560' },
+    { lbl:'Aposentadoria', meta: patrimonioParaApos,
+      atual: Math.max(0, patrimonioProjetado - totalObjetivos - reservaNecessaria), cor:'#5cb87a' },
+  ];
+
+  let ritmoHtml = '<div style="margin-bottom:16px;">';
+  barras.forEach(b=>{
+    const pct = b.meta>0 ? Math.min((b.atual/b.meta)*100,100) : 0;
+    ritmoHtml += '<div class="pv-ritmo-bar">'
+      +'<div class="pv-ritmo-lbl">'+b.lbl+'</div>'
+      +'<div class="pv-ritmo-bg"><div class="pv-ritmo-fill" style="width:'+pct+'%;background:'+b.cor+'"></div></div>'
+      +'<div class="pv-ritmo-val">'+fmtR(b.atual)+' / '+fmtR(b.meta)+'</div>'
+      +'</div>';
+  });
+  ritmoHtml += '</div>';
+
+  // Mensagem de ritmo
+  const pctRenda = rendaRef>0 ? (aporteNecessario/rendaRef)*100 : 0;
+  ritmoHtml += '<div style="background:rgba(29,56,40,.04);border-radius:10px;padding:14px;font-size:11px;color:#1D3828;line-height:1.8;">'
+    +'<strong>📍 Aporte atual:</strong> '+fmtR(aporteAtual)+'/mês'
+    +'<br><strong>🎯 Aporte necessário para atingir O Número em '+anosAcum+' anos:</strong> '+fmtR(aporteNecessario)+'/mês'
+    +(rendaRef>0?'<br><strong>📊 Isso representa:</strong> '+pctRenda.toFixed(1)+'% da sua renda de referência':'')
+    +'<br><strong>📅 No ritmo atual, você atingirá O Número em:</strong> '
+    +(anosParaNumero<=anosAcum
+      ? '<span style="color:#5cb87a;font-weight:700;">'+Math.round(anosParaNumero)+' anos ('+anoAtingimento+') — antes da aposentadoria ✅</span>'
+      : '<span style="color:#e05c5c;font-weight:700;">'+Math.round(anosParaNumero)+' anos ('+anoAtingimento+') — após a aposentadoria ⚠️</span>')
+    +'</div>';
+
+  document.getElementById('pv-ritmo-content').innerHTML = ritmoHtml;
+
+  // ── Objetivos no Projeto ──
+  if(objetivos.length>0){
+    document.getElementById('pv-obj-section').style.display='block';
+    document.getElementById('pv-obj-lista').innerHTML = objetivos
+      .sort((a,b)=>(a.prioridade||5)-(b.prioridade||5))
+      .map(o=>{
+        const falta = Math.max(0, Number(o.valor_total)-(Number(o.guardado)||0));
+        const pct   = o.valor_total>0?Math.min(((o.guardado||0)/o.valor_total)*100,100):0;
+        const ico   = o.categoria?o.categoria.split(' ')[0]:'⭐';
+        const pesoNoNum = numeroTotal>0?(falta/numeroTotal)*100:0;
+        return '<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(29,56,40,.06);">'
+          +'<div style="width:28px;height:28px;border-radius:8px;background:rgba(29,56,40,.08);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">'+ico+'</div>'
+          +'<div style="flex:1;">'
+            +'<div style="font-size:12px;font-weight:600;color:#1D3828;">'+o.nome+'</div>'
+            +'<div style="display:flex;align-items:center;gap:8px;margin-top:4px;">'
+              +'<div style="flex:1;background:rgba(29,56,40,.08);border-radius:3px;height:5px;overflow:hidden;">'
+                +'<div style="width:'+pct+'%;height:5px;background:#C8B560;border-radius:3px;"></div>'
+              +'</div>'
+              +'<span style="font-size:9px;color:#638968;">'+pct.toFixed(0)+'%</span>'
+            +'</div>'
+          +'</div>'
+          +'<div style="text-align:right;flex-shrink:0;">'
+            +'<div style="font-size:12px;font-weight:700;color:#1D3828;">'+fmtR(falta)+'</div>'
+            +'<div style="font-size:9px;color:#638968;">'+pesoNoNum.toFixed(1)+'% do Número</div>'
+          +'</div>'
+        +'</div>';
+      }).join('');
+  } else {
+    document.getElementById('pv-obj-section').style.display='none';
+  }
+
+  // ── Diagnóstico Final ──
+  const diagFinal = document.getElementById('pv-diagnostico-final');
+  let msg, bg, bd;
+  if(aporteAtual >= aporteNecessario){
+    msg = '✅ <strong>Você está no caminho certo!</strong> Com o aporte atual de '+fmtR(aporteAtual)+'/mês, você atingirá O Seu Número antes da aposentadoria. Continue com consistência — a maior ameaça ao plano é a interrupção dos aportes.';
+    bg='rgba(92,184,122,.07)'; bd='rgba(92,184,122,.25)';
+  } else if(aporteNecessario <= rendaRef*0.5){
+    const dif = aporteNecessario - aporteAtual;
+    msg = '⚠️ <strong>Ajuste pequeno necessário.</strong> Para atingir O Seu Número no prazo, você precisa aumentar o aporte em apenas <strong>'+fmtR(dif)+'/mês</strong>. Isso representa '+((dif/rendaRef)*100).toFixed(1)+'% da sua renda — um ajuste possível ao revisar algumas despesas.';
+    bg='rgba(212,168,67,.07)'; bd='rgba(212,168,67,.25)';
+  } else {
+    const dif = aporteNecessario - aporteAtual;
+    msg = '🔴 <strong>Atenção:</strong> Para atingir O Seu Número no prazo configurado, seria necessário um aporte de <strong>'+fmtR(aporteNecessario)+'/mês</strong> — '+fmtR(dif)+' a mais que o atual. Considere: aumentar a renda, ajustar as metas de aposentadoria, revisar os objetivos de vida, ou estender o prazo da aposentadoria por alguns anos.';
+    bg='rgba(224,92,92,.07)'; bd='rgba(224,92,92,.25)';
+  }
+  diagFinal.style.cssText='background:'+bg+';border:1px solid '+bd+';border-radius:12px;padding:18px;margin-top:0;font-size:12px;line-height:1.8;color:#1D3828;';
+  diagFinal.innerHTML = msg;
+
+  // Guardar dados para simulação extra
+  window._pvDados = { patrimonioAtual, tm, mesesAcum, numeroTotal, anosAcum, anoAtual, rendaRef };
+
+  document.getElementById('pv-resultado').style.display='block';
+}
+
+// Calcular quantos anos para atingir um número com aporte mensal
+function calcAnosParaNumero(patrimonioAtual, aporte, meta, tm){
+  if(patrimonioAtual >= meta) return 0;
+  if(aporte <= 0) return 999;
+  // Busca binária: n meses tal que PV*(1+tm)^n + PMT*((1+tm)^n-1)/tm = meta
+  let lo=0, hi=600;
+  for(let iter=0;iter<60;iter++){
+    const mid=(lo+hi)/2;
+    const fv = Math.abs(tm)<1e-10
+      ? patrimonioAtual + aporte*mid
+      : patrimonioAtual*Math.pow(1+tm,mid) + aporte*(Math.pow(1+tm,mid)-1)/tm;
+    if(fv>=meta) hi=mid; else lo=mid;
+  }
+  return hi/12; // converter para anos
+}
+
+// Simulação de aporte extra
+function simularAporteExtra(){
+  const d = window._pvDados;
+  if(!d) return;
+  const extra = parseFloat(document.getElementById('pv-aporte-extra').value)||0;
+  if(extra<=0){
+    document.getElementById('pv-simulacao-extra').innerHTML='';
+    return;
+  }
+  const novoAporte = (parseFloat(document.getElementById('pv-aporte').value)||0) + extra;
+  const anosNovo   = calcAnosParaNumero(d.patrimonioAtual, novoAporte, d.numeroTotal, d.tm);
+  const anoAtinge  = d.anoAtual + Math.round(anosNovo);
+  const ganhoAnos  = Math.max(0, calcAnosParaNumero(d.patrimonioAtual,
+    parseFloat(document.getElementById('pv-aporte').value)||0, d.numeroTotal, d.tm) - anosNovo);
+
+  document.getElementById('pv-simulacao-extra').innerHTML =
+    '<div style="font-size:11px;color:#1D3828;line-height:1.8;">'
+    +'Com +'+fmtR(extra)+'/mês de aporte extra, você atingiria O Seu Número em '
+    +'<strong style="color:#5cb87a;">'+Math.round(anosNovo)+' anos ('+anoAtinge+')</strong>'
+    +' — adiantando <strong>'+Math.round(ganhoAnos)+' ano(s)</strong> em relação ao ritmo atual.'
+    +'</div>';
 }
 
 
