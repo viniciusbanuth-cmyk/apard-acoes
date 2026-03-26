@@ -1007,54 +1007,62 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
     <!-- Aviso se sem dados -->
     <div id="pv-sem-dados" style="display:none;background:rgba(200,181,96,.08);border:1px solid rgba(200,181,96,.2);border-radius:12px;padding:20px;text-align:center;margin-bottom:20px;">
       <div style="font-size:24px;margin-bottom:10px;">🧭</div>
-      <div style="font-size:13px;font-weight:700;color:#1D3828;margin-bottom:6px;">Configure seu Projeto de Vida</div>
-      <div style="font-size:11px;color:#638968;line-height:1.7;">Preencha as informações abaixo e clique em <strong>Calcular meu Número</strong>. Quanto mais dados você tiver no Controle Financeiro, mais preciso será o resultado.</div>
+      <div style="font-size:15px;font-weight:700;color:#1D3828;margin-bottom:8px;">Descubra o seu Número 🧭</div>
+      <div style="font-size:12px;color:#638968;line-height:1.8;">
+        <strong style="color:#1D3828;">O que é o Número?</strong> É o valor total que você precisa acumular para cobrir tudo que sonhou na vida — seus objetivos, sua aposentadoria e uma reserva de segurança — sem precisar depender de trabalho obrigatório.<br><br>
+        Preencha as informações abaixo (ou clique em <strong>"Preencher com dados do Controle Financeiro"</strong> se já usou a plataforma) e descubra em quanto tempo você chega lá.
+      </div>
     </div>
 
     <!-- Seção configuração -->
     <div class="pv-section">
-      <div class="pv-section-title">⚙️ Suas Informações</div>
+      <div class="pv-section-title">📋 Suas Informações</div>
+      <div style="font-size:11px;color:#638968;margin-bottom:14px;line-height:1.7;background:rgba(29,56,40,.03);border-radius:8px;padding:10px 12px;">
+        Preencha com o que você sabe hoje. Não precisa ser perfeito — você pode ajustar depois. Se já usou a aba <strong style="color:#1D3828;">Controle Financeiro</strong>, clique no botão abaixo para preencher automaticamente.
+      </div>
       <div class="pv-config-grid">
         <div class="fin-field">
-          <label>Sua idade atual</label>
+          <label>Sua idade hoje</label>
           <input class="fin-inp" id="pv-idade" type="number" placeholder="31" min="18" max="80">
         </div>
         <div class="fin-field">
-          <label>Idade de aposentadoria</label>
+          <label>Quando quer se aposentar (idade)</label>
           <input class="fin-inp" id="pv-idade-apos" type="number" placeholder="65" min="40" max="85">
         </div>
         <div class="fin-field">
-          <label>Expectativa de vida</label>
+          <label>Até qual idade quer planejar</label>
           <input class="fin-inp" id="pv-expectativa" type="number" placeholder="85" min="60" max="110">
         </div>
         <div class="fin-field">
-          <label>Renda mensal desejada na aposentadoria (R$)</label>
+          <label>Quanto quer receber por mês na aposentadoria (R$)</label>
           <input class="fin-inp" id="pv-renda-apos" type="number" placeholder="8000" step="500">
         </div>
         <div class="fin-field">
-          <label>Taxa de retorno esperada (% a.a.)</label>
+          <label>Rendimento anual dos seus investimentos (% a.a.)</label>
           <input class="fin-inp" id="pv-taxa" type="number" placeholder="10" step="0.5" value="10">
         </div>
         <div class="fin-field">
-          <label>Inflação estimada (% a.a.)</label>
+          <label>Inflação estimada (% a.a.) — padrão: 5%</label>
           <input class="fin-inp" id="pv-inflacao" type="number" placeholder="5" step="0.5" value="5">
         </div>
         <div class="fin-field">
-          <label>Patrimônio investido hoje (R$)</label>
+          <label>Quanto você já tem investido hoje (R$)</label>
           <input class="fin-inp" id="pv-patrimonio" type="number" placeholder="50000" step="1000">
         </div>
         <div class="fin-field">
-          <label>Aporte mensal atual (R$)</label>
+          <label>Quanto você investe por mês atualmente (R$)</label>
           <input class="fin-inp" id="pv-aporte" type="number" placeholder="1500" step="100">
         </div>
         <div class="fin-field">
-          <label>Reserva de emergência ideal (meses)</label>
+          <label>Quantos meses de despesas quer ter de reserva</label>
           <input class="fin-inp" id="pv-reserva-meses" type="number" placeholder="6" min="1" max="24" value="6">
         </div>
       </div>
       <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
         <button class="fin-btn" onclick="calcularProjetoVida()" style="padding:11px 28px;font-size:12px;">🧭 Calcular meu Número</button>
         <button onclick="preencherDadosAutomaticos()" style="background:transparent;border:1px solid rgba(29,56,40,.2);color:#638968;padding:10px 18px;border-radius:7px;cursor:pointer;font-family:var(--f);font-size:11px;font-weight:600;">↩ Preencher com dados do Controle Financeiro</button>
+        <button onclick="salvarProjetoVida()" style="background:rgba(29,56,40,.08);border:1px solid rgba(29,56,40,.2);color:#1D3828;padding:10px 18px;border-radius:7px;cursor:pointer;font-family:var(--f);font-size:11px;font-weight:600;">💾 Salvar Projeto</button>
+        <button onclick="refazerProjetoVida()" style="background:transparent;border:1px solid rgba(224,92,92,.3);color:#e05c5c;padding:10px 18px;border-radius:7px;cursor:pointer;font-family:var(--f);font-size:11px;font-weight:600;">🔄 Refazer o Cálculo</button>
       </div>
     </div>
 
@@ -1063,20 +1071,20 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 
       <!-- Card principal — O Número da Vida -->
       <div class="pv-numero-wrap">
-        <div class="pv-numero-label">🧭 O Seu Número — Meta Total de Patrimônio</div>
+        <div class="pv-numero-label">🧭 O Seu Número — Quanto você precisa acumular na vida</div>
         <div class="pv-numero" id="pv-numero-total">R$ —</div>
-        <div class="pv-numero-sub" id="pv-numero-sub">É o patrimônio que, se acumulado, cobre seus objetivos, sua aposentadoria e sua reserva de emergência</div>
+        <div class="pv-numero-sub" id="pv-numero-sub">Se você acumular este valor, poderá cobrir todos os seus sonhos, se aposentar com a renda que deseja e ainda ter uma rede de segurança para imprevistos</div>
         <div class="pv-numero-grid">
           <div class="pv-numero-item">
-            <div class="pv-numero-item-lbl">🎯 Objetivos de Vida</div>
+            <div class="pv-numero-item-lbl">🎯 Seus Sonhos e Objetivos</div>
             <div class="pv-numero-item-val" id="pv-total-objetivos">R$ —</div>
           </div>
           <div class="pv-numero-item">
-            <div class="pv-numero-item-lbl">🏦 Aposentadoria</div>
+            <div class="pv-numero-item-lbl">🏦 Aposentadoria Tranquila</div>
             <div class="pv-numero-item-val" id="pv-total-aposentadoria">R$ —</div>
           </div>
           <div class="pv-numero-item">
-            <div class="pv-numero-item-lbl">🛡️ Reserva de Emergência</div>
+            <div class="pv-numero-item-lbl">🛡️ Colchão de Segurança</div>
             <div class="pv-numero-item-val" id="pv-total-reserva">R$ —</div>
           </div>
         </div>
@@ -1084,47 +1092,50 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 
       <!-- Seção 1: Diagnóstico atual -->
       <div class="pv-section">
-        <div class="pv-section-title">📊 Diagnóstico Atual — Onde você está hoje</div>
+        <div class="pv-section-title">📊 Raio-X Financeiro — Onde você está hoje</div>
+        <div style="font-size:11px;color:#638968;margin-bottom:14px;line-height:1.6;">Com base nos seus lançamentos reais do Controle Financeiro, aqui está um retrato da sua situação financeira atual:</div>
         <div class="pv-diagnostico-grid">
           <div class="pv-diag-card">
-            <div class="pv-diag-lbl">Renda de Referência</div>
+            <div class="pv-diag-lbl">Sua renda mensal</div>
             <div class="pv-diag-val" id="pv-diag-renda">R$ —</div>
-            <div class="pv-diag-sub">Mensal (base de cálculo)</div>
+            <div class="pv-diag-sub">Base para todos os cálculos</div>
           </div>
           <div class="pv-diag-card">
-            <div class="pv-diag-lbl">Despesa Média Mensal</div>
+            <div class="pv-diag-lbl">Seus gastos mensais</div>
             <div class="pv-diag-val" id="pv-diag-desp">R$ —</div>
-            <div class="pv-diag-sub">Média últimos 3 meses</div>
+            <div class="pv-diag-sub">Média dos últimos 3 meses</div>
           </div>
           <div class="pv-diag-card">
-            <div class="pv-diag-lbl">Taxa de Poupança</div>
+            <div class="pv-diag-lbl">Quanto você guarda</div>
             <div class="pv-diag-val" id="pv-diag-tx">—%</div>
-            <div class="pv-diag-sub">% da renda que sobra</div>
+            <div class="pv-diag-sub">% da renda guardada por mês</div>
           </div>
           <div class="pv-diag-card">
-            <div class="pv-diag-lbl">Reserva Atual</div>
+            <div class="pv-diag-lbl">Sua reserva hoje</div>
             <div class="pv-diag-val" id="pv-diag-reserva">— meses</div>
-            <div class="pv-diag-sub">Em relação às despesas</div>
+            <div class="pv-diag-sub">Meses de gastos cobertos</div>
           </div>
         </div>
       </div>
 
       <!-- Seção 2: Linha do tempo -->
       <div class="pv-section">
-        <div class="pv-section-title">📅 Linha do Tempo da sua Jornada</div>
+        <div class="pv-section-title">🗓️ Sua Jornada até a Liberdade Financeira</div>
+        <div style="font-size:11px;color:#638968;margin-bottom:10px;line-height:1.6;">Veja os marcos da sua vida financeira — do ponto onde você está hoje até o momento em que seu dinheiro trabalha por você.</div>
         <div class="pv-timeline" id="pv-timeline"></div>
       </div>
 
       <!-- Seção 3: Seu Ritmo -->
       <div class="pv-section">
-        <div class="pv-section-title">⚡ Seu Ritmo — Quando você chega lá?</div>
-        <div style="font-size:11px;color:#638968;margin-bottom:16px;line-height:1.7;">Com base no seu aporte atual e no rendimento estimado, veja quanto tempo leva para atingir cada parte do seu Número — e o impacto de aumentar o aporte.</div>
+        <div class="pv-section-title">⚡ Em quanto tempo você chega lá?</div>
+        <div style="font-size:11px;color:#638968;margin-bottom:16px;line-height:1.7;">Com o ritmo atual de investimentos, veja quanto tempo leva para realizar cada parte do seu projeto. E descubra o que acontece se você guardar um pouco mais por mês.</div>
 
         <div id="pv-ritmo-content"></div>
 
         <!-- Simulador de aumento de aporte -->
         <div style="background:rgba(200,181,96,.06);border:1px solid rgba(200,181,96,.2);border-radius:10px;padding:14px;margin-top:16px;">
-          <div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#1D3828;font-weight:700;margin-bottom:12px;">💡 E se eu aumentar o aporte?</div>
+          <div style="font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#1D3828;font-weight:700;margin-bottom:6px;">💡 E se eu guardar um pouco mais por mês?</div>
+          <div style="font-size:10px;color:#638968;margin-bottom:12px;line-height:1.6;">Pequenos aumentos no valor mensal investido têm um impacto enorme a longo prazo — porque os juros compostos multiplicam cada real extra por décadas.</div>
           <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;">
             <div class="fin-field" style="margin:0;flex:1;min-width:160px;">
               <label>Aporte mensal extra (R$)</label>
@@ -1137,8 +1148,8 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 
       <!-- Seção 4: Breakdown dos objetivos -->
       <div class="pv-section" id="pv-obj-section" style="display:none;">
-        <div class="pv-section-title">🎯 Seus Objetivos no Projeto de Vida</div>
-        <div style="font-size:11px;color:#638968;margin-bottom:14px;line-height:1.7;">Cada objetivo contribui para o seu Número. Veja o peso de cada um e quanto você já acumulou.</div>
+        <div class="pv-section-title">🎯 Seus Sonhos e Objetivos</div>
+        <div style="font-size:11px;color:#638968;margin-bottom:14px;line-height:1.7;">Cada sonho que você cadastrou faz parte do seu Número total. Veja quanto cada um pesa e o progresso acumulado até agora.</div>
         <div id="pv-obj-lista"></div>
       </div>
 
@@ -1358,6 +1369,63 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 
 <!-- ══════════════════ FINANCEIRO ══════════════════ -->
 <div id="fin-app">
+    <!-- Modal editar lançamento -->
+    <div id="lanc-edit-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;">
+      <div style="background:#EEEAD6;border-radius:14px;padding:24px;width:100%;max-width:520px;margin:20px;box-shadow:0 24px 64px rgba(0,0,0,.4);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#1D3828;text-transform:uppercase;">✏️ Editar Lançamento</div>
+          <button onclick="fecharModalEditLanc()" style="background:rgba(224,92,92,.1);border:1px solid rgba(224,92,92,.25);color:#e05c5c;width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:14px;font-weight:700;">✕</button>
+        </div>
+        <input type="hidden" id="lanc-edit-id">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+          <div class="fin-field">
+            <label>Tipo</label>
+            <select class="fin-inp" id="lanc-edit-tipo" onchange="onLancEditTipoChange()">
+              <option value="receita">Receita</option>
+              <option value="despesa">Despesa</option>
+            </select>
+          </div>
+          <div class="fin-field">
+            <label>Tipo de Gasto</label>
+            <select class="fin-inp" id="lanc-edit-grupo" onchange="onLancEditGrupoChange()">
+              <option value="">Selecione...</option>
+            </select>
+          </div>
+          <div class="fin-field">
+            <label>Categoria</label>
+            <select class="fin-inp" id="lanc-edit-cat">
+              <option value="">Selecione o tipo de gasto</option>
+            </select>
+          </div>
+          <div class="fin-field">
+            <label>Natureza</label>
+            <select class="fin-inp" id="lanc-edit-natureza">
+              <option value="recorrente">💚 Recorrente</option>
+              <option value="variavel">💛 Variável</option>
+              <option value="eventual">🔵 Eventual</option>
+            </select>
+          </div>
+          <div class="fin-field" style="grid-column:1/-1">
+            <label>Descrição</label>
+            <input class="fin-inp" id="lanc-edit-desc" type="text" placeholder="Descrição do lançamento">
+          </div>
+          <div class="fin-field">
+            <label>Valor (R$)</label>
+            <input class="fin-inp" id="lanc-edit-valor" type="number" step="0.01" min="0" placeholder="0,00">
+          </div>
+          <div class="fin-field">
+            <label>Data</label>
+            <input class="fin-inp" id="lanc-edit-data" type="date">
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="fin-btn" onclick="confirmarEditLanc()" style="flex:1;">Salvar Alterações</button>
+          <button onclick="fecharModalEditLanc()" style="flex:1;background:transparent;border:1px solid rgba(29,56,40,.2);color:#638968;padding:9px 18px;border-radius:7px;cursor:pointer;font-family:var(--f);font-size:11px;font-weight:600;">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+
 <div class="fin-hdr">
   <div class="logo-wrap">
     <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -1435,7 +1503,7 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
           <input class="fin-inp fin-inp-s" id="lanc-data" type="date">
         </div>
         <div class="fin-field" id="lanc-natureza-field" style="display:none;">
-          <label>Natureza da Receita</label>
+          <label>Natureza da Receita <span style="font-size:9px;color:#C8B560;font-weight:600;" id="lanc-natureza-hint"></span></label>
           <select class="fin-inp fin-inp-s" id="lanc-natureza" title="Define como esta receita entra nos cálculos de renda mensal">
             <option value="recorrente">💚 Recorrente — entra todo mês (salário, aluguel)</option>
             <option value="variavel">💛 Variável — oscila a cada mês (comissão, freelance)</option>
@@ -1506,62 +1574,6 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
         <button class="fin-btn" onclick="addConta()">Adicionar</button>
       </div>
     </div>
-    <!-- Modal editar lançamento -->
-    <div id="lanc-edit-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;">
-      <div style="background:#EEEAD6;border-radius:14px;padding:24px;width:100%;max-width:520px;margin:20px;box-shadow:0 24px 64px rgba(0,0,0,.4);">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
-          <div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#1D3828;text-transform:uppercase;">✏️ Editar Lançamento</div>
-          <button onclick="fecharModalEditLanc()" style="background:rgba(224,92,92,.1);border:1px solid rgba(224,92,92,.25);color:#e05c5c;width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:14px;font-weight:700;">✕</button>
-        </div>
-        <input type="hidden" id="lanc-edit-id">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
-          <div class="fin-field">
-            <label>Tipo</label>
-            <select class="fin-inp" id="lanc-edit-tipo" onchange="onLancEditTipoChange()">
-              <option value="receita">Receita</option>
-              <option value="despesa">Despesa</option>
-            </select>
-          </div>
-          <div class="fin-field">
-            <label>Tipo de Gasto</label>
-            <select class="fin-inp" id="lanc-edit-grupo" onchange="onLancEditGrupoChange()">
-              <option value="">Selecione...</option>
-            </select>
-          </div>
-          <div class="fin-field">
-            <label>Categoria</label>
-            <select class="fin-inp" id="lanc-edit-cat">
-              <option value="">Selecione o tipo de gasto</option>
-            </select>
-          </div>
-          <div class="fin-field">
-            <label>Natureza</label>
-            <select class="fin-inp" id="lanc-edit-natureza">
-              <option value="recorrente">💚 Recorrente</option>
-              <option value="variavel">💛 Variável</option>
-              <option value="eventual">🔵 Eventual</option>
-            </select>
-          </div>
-          <div class="fin-field" style="grid-column:1/-1">
-            <label>Descrição</label>
-            <input class="fin-inp" id="lanc-edit-desc" type="text" placeholder="Descrição do lançamento">
-          </div>
-          <div class="fin-field">
-            <label>Valor (R$)</label>
-            <input class="fin-inp" id="lanc-edit-valor" type="number" step="0.01" min="0" placeholder="0,00">
-          </div>
-          <div class="fin-field">
-            <label>Data</label>
-            <input class="fin-inp" id="lanc-edit-data" type="date">
-          </div>
-        </div>
-        <div style="display:flex;gap:10px;">
-          <button class="fin-btn" onclick="confirmarEditLanc()" style="flex:1;">Salvar Alterações</button>
-          <button onclick="fecharModalEditLanc()" style="flex:1;background:transparent;border:1px solid rgba(29,56,40,.2);color:#638968;padding:9px 18px;border-radius:7px;cursor:pointer;font-family:var(--f);font-size:11px;font-weight:600;">Cancelar</button>
-        </div>
-      </div>
-    </div>
-
     <!-- Modal editar conta -->
     <div id="conta-edit-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;">
       <div style="background:#EEEAD6;border-radius:14px;padding:24px;width:100%;max-width:400px;margin:20px;box-shadow:0 24px 64px rgba(0,0,0,.4);">
@@ -1787,6 +1799,47 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
         </div>
       </div>
 
+      <!-- Modal editar gasto cartão -->
+      <div id="cc-gasto-edit-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;">
+        <div style="background:#EEEAD6;border-radius:14px;padding:24px;width:100%;max-width:480px;margin:20px;box-shadow:0 24px 64px rgba(0,0,0,.4);">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+            <div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#1D3828;text-transform:uppercase;">✏️ Editar Gasto</div>
+            <button onclick="fecharModalEditGasto()" style="background:rgba(224,92,92,.1);border:1px solid rgba(224,92,92,.25);color:#e05c5c;width:28px;height:28px;border-radius:7px;cursor:pointer;font-size:14px;font-weight:700;">✕</button>
+          </div>
+          <input type="hidden" id="cc-edit-id">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+            <div class="fin-field" style="grid-column:1/-1">
+              <label>Descrição</label>
+              <input class="fin-inp" id="cc-edit-desc" type="text" placeholder="Descrição">
+            </div>
+            <div class="fin-field">
+              <label>Tipo de Gasto</label>
+              <select class="fin-inp" id="cc-edit-grupo" onchange="onCcEditGrupoChange()">
+                <option value="">Selecione...</option>
+              </select>
+            </div>
+            <div class="fin-field">
+              <label>Categoria</label>
+              <select class="fin-inp" id="cc-edit-cat">
+                <option value="">Selecione o tipo</option>
+              </select>
+            </div>
+            <div class="fin-field">
+              <label>Valor (R$)</label>
+              <input class="fin-inp" id="cc-edit-valor" type="number" step="0.01" min="0">
+            </div>
+            <div class="fin-field">
+              <label>Data</label>
+              <input class="fin-inp" id="cc-edit-data" type="date">
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button class="fin-btn" onclick="confirmarEditGasto()" style="flex:1;">Salvar</button>
+            <button onclick="fecharModalEditGasto()" style="flex:1;background:transparent;border:1px solid rgba(29,56,40,.2);color:#638968;padding:9px 18px;border-radius:7px;cursor:pointer;font-family:var(--f);font-size:11px;font-weight:600;">Cancelar</button>
+          </div>
+        </div>
+      </div>
+
       <!-- Form lançamento no cartão -->
       <div class="fin-form-box">
         <div class="fin-form-title">➕ Novo Gasto no Cartão</div>
@@ -1796,18 +1849,15 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
             <input class="fin-inp fin-inp-w" id="cc-lanc-desc" type="text" placeholder="Ex: Supermercado, Restaurante...">
           </div>
           <div class="fin-field">
+            <label>Tipo de Gasto</label>
+            <select class="fin-inp fin-inp-s" id="cc-lanc-grupo" onchange="onCcGrupoChange()">
+              <option value="" disabled selected>Selecione...</option>
+            </select>
+          </div>
+          <div class="fin-field">
             <label>Categoria</label>
-            <select class="fin-inp fin-inp-s" id="cc-lanc-cat">
-              <option value="Alimentação">Alimentação</option>
-              <option value="Mercado">Mercado</option>
-              <option value="Moradia">Moradia</option>
-              <option value="Transporte">Transporte</option>
-              <option value="Saúde">Saúde</option>
-              <option value="Educação">Educação</option>
-              <option value="Lazer">Lazer</option>
-              <option value="Vestuário">Vestuário</option>
-              <option value="Assinaturas">Assinaturas</option>
-              <option value="Outros">Outros</option>
+            <select class="fin-inp fin-inp-s" id="cc-lanc-cat" disabled>
+              <option value="" disabled selected>Selecione o tipo primeiro</option>
             </select>
           </div>
           <div class="fin-field">
@@ -1837,8 +1887,8 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 
       <!-- Lista extrato -->
       <div class="cc-extrato-wrap">
-        <div class="cc-extrato-hdr" style="grid-template-columns:1fr 110px 100px 90px 50px;">
-          <div class="fh">Descrição / Categoria</div><div class="fh">Valor</div><div class="fh">Data</div><div class="fh">Fatura</div><div class="fh"></div>
+        <div class="cc-extrato-hdr" style="grid-template-columns:1fr 90px 90px 90px 70px;">
+          <div class="fh">Descrição / Categoria</div><div class="fh">Valor</div><div class="fh">Data</div><div class="fh">Fatura</div><div class="fh">Ações</div>
         </div>
         <div id="cc-extrato-rows"><div class="fin-empty">Nenhum gasto lançado neste cartão.</div></div>
       </div>
@@ -2668,6 +2718,8 @@ function restaurarNavegacao(){
       irParaFinanceiro(nav.aba||'lancamentos');
     } else if(nav.modulo==='projetovida'){
       irParaProjetoVida();
+    } else if(nav.modulo==='projetovida'){
+      irParaProjetoVida();
     } else if(nav.modulo==='simulador'){
       irParaSimulador();
     }
@@ -3161,7 +3213,7 @@ function finTab(tab, btn){
   }
   if(tab==='relatorios') renderRelatorios();
   if(tab==='orcamento') renderOrcamento();
-  if(tab==='cartoes'){ renderCartoesGrid(); verificarFaturas(); }
+  if(tab==='cartoes'){ renderCartoesGrid(); verificarFaturas(); setTimeout(inicializarFormCartao,100); }
   if(tab==='renda'){ renderPerfilRenda(); }
   if(tab==='objetivos'){ renderObjetivos(); }
   if(tab==='aposentadoria'){ if(objetivos.length>0&&document.getElementById('apos-resultado').style.display==='block') calcularAposentadoria(); }
@@ -3257,6 +3309,22 @@ function onTipoLancChange(){
   if(natureza) natureza.style.display = tipo==='receita' ? 'flex' : 'none';
 }
 
+// Natureza sugerida automaticamente por grupo de receita
+const NATUREZA_POR_GRUPO = {
+  'Trabalho':           'recorrente',
+  'Patrimônio':         'eventual',
+  'Investimentos':      'recorrente',
+  'Outros Rendimentos': 'eventual',
+};
+
+// Dicas por grupo para o hint visual
+const HINT_POR_GRUPO = {
+  'Trabalho':           '— entra na média mensal',
+  'Patrimônio':         '— NÃO entra na média mensal',
+  'Investimentos':      '— entra na média mensal',
+  'Outros Rendimentos': '— NÃO entra na média mensal',
+};
+
 function onGrupoLancChange(){
   const tipo   = document.getElementById('lanc-tipo').value;
   const grupo  = document.getElementById('lanc-grupo').value;
@@ -3268,6 +3336,16 @@ function onGrupoLancChange(){
   catSel.innerHTML = '<option value="" disabled selected>Selecione...</option>'
     + cats.map(c=>'<option value="'+c+'">'+c+'</option>').join('');
   catSel.disabled = false;
+
+  // Para receita: sugerir natureza automaticamente pelo grupo e mostrar hint
+  if(tipo==='receita'){
+    const natSel  = document.getElementById('lanc-natureza');
+    const natHint = document.getElementById('lanc-natureza-hint');
+    const natAuto = NATUREZA_POR_GRUPO[grupo];
+    const hintTxt = HINT_POR_GRUPO[grupo]||'';
+    if(natSel && natAuto) natSel.value = natAuto;
+    if(natHint) natHint.textContent = hintTxt;
+  }
 }
 
 // Manter compatibilidade com chamadas antigas
@@ -3355,7 +3433,8 @@ function preencherGruposModal(tipoEl, grupoEl, catEl, tipoVal, grupoVal, catVal)
 
 // ── Editar Lançamento ──
 function editarLancamento(elOuId){
-  const id = (typeof elOuId==='string') ? elOuId : elOuId.dataset.id;
+  const id = (typeof elOuId==='string') ? elOuId : (elOuId.dataset ? elOuId.dataset.id : elOuId);
+  if(!id){ console.error('editarLancamento: id não encontrado', elOuId); return; }
   const l = lancamentos.find(x=>x.id===id);
   if(!l) return;
   const grupo = getGrupoDaCategoria(l.tipo, l.categoria);
@@ -3393,6 +3472,12 @@ function onLancEditGrupoChange(){
   if(grupo && grupos[grupo]){
     catEl.innerHTML = '<option value="">Selecione...</option>'
       + grupos[grupo].map(c=>'<option value="'+c+'">'+c+'</option>').join('');
+  }
+  // Sugerir natureza pelo grupo
+  if(tipo==='receita'){
+    const natSel = document.getElementById('lanc-edit-natureza');
+    const natAuto = NATUREZA_POR_GRUPO[grupo];
+    if(natSel && natAuto) natSel.value = natAuto;
   }
 }
 async function confirmarEditLanc(){
@@ -3900,6 +3985,70 @@ async function loadCartoes(){
 // ── Grid de cartões ──
 let cartaoAtivoId = null;
 
+// Inicializar grupos no form de cartão
+function inicializarFormCartao(){
+  const grupoSel = document.getElementById('cc-lanc-grupo');
+  if(!grupoSel || grupoSel.options.length > 1) return;
+  grupoSel.innerHTML = '<option value="" disabled selected>Selecione...</option>'
+    + Object.keys(GRUPOS_DESPESA).map(g=>'<option value="'+g+'">'+g+'</option>').join('');
+}
+
+function onCcGrupoChange(){
+  const grupo = document.getElementById('cc-lanc-grupo').value;
+  const catSel = document.getElementById('cc-lanc-cat');
+  if(!catSel || !grupo) return;
+  const cats = GRUPOS_DESPESA[grupo]||[];
+  catSel.innerHTML = '<option value="" disabled selected>Selecione...</option>'
+    + cats.map(c=>'<option value="'+c+'">'+c+'</option>').join('');
+  catSel.disabled = false;
+}
+
+function onCcEditGrupoChange(){
+  const grupo = document.getElementById('cc-edit-grupo').value;
+  const catSel = document.getElementById('cc-edit-cat');
+  if(!catSel || !grupo) return;
+  const cats = GRUPOS_DESPESA[grupo]||[];
+  catSel.innerHTML = '<option value="" disabled selected>Selecione...</option>'
+    + cats.map(c=>'<option value="'+c+'">'+c+'</option>').join('');
+}
+
+function editarGastoCartao(id){
+  const g = gastos_cartao.find(x=>x.id===id);
+  if(!g) return;
+  document.getElementById('cc-edit-id').value = id;
+  document.getElementById('cc-edit-desc').value = g.descricao.replace(/ \(\d+\/\d+\)$/,'');
+  document.getElementById('cc-edit-valor').value = g.valor;
+  document.getElementById('cc-edit-data').value = g.data;
+  // Preencher grupos
+  const grupoEl = document.getElementById('cc-edit-grupo');
+  const catEl = document.getElementById('cc-edit-cat');
+  const grupoAtual = getGrupoDaCategoria('despesa', g.categoria);
+  grupoEl.innerHTML = '<option value="">— Sem categoria —</option>'
+    + Object.keys(GRUPOS_DESPESA).map(gr=>'<option value="'+gr+'"'+(gr===grupoAtual?' selected':'')+'>'+gr+'</option>').join('');
+  if(grupoAtual && GRUPOS_DESPESA[grupoAtual]){
+    catEl.innerHTML = '<option value="">Selecione...</option>'
+      + GRUPOS_DESPESA[grupoAtual].map(c=>'<option value="'+c+'"'+(c===g.categoria?' selected':'')+'>'+c+'</option>').join('');
+  }
+  document.getElementById('cc-gasto-edit-modal').style.display='flex';
+}
+
+function fecharModalEditGasto(){
+  document.getElementById('cc-gasto-edit-modal').style.display='none';
+}
+
+async function confirmarEditGasto(){
+  const id = document.getElementById('cc-edit-id').value;
+  const desc = document.getElementById('cc-edit-desc').value.trim();
+  const cat = document.getElementById('cc-edit-cat').value || document.getElementById('cc-edit-grupo').value;
+  const valor = parseFloat(document.getElementById('cc-edit-valor').value)||0;
+  const data = document.getElementById('cc-edit-data').value;
+  if(!desc||valor<=0||!data){ alert('Preencha todos os campos.'); return; }
+  await sbUpdate('gastos_cartao', id, {descricao:desc, categoria:cat, valor, data});
+  gastos_cartao = gastos_cartao.map(g=>g.id===id?{...g,descricao:desc,categoria:cat,valor,data}:g);
+  fecharModalEditGasto();
+  renderCartoesGrid();
+}
+
 function renderCartoesGrid(){
   const grid = document.getElementById('cc-grid');
   if(!grid) return;
@@ -4038,7 +4187,7 @@ function renderExtrato(){
 
   document.getElementById('cc-extrato-rows').innerHTML = gastosMes.map(g => {
     const parcelaInfo = g.total_parcelas > 1 ? ` <span style="font-size:9px;color:#638968;">(${g.parcela}/${g.total_parcelas})</span>` : '';
-    return `<div class="cc-extrato-row" style="grid-template-columns:1fr 110px 100px 90px 50px;">
+    return `<div class="cc-extrato-row" style="grid-template-columns:1fr 90px 90px 90px 70px;">
       <div class="fd" style="flex-direction:column;align-items:flex-start;gap:2px;">
         <span>${g.descricao}${parcelaInfo}</span>
         <span style="font-size:10px;color:#638968;">${g.categoria}</span>
@@ -4046,7 +4195,10 @@ function renderExtrato(){
       <div class="fd mono neg">R$ ${Number(g.valor).toLocaleString('pt-BR',{minimumFractionDigits:2})}</div>
       <div class="fd" style="font-size:11px;color:#638968;">${fmtData(g.data)}</div>
       <div class="fd"><span class="fin-tag ${g.fatura_fechada?'tag-ok':'tag-d'}" style="font-size:9px;">${g.fatura_fechada?'Fechada':'Aberta'}</span></div>
-      <div class="fd"><button class="fin-rm" onclick="delGastoCartao('${g.id}')">✕</button></div>
+      <div class="fd" style="display:flex;gap:3px;">
+        <button class="fin-rm" style="background:rgba(99,137,104,.1);border-color:rgba(99,137,104,.3);color:#355E3B;" onclick="editarGastoCartao('${g.id}')" title="Editar">✏️</button>
+        <button class="fin-rm" onclick="delGastoCartao('${g.id}',${g.total_parcelas>1?'true':'false'})" title="Excluir">✕</button>
+      </div>
     </div>`;
   }).join('');
 }
@@ -4070,7 +4222,7 @@ async function addGastoCartao(){
   const cartao = cartoes.find(c => c.id === cartaoAtivoId);
   if(!cartao){ alert('Selecione um cartão.'); return; }
   const desc     = document.getElementById('cc-lanc-desc').value.trim();
-  const cat      = document.getElementById('cc-lanc-cat').value;
+  const cat      = document.getElementById('cc-lanc-cat').value || document.getElementById('cc-lanc-grupo').value;
   const valor    = parseFloat(document.getElementById('cc-lanc-valor').value)||0;
   const data     = document.getElementById('cc-lanc-data').value;
   const parcelas = parseInt(document.getElementById('cc-lanc-parcelas').value)||1;
@@ -4108,6 +4260,10 @@ async function addGastoCartao(){
   if(ok){
     document.getElementById('cc-lanc-desc').value = '';
     document.getElementById('cc-lanc-valor').value = '';
+    const ccGSel=document.getElementById('cc-lanc-grupo');
+    const ccCSel=document.getElementById('cc-lanc-cat');
+    if(ccGSel){ccGSel.selectedIndex=0;}
+    if(ccCSel){ccCSel.innerHTML='<option value="" disabled selected>Selecione o tipo primeiro</option>';ccCSel.disabled=true;}
     await loadCartoes(); // recarrega para garantir dados atualizados
     // Após reload, selecionar o mês da última compra para mostrar no extrato
     if(inserts.length > 0){
@@ -4129,10 +4285,32 @@ async function addGastoCartao(){
   } else { alert('Erro ao salvar gasto. Verifique o console (F12).'); }
 }
 
-async function delGastoCartao(id){
-  if(!confirm('Excluir este gasto?')) return;
-  await sbDelete('gastos_cartao', id);
-  gastos_cartao = gastos_cartao.filter(g => g.id !== id);
+async function delGastoCartao(id, temParcelas){
+  const gasto = gastos_cartao.find(g=>g.id===id);
+  if(!gasto) return;
+  const ehParcelado = (gasto.total_parcelas||1)>1;
+  if(ehParcelado){
+    const excluirTodas = confirm('Este gasto tem '+gasto.total_parcelas+' parcelas. OK = excluir TODAS | Cancelar = excluir somente esta');
+    if(excluirTodas){
+      const descBase = gasto.descricao.replace(/ \(\d+\/\d+\)$/,'');
+      const todasParcelas = gastos_cartao.filter(g=>
+        g.cartao_id===gasto.cartao_id &&
+        g.total_parcelas===gasto.total_parcelas &&
+        g.descricao.replace(/ \(\d+\/\d+\)$/,'')===descBase &&
+        g.data===gasto.data
+      );
+      for(const p of todasParcelas) await sbDelete('gastos_cartao', p.id);
+      gastos_cartao = gastos_cartao.filter(g=>!todasParcelas.some(p=>p.id===g.id));
+    } else {
+      if(!confirm('Confirmar exclusão apenas desta parcela?')) return;
+      await sbDelete('gastos_cartao', id);
+      gastos_cartao = gastos_cartao.filter(g=>g.id!==id);
+    }
+  } else {
+    if(!confirm('Excluir este gasto?')) return;
+    await sbDelete('gastos_cartao', id);
+    gastos_cartao = gastos_cartao.filter(g=>g.id!==id);
+  }
   renderCartoesGrid();
 }
 
@@ -5428,38 +5606,155 @@ function renderPerfilRenda(){
 // ══════════════════════════════════════════
 
 // Navegar para o módulo
-function irParaProjetoVida(){
+async function irParaProjetoVida(){
   document.getElementById('hub-screen').style.display='none';
   document.getElementById('pv-app').style.display='flex';
   document.getElementById('pv-user-name').textContent =
     document.getElementById('hub-user-name').textContent.replace('Olá, ','').split('<')[0].trim();
   salvarNavegacao('projetovida');
+  // Garantir que os dados estão carregados antes de preencher
+  const promessas = [];
+  if(!lancamentos || !lancamentos.length) promessas.push(loadLancamentos());
+  if(!fontes_renda || !fontes_renda.length) promessas.push(loadFontesRenda());
+  if(!objetivos || !objetivos.length) promessas.push(loadObjetivos());
+  if(promessas.length) await Promise.all(promessas);
   preencherDadosAutomaticos();
+  setTimeout(restaurarProjetoVida, 300);
 }
 
-// Preencher campos com dados já inseridos no Controle Financeiro
+// Preencher campos com dados reais do Controle Financeiro (memória, não inputs visuais)
 function preencherDadosAutomaticos(){
-  // Idade: tenta pegar do campo de aposentadoria se já preenchido
-  const idadeAposEl = document.getElementById('ap-idade');
-  const idadeEl     = document.getElementById('ap-idade');
-  if(idadeAposEl && idadeAposEl.value) document.getElementById('pv-idade').value = document.getElementById('ap-idade').value || '';
-  const apIdadeApos = document.getElementById('ap-idade-apos');
-  if(apIdadeApos && apIdadeApos.value) document.getElementById('pv-idade-apos').value = apIdadeApos.value;
-  const apExp = document.getElementById('ap-expectativa');
-  if(apExp && apExp.value) document.getElementById('pv-expectativa').value = apExp.value;
-  const apRendaDesej = document.getElementById('ap-renda-desejada');
-  if(apRendaDesej && apRendaDesej.value) document.getElementById('pv-renda-apos').value = apRendaDesej.value;
-  const apTaxa = document.getElementById('ap-taxa');
-  if(apTaxa && apTaxa.value) document.getElementById('pv-taxa').value = apTaxa.value;
-  const apInflacao = document.getElementById('ap-inflacao');
-  if(apInflacao && apInflacao.value) document.getElementById('pv-inflacao').value = apInflacao.value;
-  const apPatr = document.getElementById('ap-patrimonio');
-  if(apPatr && apPatr.value) document.getElementById('pv-patrimonio').value = apPatr.value;
-  const apAporte = document.getElementById('ap-aporte');
-  if(apAporte && apAporte.value) document.getElementById('pv-aporte').value = apAporte.value;
+  let preenchidos = 0;
+
+  // 1. Renda de referência → aporte sugerido (20% da renda como ponto de partida)
+  const rendaRef = (typeof getRendaReferencia === 'function') ? getRendaReferencia() : 0;
+  if(rendaRef > 0){
+    const aporteEl = document.getElementById('pv-aporte');
+    if(aporteEl && !aporteEl.value){
+      aporteEl.value = Math.round(rendaRef * 0.20 / 100) * 100; // 20% da renda, arredondado
+      preenchidos++;
+    }
+  }
+
+  // 2. Despesa média últimos 3 meses → reserva de emergência (6x despesas)
+  const hoje = new Date();
+  let somaDespesas = 0; let mesesDesp = 0;
+  for(let i=0; i<3; i++){
+    const d = new Date(hoje.getFullYear(), hoje.getMonth()-i, 1);
+    const str = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+    const despMes = (lancamentos||[]).filter(l=>l.tipo==='despesa'&&l.data&&l.data.startsWith(str))
+                                      .reduce((s,l)=>s+Number(l.valor),0);
+    if(despMes>0){ somaDespesas+=despMes; mesesDesp++; }
+  }
+  const despMedia = mesesDesp>0 ? somaDespesas/mesesDesp : 0;
+
+  // 3. Patrimônio: usar soma do guardado nos objetivos como proxy se não tiver dado melhor
+  // (o usuário deve preencher manualmente o que tem investido)
+
+  // 4. Tentar ler campos da aba Aposentadoria SE já preenchidos
+  const campos = [
+    ['ap-idade',         'pv-idade'],
+    ['ap-idade-apos',    'pv-idade-apos'],
+    ['ap-expectativa',   'pv-expectativa'],
+    ['ap-renda-desejada','pv-renda-apos'],
+    ['ap-taxa',          'pv-taxa'],
+    ['ap-inflacao',      'pv-inflacao'],
+    ['ap-patrimonio',    'pv-patrimonio'],
+    ['ap-aporte',        'pv-aporte'],
+  ];
+  campos.forEach(([origem, destino]) => {
+    const el = document.getElementById(origem);
+    const dest = document.getElementById(destino);
+    if(el && dest && el.value && !dest.value){
+      dest.value = el.value;
+      preenchidos++;
+    }
+  });
+
+  // 5. Feedback ao usuário
+  if(preenchidos > 0){
+    // Flash visual no botão
+    const btn = document.querySelector('[onclick="preencherDadosAutomaticos()"]');
+    if(btn){
+      const orig = btn.textContent;
+      btn.textContent = '✅ '+preenchidos+' campo(s) preenchido(s)!';
+      btn.style.color = '#2a7a2a';
+      setTimeout(()=>{ btn.textContent=orig; btn.style.color=''; }, 2500);
+    }
+  } else {
+    // Nenhum dado encontrado — orientar o usuário
+    const btn = document.querySelector('[onclick="preencherDadosAutomaticos()"]');
+    if(btn){
+      const orig = btn.textContent;
+      btn.textContent = '⚠️ Preencha o Controle Financeiro primeiro';
+      btn.style.color = '#e05c5c';
+      setTimeout(()=>{ btn.textContent=orig; btn.style.color=''; }, 3000);
+    }
+    // Tentar carregar dados se ainda não carregados
+    if(userEmail && (!lancamentos || !lancamentos.length)){
+      loadLancamentos();
+      loadFontesRenda();
+      loadObjetivos();
+    }
+  }
 }
 
 // Cálculo principal
+// ── Salvar / Restaurar / Refazer Projeto de Vida ──
+async function salvarProjetoVida(){
+  const pvInputs = ['pv-idade','pv-idade-apos','pv-expectativa','pv-renda-apos','pv-taxa','pv-inflacao','pv-patrimonio','pv-aporte','pv-reserva-meses'];
+  const dados = {};
+  pvInputs.forEach(id=>{ const el=document.getElementById(id); if(el) dados[id]=el.value; });
+  dados._salvo_em = new Date().toISOString();
+  localStorage.setItem('apard_pv_salvo', JSON.stringify(dados));
+  // Salvar também no Supabase se disponível
+  if(userEmail){
+    try{
+      const existe = await sbQuery('projeto_vida?user_email=eq.'+encodeURIComponent(userEmail));
+      if(existe && existe.length>0){
+        await sbUpdate('projeto_vida', existe[0].id, {dados: JSON.stringify(dados)});
+      } else {
+        await sbInsert('projeto_vida', {user_email: userEmail, dados: JSON.stringify(dados)});
+      }
+    }catch(e){ /* tabela ainda não criada — usa só localStorage */ }
+  }
+  const btn = document.querySelector('[onclick="salvarProjetoVida()"]');
+  if(btn){ const t=btn.textContent; btn.textContent='✅ Projeto salvo!'; btn.style.color='#2a7a2a'; setTimeout(()=>{btn.textContent=t;btn.style.color='';},2000); }
+}
+
+function refazerProjetoVida(){
+  if(!confirm('Deseja limpar os dados e refazer o cálculo do Projeto de Vida?')) return;
+  localStorage.removeItem('apard_pv_salvo');
+  localStorage.removeItem('apard_pv_inputs');
+  ['pv-idade','pv-idade-apos','pv-expectativa','pv-renda-apos','pv-taxa','pv-inflacao','pv-patrimonio','pv-aporte','pv-reserva-meses'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.value='';
+  });
+  // Restaurar defaults
+  document.getElementById('pv-taxa').value='10';
+  document.getElementById('pv-inflacao').value='5';
+  document.getElementById('pv-reserva-meses').value='6';
+  document.getElementById('pv-resultado').style.display='none';
+  document.getElementById('pv-aporte-extra').value='';
+  document.getElementById('pv-simulacao-extra').innerHTML='';
+  window._pvDados=null;
+}
+
+function restaurarProjetoVida(){
+  // Tentar restaurar do Supabase primeiro, depois localStorage
+  const salvo = localStorage.getItem('apard_pv_salvo') || localStorage.getItem('apard_pv_inputs');
+  if(!salvo) return;
+  try{
+    const dados = JSON.parse(salvo);
+    Object.entries(dados).forEach(([id, val])=>{
+      if(id.startsWith('pv-')){ const el=document.getElementById(id); if(el) el.value=val; }
+    });
+    // Se tinha cálculo salvo, recalcular automaticamente
+    const pvIdade = document.getElementById('pv-idade');
+    if(pvIdade && pvIdade.value) calcularProjetoVida();
+  }catch(e){}
+}
+
 function calcularProjetoVida(){
   const idadeAtual  = parseInt(document.getElementById('pv-idade').value)||0;
   const idadeApos   = parseInt(document.getElementById('pv-idade-apos').value)||65;
@@ -5511,7 +5806,10 @@ function calcularProjetoVida(){
   patrimonioParaApos = patrimonioParaApos / (1-0.15*0.6);
 
   // ── Parte 2: Total dos objetivos de vida ──
-  const totalObjetivos = objetivos.reduce((s,o)=>s+Math.max(0,Number(o.valor_total)-(Number(o.guardado)||0)),0);
+  // Usa valor_total inteiro — representa o custo real do sonho no projeto de vida
+  const totalObjetivos = objetivos.reduce((s,o)=>s+Number(o.valor_total),0);
+  // Custo de padrão de vida até aposentadoria (contextual — vem do trabalho)
+  const custoPadraoVida = despesaMedia * mesesAcum;
 
   // ── Parte 3: Reserva de emergência necessária ──
   const despBase = despesaMedia>0 ? despesaMedia : (rendaRef*0.7);
@@ -5564,7 +5862,8 @@ function calcularProjetoVida(){
   document.getElementById('pv-total-aposentadoria').textContent = fmtR(patrimonioParaApos);
   document.getElementById('pv-total-reserva').textContent = fmtR(reservaFalta);
   document.getElementById('pv-numero-sub').textContent =
-    'Soma do patrimônio para aposentadoria + seus '+objetivos.length+' objetivo(s) de vida + reserva de emergência';
+    'Aposentadoria + '+objetivos.length+' sonho(s) + reserva de segurança.'
+    +(despesaMedia>0?' Seu padrão de vida até a aposentadoria: '+fmtR(custoPadraoVida)+' (vem do trabalho)':'');
 
   // ── Linha do Tempo ──
   const tlItens = [{ ano: anoAtual, lbl: 'Hoje', val: fmtR(patrimonioAtual), hoje: true }];
@@ -5611,7 +5910,10 @@ function calcularProjetoVida(){
     ritmoHtml += '<div class="pv-ritmo-bar">'
       +'<div class="pv-ritmo-lbl">'+b.lbl+'</div>'
       +'<div class="pv-ritmo-bg"><div class="pv-ritmo-fill" style="width:'+pct+'%;background:'+b.cor+'"></div></div>'
-      +'<div class="pv-ritmo-val">'+fmtR(b.atual)+' / '+fmtR(b.meta)+'</div>'
+      +'<div class="pv-ritmo-val">'
+        +'<span style="font-size:9px;color:'+b.cor+';font-weight:700;">'+pct.toFixed(0)+'%</span>'
+        +' — '+fmtR(b.atual)+' / '+fmtR(b.meta)
+      +'</div>'
       +'</div>';
   });
   ritmoHtml += '</div>';
@@ -5681,6 +5983,11 @@ function calcularProjetoVida(){
 
   // Guardar dados para simulação extra
   window._pvDados = { patrimonioAtual, tm, mesesAcum, numeroTotal, anosAcum, anoAtual, rendaRef };
+  // Auto-salvar os inputs no localStorage para restaurar no F5
+  const pvInputs = ['pv-idade','pv-idade-apos','pv-expectativa','pv-renda-apos','pv-taxa','pv-inflacao','pv-patrimonio','pv-aporte','pv-reserva-meses'];
+  const pvSaved = {};
+  pvInputs.forEach(id=>{ const el=document.getElementById(id); if(el) pvSaved[id]=el.value; });
+  localStorage.setItem('apard_pv_inputs', JSON.stringify(pvSaved));
 
   document.getElementById('pv-resultado').style.display='block';
 }
