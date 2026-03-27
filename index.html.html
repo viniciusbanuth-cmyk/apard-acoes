@@ -37,25 +37,63 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 .login-footer{font-size:10px;color:rgba(99,137,104,.5);margin-top:20px;font-family:var(--fd);font-style:italic;}
 
 /* ── HUB ── */
-#hub-screen{display:none;min-height:100vh;background:linear-gradient(135deg,#070E09 0%,#0E1912 50%,#122018 100%);padding:20px;flex-direction:column;align-items:center;justify-content:center;}
-.hub-logo{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:12px;}
-.hub-brand{font-size:28px;font-weight:700;letter-spacing:5px;color:#EEEAD6;}
-.hub-sub{font-size:9px;color:#C8B560;letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
-.hub-title{font-family:var(--fd);font-size:18px;font-weight:300;font-style:italic;color:rgba(238,234,214,.6);margin-bottom:48px;text-align:center;}
-.hub-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;width:100%;max-width:860px;}
-.hub-card{background:rgba(255,255,255,.04);border:1px solid rgba(200,181,96,.18);border-radius:18px;padding:36px 28px;text-align:center;cursor:pointer;transition:all .25s;}
+#hub-screen{display:none;min-height:100vh;background:linear-gradient(135deg,#070E09 0%,#0E1912 50%,#122018 100%);padding:32px 24px 40px;flex-direction:column;align-items:center;justify-content:flex-start;}
+/* HUB — layout reestruturado */
+.hub-topbar{width:100%;max-width:1100px;display:flex;align-items:center;justify-content:space-between;padding:0 0 32px 0;}
+.hub-logo{display:flex;align-items:center;gap:12px;}
+.hub-brand{font-size:22px;font-weight:700;letter-spacing:4px;color:#EEEAD6;line-height:1;}
+.hub-sub{font-size:8px;color:#C8B560;letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.hub-user-area{display:flex;align-items:center;gap:10px;}
+.hub-user{font-size:12px;color:rgba(238,234,214,.6);font-weight:400;margin-bottom:0;}
+.hub-logout{font-size:10px;color:rgba(99,137,104,.55);border:1px solid rgba(99,137,104,.2);padding:4px 12px;border-radius:12px;cursor:pointer;transition:all .2s;}
+.hub-logout:hover{color:#EEEAD6;border-color:rgba(200,181,96,.4);}
+.hub-title{font-family:var(--fd);font-size:18px;font-weight:300;font-style:italic;color:rgba(238,234,214,.5);margin-bottom:36px;text-align:center;}
+.hub-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;width:100%;max-width:1000px;}
+.hub-card{background:rgba(255,255,255,.04);border:1px solid rgba(200,181,96,.18);border-radius:18px;padding:32px 22px;text-align:center;cursor:pointer;transition:all .25s;}
 .hub-card:hover{background:rgba(200,181,96,.08);border-color:rgba(200,181,96,.45);transform:translateY(-3px);}
-.hub-card-ico{font-size:36px;margin-bottom:16px;}
-.hub-card-title{font-size:16px;font-weight:700;letter-spacing:1px;color:#EEEAD6;margin-bottom:8px;}
-.hub-card-desc{font-size:11px;color:rgba(99,137,104,.7);line-height:1.7;font-weight:300;}
-.hub-footer{font-size:10px;color:rgba(99,137,104,.35);margin-top:36px;font-family:var(--fd);font-style:italic;}
-.hub-user{font-size:11px;color:rgba(99,137,104,.5);margin-bottom:32px;text-align:center;}
-.hub-logout{font-size:10px;color:rgba(99,137,104,.4);border:1px solid rgba(99,137,104,.15);padding:4px 12px;border-radius:12px;cursor:pointer;margin-left:10px;transition:all .2s;}
-.hub-logout:hover{color:#EEEAD6;border-color:rgba(200,181,96,.3);}
+.hub-card-ico{font-size:34px;margin-bottom:14px;}
+.hub-card-title{font-size:15px;font-weight:700;letter-spacing:.5px;color:#EEEAD6;margin-bottom:8px;}
+.hub-card-desc{font-size:11px;color:rgba(99,137,104,.65);line-height:1.7;font-weight:300;}
+.hub-footer{font-size:10px;color:rgba(99,137,104,.3);margin-top:32px;font-family:var(--fd);font-style:italic;}
+/* BÚSSOLA FINANCEIRA */
+.bussola-wrap{width:100%;max-width:620px;margin-top:28px;}
+.bussola-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:20px 24px;position:relative;overflow:hidden;}
+.bussola-box::before{content:'';position:absolute;inset:0;border-radius:18px;background:var(--bussola-grad,transparent);opacity:.06;pointer-events:none;}
+.bussola-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.bussola-titulo{font-size:9px;letter-spacing:2px;color:rgba(200,181,96,.55);text-transform:uppercase;font-weight:600;}
+.bussola-data{font-size:9px;color:rgba(99,137,104,.4);font-style:italic;}
+.bussola-main{display:flex;align-items:center;gap:20px;}
+.bussola-gauge{flex-shrink:0;width:80px;height:80px;position:relative;}
+.bussola-gauge svg{width:80px;height:80px;}
+.bussola-score-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.bussola-pts{font-family:var(--fd);font-size:22px;font-weight:300;line-height:1;}
+.bussola-max{font-size:8px;color:rgba(238,234,214,.35);margin-top:1px;}
+.bussola-info{flex:1;}
+.bussola-status{font-family:var(--fd);font-size:16px;font-weight:300;font-style:italic;margin-bottom:10px;}
+.bussola-itens{display:flex;flex-direction:column;gap:5px;}
+.bussola-item{display:flex;align-items:center;gap:7px;font-size:11px;color:rgba(238,234,214,.55);}
+.bussola-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
 /* ── PLATAFORMA ── */
 #app{display:none;}
 /* ── SIMULADOR ── */
-
+  /* Variáveis locais do simulador */
+  #sim-app {
+    --green-dark: #1D3828;
+    --green-mid:  #355E3B;
+    --sage:       #638968;
+    --gold:       #C8B560;
+    --cream:      #EEEAD6;
+    --cream-dark: #DDD9BF;
+    --white:      #FAFAF7;
+    --text-light: #638968;
+    --text-mid:   #4a7050;
+    --shadow-sm:  0 2px 12px rgba(29,56,40,.10);
+    --shadow-md:  0 6px 24px rgba(29,56,40,.16);
+    --shadow-lg:  0 12px 40px rgba(29,56,40,.22);
+    --radius-lg:  16px;
+    --transition: all .2s ease;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
 
   /* HEADER */
   .site-header {
@@ -359,11 +397,74 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
     display: inline-flex; align-items: center; gap: 6px;
     padding: 9px 18px; background: transparent;
     border: 1.5px solid rgba(29,56,40,.25); border-radius: 8px;
-    font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 600;
     color: var(--text-mid); cursor: pointer; transition: var(--transition);
     letter-spacing: .3px; white-space: nowrap; flex-shrink: 0;
   }
   .btn-voltar:hover { border-color: var(--green-mid); color: var(--green-dark); background: rgba(29,56,40,.05); }
+
+  /* TÍTULO COM FRAUNCES (como o resto do sistema) */
+  .panel-title { font-family: 'Fraunces', serif !important; font-style: italic; }
+  .result-highlight-value { font-family: 'Fraunces', serif !important; font-style: italic; }
+  .sim-rc-main { font-family: 'Fraunces', serif !important; font-style: italic; }
+  .menu-box .mb-title { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+  /* TEXTO EDUCATIVO NOS PANELS */
+  .edu-box {
+    background: rgba(200,181,96,.07);
+    border: 1px solid rgba(200,181,96,.25);
+    border-radius: 10px;
+    padding: 13px 16px;
+    margin-bottom: 20px;
+    font-size: 12.5px;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+  .edu-box strong { color: var(--green-dark); font-weight: 700; }
+
+  /* BENCHMARKS DE MERCADO */
+  .benchmark-box {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--cream-dark);
+    padding: 16px 18px;
+    margin-top: 18px;
+  }
+  .benchmark-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--text-light);
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .benchmark-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  }
+  .bench-item {
+    background: var(--cream); border-radius: 8px; padding: 10px 10px;
+    text-align: center; border: 1px solid rgba(29,56,40,.07);
+  }
+  .bench-name { font-size: 10px; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 5px; }
+  .bench-val { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 400; font-style: italic; color: var(--green-dark); }
+  .bench-sub { font-size: 10px; color: var(--text-light); margin-top: 2px; }
+  .bench-item.bench-highlight { background: linear-gradient(135deg, var(--green-dark), var(--green-mid)); border: none; }
+  .bench-item.bench-highlight .bench-name { color: rgba(238,234,214,.65); }
+  .bench-item.bench-highlight .bench-val { color: var(--gold); }
+  .bench-item.bench-highlight .bench-sub { color: rgba(238,234,214,.5); }
+  .bench-note { font-size: 10px; color: var(--text-light); margin-top: 10px; font-style: italic; line-height: 1.5; }
+
+  /* BENCHMARK LOADING */
+  .bench-val.loading { color: var(--text-light); font-style: normal; font-size: 13px; }
+  .bench-val.erro { color: #e05c5c; font-size: 11px; font-style: normal; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+  .bench-val.loading { animation: blink 1.2s ease-in-out infinite; }
+  .bench-status-ok { color: var(--text-light); font-size: 9px; }
+  .bench-status-cache { color: var(--gold); font-size: 9px; }
+
+  /* TAG RESULTADO PRAZO formato humano */
+  .prazo-humanizado {
+    font-size: 13px; font-weight: 600; color: var(--sage);
+    margin-top: 4px; font-family: 'Plus Jakarta Sans', sans-serif;
+  }
 
 
 
@@ -688,7 +789,7 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 .cat-name{font-size:12px;color:#638968;}
 .cat-val{font-family:var(--fd);font-size:13px;color:#1D3828;}
 @media(max-width:768px){
-  .hub-cards{grid-template-columns:1fr;}
+  .hub-cards{grid-template-columns:1fr 1fr;}.hub-topbar{flex-direction:column;gap:12px;align-items:flex-start;}
   .fin-summary{grid-template-columns:1fr 1fr;}
   .orc-grid{grid-template-columns:1fr 1fr;}
   .rel-cards{grid-template-columns:1fr;}
@@ -931,22 +1032,55 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 
 <!-- ══════════════════ HUB ══════════════════ -->
 <div id="hub-screen">
-  <div class="hub-logo">
-    <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50 5 L88 22 L88 58 Q88 82 50 95 Q12 82 12 58 L12 22 Z" fill="none" stroke="#638968" stroke-width="2.5" opacity=".65"/>
-      <path d="M50 18 L36 72 L41 72 L50 40 L59 72 L64 72 Z" fill="#355E3B"/>
-      <path d="M50 18 L33 72 L40 72 L50 36 L60 72 L67 72 Z" fill="#1D3828" opacity=".7"/>
-      <rect x="39" y="56" width="5" height="16" fill="#355E3B" opacity=".8"/>
-      <rect x="47" y="51" width="5" height="21" fill="#638968" opacity=".9"/>
-      <rect x="55" y="46" width="5" height="26" fill="#638968"/>
-      <line x1="22" y1="77" x2="78" y2="26" stroke="#C8B560" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
-      <polygon points="78,26 64,29 70,37" fill="#C8B560" opacity=".85"/>
-    </svg>
-    <div><div class="hub-brand">APARD</div><div class="hub-sub">Plataforma de Investimentos</div></div>
+
+  <!-- TOPBAR: logo esquerda, usuário direita -->
+  <div class="hub-topbar">
+    <div class="hub-logo">
+<svg width="46" height="46" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lgA_hub" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#1D3828"/>
+      <stop offset="100%" stop-color="#2a5038"/>
+    </linearGradient>
+    <linearGradient id="lgArrow_hub" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#638968" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#EEEAD6" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <!-- Escudo externo aberto (como no PDF) -->
+  <path d="M100 12 L172 42 L172 108 Q172 160 100 188 Q28 160 28 108 L28 42 Z"
+    fill="none" stroke="#638968" stroke-width="5" opacity="0.5" stroke-linejoin="round"/>
+  <!-- Letra A - parte esquerda -->
+  <polygon points="100,26 58,158 78,158 100,82 122,158 142,158"
+    fill="url(#lgA_hub)"/>
+  <!-- Abertura interna do A (v branco/transparente) -->
+  <polygon points="100,100 86,158 114,158" fill="#0E1912"/>
+  <!-- Barras de gráfico crescentes (dentro do A, tom sage) -->
+  <rect x="72" y="136" width="10" height="22" rx="2" fill="#638968" opacity="0.65"/>
+  <rect x="86" y="126" width="10" height="32" rx="2" fill="#638968" opacity="0.75"/>
+  <rect x="100" y="116" width="10" height="42" rx="2" fill="#638968" opacity="0.85"/>
+  <rect x="114" y="106" width="10" height="52" rx="2" fill="#638968" opacity="0.70"/>
+  <!-- Seta diagonal (característica principal — creme/sage) -->
+  <line x1="42" y1="162" x2="170" y2="46"
+    stroke="url(#lgArrow_hub)" stroke-width="9" stroke-linecap="round" opacity="0.92"/>
+  <!-- Ponta da seta -->
+  <polygon points="170,46 148,56 156,72" fill="#EEEAD6" opacity="0.88"/>
+</svg>
+      <div>
+        <div class="hub-brand">APARD</div>
+        <div class="hub-sub">Plataforma de Investimentos</div>
+      </div>
+    </div>
+    <div class="hub-user-area">
+      <div class="hub-user" id="hub-user-name">Olá!</div>
+      <span class="hub-logout" onclick="doLogout()">Sair</span>
+    </div>
   </div>
-  <div class="hub-user" id="hub-user-name">Olá! <span class="hub-logout" onclick="doLogout()">Sair</span></div>
+
   <div class="hub-title">Escolha o módulo que deseja acessar</div>
-  <div class="hub-cards" style="grid-template-columns:repeat(4,1fr);">
+
+  <!-- CARDS (4 iguais — sem destaque amarelo no Projeto de Vida) -->
+  <div class="hub-cards">
     <div class="hub-card" onclick="irParaAcoes()">
       <div class="hub-card-ico">📊</div>
       <div class="hub-card-title">Ações B3</div>
@@ -962,19 +1096,50 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
       <div class="hub-card-title">Simulador</div>
       <div class="hub-card-desc">Calcule valor futuro, aportes necessários, taxa, prazo e compare até 4 cenários.</div>
     </div>
-    <div class="hub-card" onclick="irParaProjetoVida()" style="border-color:rgba(200,181,96,.35);background:rgba(200,181,96,.04);">
+    <div class="hub-card" onclick="irParaProjetoVida()">
       <div class="hub-card-ico">🧭</div>
-      <div class="hub-card-title" style="color:#C8B560;">Projeto de Vida</div>
-      <div class="hub-card-desc">Descubra seu Número — quanto você precisa acumular para realizar todos os seus sonhos e se aposentar com tranquilidade.</div>
+      <div class="hub-card-title">Projeto de Vida</div>
+      <div class="hub-card-desc">Descubra seu Número — quanto você precisa acumular para se aposentar e realizar seus sonhos.</div>
     </div>
   </div>
-  <div id="hub-saude" style="display:none;margin-top:20px;width:100%;max-width:600px;background:rgba(255,255,255,.04);border:1px solid rgba(200,181,96,.18);border-radius:14px;padding:16px 22px;text-align:center;">
-  <div style="font-size:9px;letter-spacing:2px;color:rgba(200,181,96,.6);text-transform:uppercase;font-weight:600;margin-bottom:8px;">Saúde Financeira · Mês Atual</div>
-  <div id="hub-saude-score" style="font-family:var(--fd);font-size:32px;font-weight:300;color:#EEEAD6;">—</div>
-  <div id="hub-saude-label" style="font-size:11px;color:rgba(99,137,104,.7);margin-top:4px;font-weight:300;"></div>
-  <div id="hub-saude-itens" style="display:flex;justify-content:center;gap:16px;margin-top:10px;flex-wrap:wrap;"></div>
-</div>
-<div class="hub-footer">APARD Capital · Cuidar do que sustenta.</div>
+
+  <!-- BÚSSOLA FINANCEIRA -->
+  <div class="bussola-wrap">
+    <div class="bussola-box" id="hub-saude" style="display:none;">
+      <div class="bussola-header">
+        <div class="bussola-titulo">🧭 Bússola Financeira · Mês Atual</div>
+        <div class="bussola-data" id="bussola-data"></div>
+      </div>
+      <div class="bussola-main">
+        <!-- GAUGE SVG -->
+        <div class="bussola-gauge">
+          <svg viewBox="0 0 80 80">
+            <!-- trilha cinza -->
+            <circle cx="40" cy="40" r="30" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="8"/>
+            <!-- arco colorido via dasharray -->
+            <circle id="bussola-arc" cx="40" cy="40" r="30" fill="none"
+              stroke="#5cb87a" stroke-width="8"
+              stroke-dasharray="0 188.5"
+              stroke-dashoffset="47"
+              stroke-linecap="round"
+              transform="rotate(-90 40 40)"
+              style="transition:stroke-dasharray 1s ease,stroke .5s ease"/>
+          </svg>
+          <div class="bussola-score-inner">
+            <div class="bussola-pts" id="hub-saude-score" style="color:#EEEAD6;">—</div>
+            <div class="bussola-max">/100</div>
+          </div>
+        </div>
+        <!-- INFO -->
+        <div class="bussola-info">
+          <div class="bussola-status" id="hub-saude-label" style="color:#EEEAD6;"></div>
+          <div class="bussola-itens" id="hub-saude-itens"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hub-footer">APARD Capital · <em>Cuidar do que sustenta.</em></div>
 </div>
 
 
@@ -1164,18 +1329,41 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 <!-- ══════════════════ LOGIN ══════════════════ -->
 <div id="login-screen">
   <div class="login-box">
-    <div class="login-logo">
-      <svg width="42" height="42" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 5 L88 22 L88 58 Q88 82 50 95 Q12 82 12 58 L12 22 Z" fill="none" stroke="#638968" stroke-width="2.5" opacity=".65"/>
-        <path d="M50 18 L36 72 L41 72 L50 40 L59 72 L64 72 Z" fill="#355E3B"/>
-        <path d="M50 18 L33 72 L40 72 L50 36 L60 72 L67 72 Z" fill="#1D3828" opacity=".7"/>
-        <rect x="39" y="56" width="5" height="16" fill="#355E3B" opacity=".8"/>
-        <rect x="47" y="51" width="5" height="21" fill="#638968" opacity=".9"/>
-        <rect x="55" y="46" width="5" height="26" fill="#638968"/>
-        <line x1="22" y1="77" x2="78" y2="26" stroke="#C8B560" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
-        <polygon points="78,26 64,29 70,37" fill="#C8B560" opacity=".85"/>
-      </svg>
-      <div><div class="login-brand">APARD</div><div class="login-sub">Plataforma de Análise · B3</div></div>
+    <div class="login-logo" style="flex-direction:column;gap:14px;">
+      <svg width="72" height="72" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lgA_login" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#1D3828"/>
+      <stop offset="100%" stop-color="#2a5038"/>
+    </linearGradient>
+    <linearGradient id="lgArrow_login" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#638968" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#EEEAD6" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <!-- Escudo externo aberto (como no PDF) -->
+  <path d="M100 12 L172 42 L172 108 Q172 160 100 188 Q28 160 28 108 L28 42 Z"
+    fill="none" stroke="#638968" stroke-width="5" opacity="0.5" stroke-linejoin="round"/>
+  <!-- Letra A - parte esquerda -->
+  <polygon points="100,26 58,158 78,158 100,82 122,158 142,158"
+    fill="url(#lgA_login)"/>
+  <!-- Abertura interna do A (v branco/transparente) -->
+  <polygon points="100,100 86,158 114,158" fill="#0E1912"/>
+  <!-- Barras de gráfico crescentes (dentro do A, tom sage) -->
+  <rect x="72" y="136" width="10" height="22" rx="2" fill="#638968" opacity="0.65"/>
+  <rect x="86" y="126" width="10" height="32" rx="2" fill="#638968" opacity="0.75"/>
+  <rect x="100" y="116" width="10" height="42" rx="2" fill="#638968" opacity="0.85"/>
+  <rect x="114" y="106" width="10" height="52" rx="2" fill="#638968" opacity="0.70"/>
+  <!-- Seta diagonal (característica principal — creme/sage) -->
+  <line x1="42" y1="162" x2="170" y2="46"
+    stroke="url(#lgArrow_login)" stroke-width="9" stroke-linecap="round" opacity="0.92"/>
+  <!-- Ponta da seta -->
+  <polygon points="170,46 148,56 156,72" fill="#EEEAD6" opacity="0.88"/>
+</svg>
+      <div style="text-align:center;">
+        <div class="login-brand">APARD</div>
+        <div class="login-sub">Cuidar do que sustenta</div>
+      </div>
     </div>
     <div class="login-title">Bem-vindo de volta</div>
     <div class="login-desc">Acesso exclusivo para alunos e clientes APARD.<br>Entre com suas credenciais para continuar.</div>
@@ -1199,15 +1387,29 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 <div class="hdr">
   <div class="logo-wrap">
     <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 8 L176 40 L176 112 Q176 158 100 188 Q24 158 24 112 L24 40 Z" fill="none" stroke="#638968" stroke-width="4" opacity=".7"/>
-      <path d="M100 8 L176 40 L176 112 Q176 158 100 188 Q24 158 24 112 L24 40 Z" fill="rgba(29,56,40,0.3)"/>
-      <path d="M100 45 L68 145 L80 145 L100 80 L120 145 L132 145 Z" fill="#355E3B"/>
-      <rect x="80" y="110" width="10" height="35" fill="#355E3B" opacity=".9"/>
-      <rect x="95" y="100" width="10" height="45" fill="#638968"/>
-      <rect x="110" y="90" width="10" height="55" fill="#638968" opacity=".8"/>
-      <line x1="45" y1="152" x2="155" y2="52" stroke="#C8B560" stroke-width="5" stroke-linecap="round"/>
-      <polygon points="155,52 138,58 144,72" fill="#C8B560"/>
-    </svg>
+  <defs>
+    <linearGradient id="lgA_hdr_0" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#1D3828"/>
+      <stop offset="100%" stop-color="#2a5038"/>
+    </linearGradient>
+    <linearGradient id="lgArrow_hdr_0" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#638968" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#EEEAD6" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <path d="M100 12 L172 42 L172 108 Q172 160 100 188 Q28 160 28 108 L28 42 Z"
+    fill="none" stroke="#638968" stroke-width="5" opacity="0.5" stroke-linejoin="round"/>
+  <polygon points="100,26 58,158 78,158 100,82 122,158 142,158"
+    fill="url(#lgA_hdr_0)"/>
+  <polygon points="100,100 86,158 114,158" fill="#0a1510"/>
+  <rect x="72" y="136" width="10" height="22" rx="2" fill="#638968" opacity="0.65"/>
+  <rect x="86" y="126" width="10" height="32" rx="2" fill="#638968" opacity="0.75"/>
+  <rect x="100" y="116" width="10" height="42" rx="2" fill="#638968" opacity="0.85"/>
+  <rect x="114" y="106" width="10" height="52" rx="2" fill="#638968" opacity="0.70"/>
+  <line x1="42" y1="162" x2="170" y2="46"
+    stroke="url(#lgArrow_hdr_0)" stroke-width="9" stroke-linecap="round" opacity="0.92"/>
+  <polygon points="170,46 148,56 156,72" fill="#EEEAD6" opacity="0.88"/>
+</svg>
     <div><div class="brand">APARD</div><div class="brand-sub">Plataforma de Análise · B3</div></div>
   </div>
   <div class="hdr-right">
@@ -1286,6 +1488,7 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
   <div class="mni" onclick="switchTab('cart',this)">💼 Minha Carteira</div>
   <div class="mni" onclick="switchTab('graf',this)">🖥️ Gráfico TradingView</div>
   <div class="mni" onclick="switchTab('cal',this)">🌍 Calendário Econômico</div>
+  <div class="mni" onclick="switchTab('smc',this)">🎯 Análise SMC</div>
 </div>
 
 <div class="content">
@@ -1362,6 +1565,55 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
     <div class="tv-wrap"><iframe src="https://sslecal2.investing.com?ecoDayBackground=%231D3828&innerBorderColor=%23355E3B&headerTextColor=%23C8B560&borderColor=%231D3828&columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=32,5&calType=week&timeZone=12&lang=12" width="100%" height="560" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" style="display:block;"></iframe></div>
     <div style="font-size:9px;color:rgba(99,137,104,.28);text-align:right;margin-top:5px;">Fonte: Investing.com</div>
   </div>
+
+  <!-- ══ ABA SMC ══ -->
+  <div id="tab-smc" class="tab-panel">
+    <div style="max-width:780px;margin:0 auto;">
+
+      <!-- Disclaimer -->
+      <div style="background:rgba(200,181,96,.08);border:1px solid rgba(200,181,96,.22);border-radius:10px;padding:12px 16px;margin-bottom:18px;font-size:10.5px;color:#C8B560;line-height:1.6;">
+        ⚠️ <strong>Aviso importante:</strong> A Análise SMC é uma ferramenta <strong>exclusivamente educacional</strong>, baseada em dados históricos de preço (OHLC). Os sinais gerados são algorítmicos e <strong>não constituem recomendação de compra ou venda</strong> de qualquer ativo. Resultados passados não garantem performance futura.
+      </div>
+
+      <!-- Busca -->
+      <div style="background:rgba(29,56,40,.45);border:1px solid rgba(99,137,104,.18);border-radius:14px;padding:20px;margin-bottom:16px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#C8B560;margin-bottom:14px;">🎯 Análise Smart Money Concept</div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <input id="smc-ticker-inp" type="text" placeholder="Digite o ticker — ex: PETR4, VALE3, ITUB4..."
+            style="flex:1;min-width:180px;background:rgba(29,56,40,.7);border:1px solid rgba(99,137,104,.3);border-radius:9px;padding:10px 14px;color:#EEEAD6;font-size:13px;font-family:inherit;outline:none;"
+            oninput="this.value=this.value.toUpperCase()"
+            onkeydown="if(event.key==='Enter')rodarSMC()">
+          <button onclick="rodarSMC()"
+            style="background:#1D3828;border:1.5px solid #638968;color:#EEEAD6;padding:10px 22px;border-radius:9px;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.5px;white-space:nowrap;">
+            ▶ Analisar
+          </button>
+        </div>
+        <!-- Pills rápidas -->
+        <div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:12px;">
+          <span style="font-size:9px;color:rgba(99,137,104,.5);align-self:center;">Acesso rápido:</span>
+          <button onclick="document.getElementById('smc-ticker-inp').value='PETR4';rodarSMC()" style="background:rgba(29,56,40,.5);border:1px solid rgba(99,137,104,.25);color:rgba(238,234,214,.7);padding:4px 10px;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer;">PETR4</button>
+          <button onclick="document.getElementById('smc-ticker-inp').value='VALE3';rodarSMC()" style="background:rgba(29,56,40,.5);border:1px solid rgba(99,137,104,.25);color:rgba(238,234,214,.7);padding:4px 10px;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer;">VALE3</button>
+          <button onclick="document.getElementById('smc-ticker-inp').value='ITUB4';rodarSMC()" style="background:rgba(29,56,40,.5);border:1px solid rgba(99,137,104,.25);color:rgba(238,234,214,.7);padding:4px 10px;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer;">ITUB4</button>
+          <button onclick="document.getElementById('smc-ticker-inp').value='BBAS3';rodarSMC()" style="background:rgba(29,56,40,.5);border:1px solid rgba(99,137,104,.25);color:rgba(238,234,214,.7);padding:4px 10px;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer;">BBAS3</button>
+          <button onclick="document.getElementById('smc-ticker-inp').value='WEGE3';rodarSMC()" style="background:rgba(29,56,40,.5);border:1px solid rgba(99,137,104,.25);color:rgba(238,234,214,.7);padding:4px 10px;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer;">WEGE3</button>
+          <button onclick="document.getElementById('smc-ticker-inp').value='MGLU3';rodarSMC()" style="background:rgba(29,56,40,.5);border:1px solid rgba(99,137,104,.25);color:rgba(238,234,214,.7);padding:4px 10px;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer;">MGLU3</button>
+          <button onclick="document.getElementById('smc-ticker-inp').value='RENT3';rodarSMC()" style="background:rgba(29,56,40,.5);border:1px solid rgba(99,137,104,.25);color:rgba(238,234,214,.7);padding:4px 10px;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer;">RENT3</button>
+          <button onclick="document.getElementById('smc-ticker-inp').value='PRIO3';rodarSMC()" style="background:rgba(29,56,40,.5);border:1px solid rgba(99,137,104,.25);color:rgba(238,234,214,.7);padding:4px 10px;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer;">PRIO3</button>
+        </div>
+      </div>
+
+      <!-- Resultado -->
+      <div id="smc-result">
+        <div style="text-align:center;padding:48px 20px;color:rgba(99,137,104,.35);">
+          <div style="font-size:36px;margin-bottom:12px;">🎯</div>
+          <div style="font-size:13px;font-weight:500;">Digite um ticker acima para iniciar a análise SMC</div>
+          <div style="font-size:11px;margin-top:6px;opacity:.7;">Serão analisados 6 meses de dados OHLC via Brapi</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 
 <div class="footer">Brapi.dev (B3, CVM) · TradingView · Investing.com<br><em>APARD Capital · Cuidar do que sustenta.</em></div>
@@ -1429,15 +1681,29 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 <div class="fin-hdr">
   <div class="logo-wrap">
     <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 8 L176 40 L176 112 Q176 158 100 188 Q24 158 24 112 L24 40 Z" fill="none" stroke="#638968" stroke-width="4" opacity=".7"/>
-      <path d="M100 8 L176 40 L176 112 Q176 158 100 188 Q24 158 24 112 L24 40 Z" fill="rgba(29,56,40,0.3)"/>
-      <path d="M100 45 L68 145 L80 145 L100 80 L120 145 L132 145 Z" fill="#355E3B"/>
-      <rect x="80" y="110" width="10" height="35" fill="#355E3B" opacity=".9"/>
-      <rect x="95" y="100" width="10" height="45" fill="#638968"/>
-      <rect x="110" y="90" width="10" height="55" fill="#638968" opacity=".8"/>
-      <line x1="45" y1="152" x2="155" y2="52" stroke="#C8B560" stroke-width="5" stroke-linecap="round"/>
-      <polygon points="155,52 138,58 144,72" fill="#C8B560"/>
-    </svg>
+  <defs>
+    <linearGradient id="lgA_hdr_1" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#1D3828"/>
+      <stop offset="100%" stop-color="#2a5038"/>
+    </linearGradient>
+    <linearGradient id="lgArrow_hdr_1" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#638968" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#EEEAD6" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <path d="M100 12 L172 42 L172 108 Q172 160 100 188 Q28 160 28 108 L28 42 Z"
+    fill="none" stroke="#638968" stroke-width="5" opacity="0.5" stroke-linejoin="round"/>
+  <polygon points="100,26 58,158 78,158 100,82 122,158 142,158"
+    fill="url(#lgA_hdr_1)"/>
+  <polygon points="100,100 86,158 114,158" fill="#0a1510"/>
+  <rect x="72" y="136" width="10" height="22" rx="2" fill="#638968" opacity="0.65"/>
+  <rect x="86" y="126" width="10" height="32" rx="2" fill="#638968" opacity="0.75"/>
+  <rect x="100" y="116" width="10" height="42" rx="2" fill="#638968" opacity="0.85"/>
+  <rect x="114" y="106" width="10" height="52" rx="2" fill="#638968" opacity="0.70"/>
+  <line x1="42" y1="162" x2="170" y2="46"
+    stroke="url(#lgArrow_hdr_1)" stroke-width="9" stroke-linecap="round" opacity="0.92"/>
+  <polygon points="170,46 148,56 156,72" fill="#EEEAD6" opacity="0.88"/>
+</svg>
     <div><div class="brand">APARD</div><div class="brand-sub">Controle Financeiro</div></div>
   </div>
   <div class="hdr-right">
@@ -2303,15 +2569,29 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 <div class="fin-hdr">
   <div class="logo-wrap">
     <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100 8 L176 40 L176 112 Q176 158 100 188 Q24 158 24 112 L24 40 Z" fill="none" stroke="#638968" stroke-width="4" opacity=".7"/>
-      <path d="M100 8 L176 40 L176 112 Q176 158 100 188 Q24 158 24 112 L24 40 Z" fill="rgba(29,56,40,0.3)"/>
-      <path d="M100 45 L68 145 L80 145 L100 80 L120 145 L132 145 Z" fill="#355E3B"/>
-      <rect x="80" y="110" width="10" height="35" fill="#355E3B" opacity=".9"/>
-      <rect x="95" y="100" width="10" height="45" fill="#638968"/>
-      <rect x="110" y="90" width="10" height="55" fill="#638968" opacity=".8"/>
-      <line x1="45" y1="152" x2="155" y2="52" stroke="#C8B560" stroke-width="5" stroke-linecap="round"/>
-      <polygon points="155,52 138,58 144,72" fill="#C8B560"/>
-    </svg>
+  <defs>
+    <linearGradient id="lgA_hdr_2" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#1D3828"/>
+      <stop offset="100%" stop-color="#2a5038"/>
+    </linearGradient>
+    <linearGradient id="lgArrow_hdr_2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#638968" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#EEEAD6" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <path d="M100 12 L172 42 L172 108 Q172 160 100 188 Q28 160 28 108 L28 42 Z"
+    fill="none" stroke="#638968" stroke-width="5" opacity="0.5" stroke-linejoin="round"/>
+  <polygon points="100,26 58,158 78,158 100,82 122,158 142,158"
+    fill="url(#lgA_hdr_2)"/>
+  <polygon points="100,100 86,158 114,158" fill="#0a1510"/>
+  <rect x="72" y="136" width="10" height="22" rx="2" fill="#638968" opacity="0.65"/>
+  <rect x="86" y="126" width="10" height="32" rx="2" fill="#638968" opacity="0.75"/>
+  <rect x="100" y="116" width="10" height="42" rx="2" fill="#638968" opacity="0.85"/>
+  <rect x="114" y="106" width="10" height="52" rx="2" fill="#638968" opacity="0.70"/>
+  <line x1="42" y1="162" x2="170" y2="46"
+    stroke="url(#lgArrow_hdr_2)" stroke-width="9" stroke-linecap="round" opacity="0.92"/>
+  <polygon points="170,46 148,56 156,72" fill="#EEEAD6" opacity="0.88"/>
+</svg>
     <div><div class="brand">APARD</div><div class="brand-sub">Simulador de Investimentos</div></div>
   </div>
   <div class="hdr-right">
@@ -2397,7 +2677,12 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
       </div>
       <div class="card">
         <div class="card-header"><div class="card-header-icon">📊</div><div><div class="card-header-title">Resultados</div><div class="card-header-sub">Projeção do investimento</div></div></div>
-        <div class="card-body" id="vf_results"><div class="results-empty"><div class="results-empty-icon">📈</div><p class="results-empty-text">Preencha os dados ao lado e clique em <strong>Calcular</strong>.</p></div></div>
+        <div class="card-body">
+          <div class="edu-box">
+            💡 <strong>Como interpretar?</strong> O montante final mostra o poder dos juros compostos — seu dinheiro trabalhando por você ao longo do tempo. Pequenas diferenças na taxa ou no aporte mensal geram resultados surpreendentemente maiores no longo prazo.
+          </div>
+          <div id="vf_results"><div class="results-empty"><div class="results-empty-icon">📈</div><p class="results-empty-text">Preencha os dados ao lado e clique em <strong>Calcular</strong>.</p></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -2431,7 +2716,12 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
       </div>
       <div class="card">
         <div class="card-header"><div class="card-header-icon">💰</div><div><div class="card-header-title">Resultados</div><div class="card-header-sub">Esforço de poupança necessário</div></div></div>
-        <div class="card-body" id="ap_results"><div class="results-empty"><div class="results-empty-icon">💰</div><p class="results-empty-text">Defina sua meta e clique em <strong>Calcular</strong>.</p></div></div>
+        <div class="card-body">
+          <div class="edu-box">
+            💡 <strong>Como interpretar?</strong> Este é o aporte mínimo mensal para atingir sua meta. Quanto antes você começar, menor será o esforço mensal. <strong>Reduzir o aporte hoje pode custar muito mais amanhã.</strong>
+          </div>
+          <div id="ap_results"><div class="results-empty"><div class="results-empty-icon">💰</div><p class="results-empty-text">Defina sua meta e clique em <strong>Calcular</strong>.</p></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -2465,7 +2755,51 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
       </div>
       <div class="card">
         <div class="card-header"><div class="card-header-icon">📊</div><div><div class="card-header-title">Resultados</div><div class="card-header-sub">Rentabilidade necessária</div></div></div>
-        <div class="card-body" id="tx_results"><div class="results-empty"><div class="results-empty-icon">📊</div><p class="results-empty-text">Preencha os dados e clique em <strong>Calcular</strong>.</p></div></div>
+        <div class="card-body">
+          <div class="edu-box">
+            💡 <strong>Como interpretar?</strong> Compare a taxa calculada com os benchmarks abaixo. Se a taxa necessária for maior que o CDI, você precisará de investimentos de maior risco (ações, FIIs, crédito privado).
+          </div>
+          <div id="tx_results"><div class="results-empty"><div class="results-empty-icon">📊</div><p class="results-empty-text">Preencha os dados e clique em <strong>Calcular</strong>.</p></div></div>
+          <div class="benchmark-box" id="bench-container">
+            <div class="benchmark-title">
+              📌 Benchmarks de Mercado
+              <span id="bench-status" style="font-size:9px;font-weight:400;color:var(--text-light);margin-left:6px;font-style:italic;"></span>
+            </div>
+            <div class="benchmark-grid">
+              <div class="bench-item bench-highlight">
+                <div class="bench-name">CDI</div>
+                <div class="bench-val" id="bv-cdi">—</div>
+                <div class="bench-sub">ao ano</div>
+              </div>
+              <div class="bench-item bench-highlight" style="background:linear-gradient(135deg,#1a4a35,#2d5a40);">
+                <div class="bench-name">Selic Meta</div>
+                <div class="bench-val" id="bv-selic">—</div>
+                <div class="bench-sub">ao ano</div>
+              </div>
+              <div class="bench-item">
+                <div class="bench-name">IPCA 12m</div>
+                <div class="bench-val" id="bv-ipca">—</div>
+                <div class="bench-sub">inflação acumulada</div>
+              </div>
+              <div class="bench-item">
+                <div class="bench-name">Poupança</div>
+                <div class="bench-val" id="bv-poup">—</div>
+                <div class="bench-sub">ao ano</div>
+              </div>
+              <div class="bench-item">
+                <div class="bench-name">IPCA + 5%</div>
+                <div class="bench-val" id="bv-ipca5">—</div>
+                <div class="bench-sub">renda fixa real</div>
+              </div>
+              <div class="bench-item">
+                <div class="bench-name">Ibovespa</div>
+                <div class="bench-val">~13%</div>
+                <div class="bench-sub">histórico a.a.</div>
+              </div>
+            </div>
+            <div class="bench-note" id="bench-note">⏳ Carregando dados oficiais do Banco Central...</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2499,7 +2833,12 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
       </div>
       <div class="card">
         <div class="card-header"><div class="card-header-icon">⏱</div><div><div class="card-header-title">Resultados</div><div class="card-header-sub">Tempo até atingir a meta</div></div></div>
-        <div class="card-body" id="pr_results"><div class="results-empty"><div class="results-empty-icon">⏱</div><p class="results-empty-text">Informe os dados e clique em <strong>Calcular</strong>.</p></div></div>
+        <div class="card-body">
+          <div class="edu-box">
+            💡 <strong>Tempo é o maior aliado do investidor.</strong> Começar com valores menores e um prazo mais longo quase sempre supera começar com valores maiores mais tarde. O tempo multiplica o efeito dos juros compostos.
+          </div>
+          <div id="pr_results"><div class="results-empty"><div class="results-empty-icon">⏱</div><p class="results-empty-text">Informe os dados e clique em <strong>Calcular</strong>.</p></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -2609,6 +2948,9 @@ async function doLogin(){
 
     const user = rows[0];
     localStorage.setItem('apard_session', JSON.stringify({email: user.email, nome: user.nome, ts: Date.now()}));
+    // Login manual → sempre começa no Hub
+    localStorage.removeItem('apard_nav');
+    sessionStorage.removeItem('apard_aba_ativa'); // nova sessão = sem restaurar navegação
     entrarNoApp(user.nome, user.email);
 
   } catch(e) {
@@ -2670,16 +3012,43 @@ function calcularSaude(){
   else{itens.push({ok:false,txt:'Taxa de poupança < 10% da renda'});}
   if(atrasado===0){pts+=33;itens.push({ok:true,txt:'Sem contas em atraso'});}
   else{itens.push({ok:false,txt:atrasado+' conta(s) em atraso'});}
-  const cor=pts>=80?'#5cb87a':pts>=50?'#d4a843':'#e05c5c';
-  const label=pts>=80?'Boa saúde financeira':pts>=50?'Atenção necessária':'Situação crítica';
-  const el=document.getElementById('hub-saude');
-  if(!el||!lancamentos.length) return;
-  el.style.display='block';
-  document.getElementById('hub-saude-score').textContent=pts+'/100';
-  document.getElementById('hub-saude-score').style.color=cor;
-  document.getElementById('hub-saude-label').textContent=label;
-  document.getElementById('hub-saude-itens').innerHTML=itens.map(i=>`
-    <div style="font-size:10px;color:${i.ok?'#5cb87a':'#e05c5c'};font-weight:500;">${i.ok?'✔':'✘'} ${i.txt}</div>
+  const cor = pts>=80?'#5cb87a' : pts>=50?'#d4a843' : '#e05c5c';
+  const corGrad = pts>=80?'rgba(92,184,122,.12)' : pts>=50?'rgba(212,168,67,.12)' : 'rgba(224,92,92,.12)';
+  const emoji = pts>=80?'✅' : pts>=50?'⚠️' : '🔴';
+  const label = pts>=80?'Saúde financeira boa' : pts>=50?'Atenção necessária' : 'Situação crítica';
+  const el = document.getElementById('hub-saude');
+  if (!el || !lancamentos.length) return;
+  el.style.display = 'block';
+  // Cor de fundo sutil do container
+  el.style.setProperty('--bussola-grad', cor);
+  el.style.borderColor = cor.replace(')', ',.25)').replace('rgb', 'rgba');
+  // Score
+  const scoreEl = document.getElementById('hub-saude-score');
+  scoreEl.textContent = pts;
+  scoreEl.style.color = cor;
+  // Label
+  document.getElementById('hub-saude-label').textContent = emoji + ' ' + label;
+  document.getElementById('hub-saude-label').style.color = cor;
+  // Arco SVG animado (circunferência r=30 → 2πr ≈ 188.5)
+  const arc = document.getElementById('bussola-arc');
+  if (arc) {
+    const circ = 188.5;
+    const fill = (pts / 100) * circ;
+    arc.setAttribute('stroke', cor);
+    arc.setAttribute('stroke-dasharray', fill + ' ' + (circ - fill));
+  }
+  // Data referência
+  const dataEl = document.getElementById('bussola-data');
+  if (dataEl) {
+    const now = new Date();
+    dataEl.textContent = now.toLocaleDateString('pt-BR', {month:'long', year:'numeric'});
+  }
+  // Itens
+  document.getElementById('hub-saude-itens').innerHTML = itens.map(i => `
+    <div class="bussola-item">
+      <div class="bussola-dot" style="background:${i.ok?'#5cb87a':'rgba(238,234,214,.2)'}"></div>
+      <span style="color:${i.ok?'rgba(238,234,214,.75)':'rgba(238,234,214,.35)'}">${i.txt}</span>
+    </div>
   `).join('');
 }
 function irParaSimulador(){
@@ -2688,6 +3057,8 @@ function irParaSimulador(){
   document.getElementById('sim-user-name').textContent=document.getElementById('hub-user-name').textContent.replace('Olá, ','').split('<')[0].trim();
   salvarNavegacao('simulador');
   showTab('menu');
+  // Pré-carregar benchmarks em background ao entrar no simulador
+  setTimeout(carregarBenchmarks, 500);
 }
 function voltarHub(){
   document.getElementById('app').style.display='none';
@@ -2696,10 +3067,14 @@ function voltarHub(){
   document.getElementById('pv-app').style.display='none';
   document.getElementById('hub-screen').style.display='flex';
   salvarNavegacao('hub');
+  // Recalcular bússola com dados atuais (já carregados pelo módulo Financeiro)
+  calcularSaude();
 }
 // ── Persistência de navegação ──
 function salvarNavegacao(modulo, aba){
   try{
+    // Marca que esta aba já está ativa (permite restaurar navegação no F5)
+    sessionStorage.setItem('apard_aba_ativa', '1');
     const nav = JSON.parse(localStorage.getItem('apard_nav')||'{}');
     nav.modulo = modulo;
     if(aba) nav.aba = aba;
@@ -2730,8 +3105,13 @@ function entrarNoApp(nome, email){
   userEmail = email || '';
   document.getElementById('login-err').style.display='none';
   document.getElementById('login-screen').style.display='none';
+  // Garantir que todos os módulos estão ocultos antes de mostrar o hub
+  ['app','fin-app','sim-app','pv-app'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.style.display='none';
+  });
   document.getElementById('hub-screen').style.display='flex';
-  document.getElementById('hub-user-name').innerHTML='Olá, <strong style="color:#EEEAD6">'+nome+'</strong> <span class="hub-logout" onclick="doLogout()">Sair</span>';
+  document.getElementById('hub-user-name').innerHTML='Olá, <strong style="color:#EEEAD6">'+nome+'</strong>';
   document.getElementById('user-name').textContent=nome;
   document.getElementById('fin-user-name').textContent=nome;
   document.getElementById('sim-user-name').textContent=nome;
@@ -2741,15 +3121,40 @@ function entrarNoApp(nome, email){
   const ci=document.getElementById('conta-venc');if(ci)ci.value=hoje;
   // Inicializar campo categoria como vazio (usuário deve escolher o tipo primeiro)
   if(typeof onTipoLancChange==='function') onTipoLancChange();
-  // Restaurar a tela onde o usuário estava antes do F5
-  setTimeout(restaurarNavegacao, 100);
+  // NÃO restaurar navegação no login — usuário sempre começa no Hub
+  // (restaurarNavegacao é chamado somente no F5 via verificarSessao)
+
+  // Carregar dados em background para alimentar a Bússola Financeira no Hub
+  setTimeout(async () => {
+    try {
+      if(!userEmail) return;
+      // Carregar lançamentos e contas em paralelo (só para o cálculo da bússola)
+      const [rowsLanc, rowsCont] = await Promise.allSettled([
+        sbQuery('lancamentos?user_email=eq.'+encodeURIComponent(userEmail)+'&order=data.desc',
+          {method:'GET',headers:{'Accept':'application/json'}}),
+        sbQuery('contas?user_email=eq.'+encodeURIComponent(userEmail),
+          {method:'GET',headers:{'Accept':'application/json'}}),
+      ]);
+      // Atualizar as variáveis globais se ainda não foram carregadas pelo módulo Financeiro
+      if(rowsLanc.status==='fulfilled' && rowsLanc.value) {
+        if(!lancamentos || lancamentos.length === 0) lancamentos = rowsLanc.value;
+      }
+      if(rowsCont.status==='fulfilled' && rowsCont.value) {
+        if(!contas || contas.length === 0) contas = rowsCont.value;
+      }
+      calcularSaude();
+    } catch(e) { /* silencioso — bússola não aparece, sem quebrar nada */ }
+  }, 300);
 }
 function doLogout(){
   localStorage.removeItem('apard_session');
   localStorage.removeItem('apard_nav');
-  document.getElementById('app').style.display='none';
-  document.getElementById('sim-app').style.display='none';
-  document.getElementById('pv-app').style.display='none';
+  sessionStorage.removeItem('apard_aba_ativa');
+  // Esconder TODOS os módulos
+  ['app','fin-app','sim-app','pv-app','hub-screen'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.style.display='none';
+  });
   document.getElementById('login-screen').style.display='flex';
   document.getElementById('l-email').value='';
   document.getElementById('l-senha').value='';
@@ -2769,6 +3174,15 @@ function doLogout(){
     );
     if(!rows || rows.length===0){localStorage.removeItem('apard_session');return;}
     entrarNoApp(rows[0].nome, rows[0].email);
+    // Restaurar navegação SOMENTE se é um F5/reload da mesma aba
+    // sessionStorage.getItem('apard_aba_ativa') só existe se a aba já estava aberta
+    // Ao abrir nova aba ou nova visita, sessionStorage é vazio → sempre vai para o Hub
+    if(sessionStorage.getItem('apard_aba_ativa')){
+      setTimeout(restaurarNavegacao, 200);
+    } else {
+      // Nova sessão/aba: começa no Hub e limpa nav salva
+      localStorage.removeItem('apard_nav');
+    }
   }catch(e){localStorage.removeItem('apard_session');}
 })();
 
@@ -2994,6 +3408,345 @@ function renderPreco(t,period,hist,cP,isDemo){
   </div></div>`;
   setTimeout(()=>{const ctx=document.getElementById('pChart')?.getContext('2d');if(!ctx)return;if(pChart)pChart.destroy();pChart=new Chart(ctx,{type:'line',data:{labels:lbls,datasets:[{data:prices,borderColor:lc,backgroundColor:fc,borderWidth:1.5,pointRadius:0,pointHoverRadius:4,fill:true,tension:.35}]},options:{responsive:true,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,backgroundColor:'#050E07',borderColor:lc,borderWidth:1,titleColor:lc,bodyColor:'rgba(238,234,214,.7)',padding:8,callbacks:{label:c=>`R$ ${Number(c.parsed.y).toLocaleString('pt-BR',{minimumFractionDigits:2})}`}}},scales:{x:{grid:{color:'rgba(255,255,255,.03)'},ticks:{color:'rgba(99,137,104,.5)',font:{size:8},maxTicksLimit:8}},y:{grid:{color:'rgba(255,255,255,.03)'},ticks:{color:'rgba(99,137,104,.5)',font:{size:8},callback:v=>'R$ '+Number(v).toLocaleString('pt-BR',{minimumFractionDigits:2})}}}}});},100);
 }
+
+// ══════════════════════════════════════════════════
+// ── ANÁLISE SMC (Smart Money Concept) ──
+// Algoritmo baseado em dados OHLC reais via Brapi
+// ══════════════════════════════════════════════════
+
+// ── Helpers SMC reutilizáveis ──
+function smcDate(ts) {
+  if (!ts) return '';
+  return new Date(ts * 1000).toLocaleDateString('pt-BR', { day:'2-digit', month:'2-digit' });
+}
+
+function smcNormalizar(hist) {
+  return hist.map(h => ({
+    date:  h.date,
+    open:  +(h.open  || h.close || 0),
+    high:  +(h.high  || h.close || 0),
+    low:   +(h.low   || h.close || 0),
+    close: +(h.close || h.adjclose || 0)
+  })).filter(h => h.close > 0);
+}
+
+function smcGerarDemo(basePrice, candles, volatilidade) {
+  const hist = [];
+  let px = basePrice * 0.85;
+  for (let i = candles; i >= 0; i--) {
+    const dt = new Date(); dt.setDate(dt.getDate() - i);
+    const o = px;
+    const h = px * (1 + Math.random() * volatilidade);
+    const l = px * (1 - Math.random() * volatilidade * 0.9);
+    const c = l + Math.random() * (h - l);
+    px = c * (1 + (Math.random() - 0.47) * volatilidade);
+    hist.push({ date: dt.getTime()/1000, open: +o.toFixed(2), high: +h.toFixed(2), low: +l.toFixed(2), close: +c.toFixed(2) });
+  }
+  return hist;
+}
+
+function smcAnalisar(hist, swingWin) {
+  const closes = hist.map(h => h.close);
+  const highs  = hist.map(h => h.high);
+  const lows   = hist.map(h => h.low);
+  const opens  = hist.map(h => h.open);
+  const n = hist.length;
+  const cp = closes[n-1];
+
+  // Swing Highs/Lows
+  const swingHighs = [], swingLows = [];
+  for (let i = swingWin; i < n - swingWin; i++) {
+    let isH = true, isL = true;
+    for (let j = i - swingWin; j <= i + swingWin; j++) {
+      if (j === i) continue;
+      if (highs[j] >= highs[i]) isH = false;
+      if (lows[j]  <= lows[i])  isL = false;
+    }
+    if (isH) swingHighs.push({ idx: i, price: highs[i], date: hist[i].date });
+    if (isL) swingLows.push({  idx: i, price: lows[i],  date: hist[i].date });
+  }
+
+  // BOS / CHoCH
+  const rH = swingHighs.slice(-3), rL = swingLows.slice(-3);
+  let tendencia = 'LATERAL', bosStatus = 'LATERAL / INDEFINIDO ↔️', bosDesc = 'Estrutura sem direção clara.';
+  if (rH.length >= 2 && rL.length >= 2) {
+    const h1 = rH[rH.length-2].price, h2 = rH[rH.length-1].price;
+    const l1 = rL[rL.length-2].price, l2 = rL[rL.length-1].price;
+    if      (h2 > h1 && l2 > l1) { tendencia = 'ALTA';              bosStatus = 'BOS ALTISTA ✅';      bosDesc = `HH (${fmt(h1)}→${fmt(h2)}) + HL (${fmt(l1)}→${fmt(l2)}) confirmados. Compradores no controle.`; }
+    else if (h2 < h1 && l2 < l1) { tendencia = 'BAIXA';             bosStatus = 'BOS BAIXISTA ❌';     bosDesc = `LH (${fmt(h1)}→${fmt(h2)}) + LL (${fmt(l1)}→${fmt(l2)}) confirmados. Vendedores no controle.`; }
+    else if (h2 > h1 && l2 < l1) { tendencia = 'INDEFINIDO';        bosStatus = 'CHoCH POSSÍVEL ⚠️';  bosDesc = `Expansão de volatilidade — topo subiu mas fundo desceu. Aguardar confirmação direcional.`; }
+    else if (h2 < h1 && l2 > l1) { tendencia = 'POSSIVELMENTE ALTA'; bosStatus = 'CHoCH ALTISTA ⚡'; bosDesc = `Fundo subindo com topo comprimido — possível reversão para alta. Monitorar rompimento de ${fmt(h2)}.`; }
+  }
+
+  // Order Block
+  let obZone = null;
+  let maxMove = 0;
+  for (let i = 5; i < n - 3; i++) {
+    const body = Math.abs(closes[i] - opens[i]);
+    const range = highs[i] - lows[i];
+    const fwd = Math.abs(closes[i+3] - closes[i]);
+    if (range > 0 && body / range > 0.55 && fwd > maxMove) {
+      maxMove = fwd;
+      const isBull = closes[i] > opens[i];
+      obZone = { top: Math.max(opens[i], closes[i]), bot: Math.min(opens[i], closes[i]), isBull, date: hist[i].date };
+    }
+  }
+
+  // FVG
+  let fvgs = [];
+  for (let i = 1; i < n - 1; i++) {
+    if (lows[i+1]  > highs[i-1]) fvgs.push({ bot: highs[i-1], top: lows[i+1],  type: 'BULLISH', date: hist[i].date });
+    if (highs[i+1] < lows[i-1])  fvgs.push({ bot: highs[i+1], top: lows[i-1],  type: 'BEARISH', date: hist[i].date });
+  }
+  fvgs = fvgs.slice(-4).map(f => ({
+    ...f,
+    filled: (f.type === 'BULLISH' && cp <= f.bot) || (f.type === 'BEARISH' && cp >= f.top)
+  }));
+  const openFVGs = fvgs.filter(f => !f.filled);
+
+  // Liquidez
+  const sellLiq = swingHighs.length ? Math.max(...swingHighs.slice(-4).map(h => h.price)) : null;
+  const buyLiq  = swingLows.length  ? Math.min(...swingLows.slice(-4).map(l => l.price))  : null;
+
+  // Score
+  let score = 0;
+  if (tendencia === 'ALTA')             score += 3;
+  else if (tendencia === 'POSSIVELMENTE ALTA') score += 1;
+  else if (tendencia === 'BAIXA')       score -= 3;
+  if (obZone) {
+    const inside = cp >= obZone.bot && cp <= obZone.top;
+    if (obZone.isBull  && inside)  score += 2;
+    if (!obZone.isBull && inside)  score -= 2;
+    if (obZone.isBull  && !inside) score += 0.5;
+    if (!obZone.isBull && !inside) score -= 0.5;
+  }
+  openFVGs.forEach(f => {
+    if (f.type === 'BULLISH' && f.top < cp) score += 1;
+    if (f.type === 'BEARISH' && f.bot > cp) score -= 1;
+  });
+  if (sellLiq && cp < sellLiq * 0.98) score += 0.5;
+  if (buyLiq  && cp > buyLiq  * 1.02) score -= 0.5;
+
+  return { tendencia, bosStatus, bosDesc, obZone, fvgs, openFVGs, sellLiq, buyLiq, score, cp, n };
+}
+
+async function rodarSMC() {
+  const inp = document.getElementById('smc-ticker-inp');
+  const ticker = (inp?.value || '').trim().toUpperCase().replace(/[^A-Z0-9]/g,'');
+  if (!ticker) { inp?.focus(); return; }
+
+  const res = document.getElementById('smc-result');
+  res.innerHTML = `<div style="text-align:center;padding:48px 20px;">
+    <div class="spin" style="margin:0 auto 14px;"></div>
+    <div style="font-size:12px;color:rgba(99,137,104,.6);">Buscando dados Semanal + Diário para ${ticker}...</div>
+  </div>`;
+
+  // ══ 1. BUSCAR DADOS — SEMANAL (12 meses) + DIÁRIO (6 meses) em paralelo ══
+  let histW = [], histD = [], isDemo = false, currentPrice = null;
+  try {
+    const [dataW, dataD] = await Promise.all([
+      fetchP(`https://brapi.dev/api/quote/${ticker}?range=1y&interval=1wk`),
+      fetchP(`https://brapi.dev/api/quote/${ticker}?range=6mo&interval=1d`)
+    ]);
+    histW = dataW?.results?.[0]?.historicalDataPrice || [];
+    histD = dataD?.results?.[0]?.historicalDataPrice || [];
+    currentPrice = dataD?.results?.[0]?.regularMarketPrice || dataW?.results?.[0]?.regularMarketPrice || null;
+  } catch(e) { histW = []; histD = []; }
+
+  // Fallback demo
+  if (!histD || histD.length < 15) {
+    isDemo = true;
+    const base = DMAP[ticker]?.price || 30;
+    histD = smcGerarDemo(base, 130, 0.025);
+    histW = smcGerarDemo(base, 52, 0.04);
+    currentPrice = histD[histD.length-1].close;
+  }
+
+  histD = smcNormalizar(histD);
+  histW = smcNormalizar(histW);
+
+  if (histD.length < 10) {
+    res.innerHTML = `<div style="text-align:center;padding:40px 20px;color:#e05c5c;">
+      <div style="font-size:28px;margin-bottom:10px;">⚠️</div>
+      <div style="font-size:13px;">Ticker <strong>${ticker}</strong> não encontrado ou sem dados suficientes.</div>
+      <div style="font-size:11px;margin-top:8px;opacity:.7;">Verifique se é um ticker válido da B3 (ex: PETR4, VALE3).</div>
+    </div>`;
+    return;
+  }
+
+  // ══ 2. RODAR ALGORITMO SMC NOS DOIS TIMEFRAMES ══
+  const cp = currentPrice || histD[histD.length-1].close;
+  const W = smcAnalisar(histW.length >= 10 ? histW : smcGerarDemo(cp, 52, 0.04), 3);
+  const D = smcAnalisar(histD, 5);
+  D.cp = cp; W.cp = cp;
+
+  // ══ 3. CONFLUÊNCIA ══
+  const wAlta  = W.tendencia === 'ALTA' || W.tendencia === 'POSSIVELMENTE ALTA';
+  const wBaixa = W.tendencia === 'BAIXA';
+  const dAlta  = D.tendencia === 'ALTA' || D.tendencia === 'POSSIVELMENTE ALTA';
+  const dBaixa = D.tendencia === 'BAIXA';
+  const dNeutro = !dAlta && !dBaixa;
+  const wNeutro = !wAlta && !wBaixa;
+
+  let confluencia, confCor, confEmoji, confLabel, confDesc;
+
+  if (wAlta && dAlta) {
+    confluencia = 'FORTE'; confCor = '#5cb87a'; confEmoji = '🟢⚡';
+    confLabel = 'VIÉS DE COMPRA · FORTE';
+    confDesc = 'Semanal e Diário alinhados em alta. Estrutura institucional favorável em ambos os timeframes — maior probabilidade de continuidade altista.';
+  } else if (wBaixa && dBaixa) {
+    confluencia = 'FORTE'; confCor = '#e05c5c'; confEmoji = '🔴⚡';
+    confLabel = 'VIÉS DE VENDA · FORTE';
+    confDesc = 'Semanal e Diário alinhados em baixa. Pressão vendedora consistente em múltiplos tempos — estrutura desfavorável para compras.';
+  } else if (wAlta && dNeutro) {
+    confluencia = 'MODERADO'; confCor = '#5cb87a'; confEmoji = '🟢';
+    confLabel = 'VIÉS DE COMPRA · MODERADO';
+    confDesc = 'Contexto semanal favorável (alta), mas o diário ainda não confirmou. Aguardar formação de estrutura diária para entrada mais segura.';
+  } else if (wBaixa && dNeutro) {
+    confluencia = 'MODERADO'; confCor = '#e05c5c'; confEmoji = '🔴';
+    confLabel = 'VIÉS DE VENDA · MODERADO';
+    confDesc = 'Contexto semanal desfavorável (baixa), mas o diário ainda indefinido. Cautela — tendência maior é baixista.';
+  } else if (wNeutro && dAlta) {
+    confluencia = 'MODERADO'; confCor = '#C8B560'; confEmoji = '🟡';
+    confLabel = 'SINAL DIÁRIO · SEM CONTEXTO MACRO';
+    confDesc = 'O diário aponta alta, mas o semanal está indefinido — sem contexto institucional confirmado. Sinal de menor confiabilidade.';
+  } else if (wAlta && dBaixa) {
+    confluencia = 'DIVERGÊNCIA'; confCor = '#e08c3c'; confEmoji = '🟠';
+    confLabel = 'DIVERGÊNCIA · AGUARDAR';
+    confDesc = 'Atenção: o semanal está altista mas o diário reverteu para baixa. Pode ser uma correção dentro da tendência maior — aguardar o diário realinhar antes de agir.';
+  } else if (wBaixa && dAlta) {
+    confluencia = 'DIVERGÊNCIA'; confCor = '#e08c3c'; confEmoji = '🟠';
+    confLabel = 'DIVERGÊNCIA · AGUARDAR';
+    confDesc = 'Atenção: o diário aponta compra, mas o contexto semanal é baixista. Sinais contrários — risco elevado. Aguardar confirmação no semanal antes de qualquer decisão.';
+  } else {
+    confluencia = 'NEUTRO'; confCor = '#C8B560'; confEmoji = '🟡';
+    confLabel = 'NEUTRO / INDEFINIDO';
+    confDesc = 'Nenhum timeframe apresenta direção clara. Mercado em equilíbrio — aguardar desenvolvimento da estrutura.';
+  }
+
+  // ── Raciocínio ──
+  const razoes = [];
+  if      (W.tendencia === 'ALTA')             razoes.push(`📅 <strong>[Semanal]</strong> BOS altista — HH + HL confirmados no contexto macro`);
+  else if (W.tendencia === 'BAIXA')            razoes.push(`📅 <strong>[Semanal]</strong> BOS baixista — LH + LL no contexto macro`);
+  else if (W.tendencia === 'POSSIVELMENTE ALTA') razoes.push(`📅 <strong>[Semanal]</strong> CHoCH altista — possível reversão macro`);
+  else                                         razoes.push(`📅 <strong>[Semanal]</strong> Estrutura indefinida no contexto macro`);
+
+  if      (D.tendencia === 'ALTA')             razoes.push(`📈 <strong>[Diário]</strong> BOS altista — HH + HL confirmados no refinamento`);
+  else if (D.tendencia === 'BAIXA')            razoes.push(`📈 <strong>[Diário]</strong> BOS baixista — LH + LL no refinamento`);
+  else if (D.tendencia === 'POSSIVELMENTE ALTA') razoes.push(`📈 <strong>[Diário]</strong> CHoCH altista — possível reversão diária`);
+  else                                         razoes.push(`📈 <strong>[Diário]</strong> Estrutura lateral no refinamento diário`);
+
+  if (D.obZone) {
+    const inside = cp >= D.obZone.bot && cp <= D.obZone.top;
+    razoes.push(`🏦 <strong>[OB Diário]</strong> ${D.obZone.isBull ? 'Bullish' : 'Bearish'} OB em R$ ${fmt(D.obZone.bot)}–${fmt(D.obZone.top)}${inside ? ' · ⚡ Preço dentro da zona' : ''}`);
+  }
+  if (W.obZone) {
+    const inside = cp >= W.obZone.bot && cp <= W.obZone.top;
+    razoes.push(`🏦 <strong>[OB Semanal]</strong> ${W.obZone.isBull ? 'Bullish' : 'Bearish'} OB em R$ ${fmt(W.obZone.bot)}–${fmt(W.obZone.top)}${inside ? ' · ⚡ Preço dentro da zona' : ''}`);
+  }
+  D.openFVGs.forEach(f => razoes.push(`📊 <strong>[FVG Diário]</strong> ${f.type === 'BULLISH' ? 'Bullish' : 'Bearish'} FVG aberto em R$ ${fmt(f.bot)}–${fmt(f.top)}`));
+  W.openFVGs.forEach(f => razoes.push(`📊 <strong>[FVG Semanal]</strong> ${f.type === 'BULLISH' ? 'Bullish' : 'Bearish'} FVG aberto em R$ ${fmt(f.bot)}–${fmt(f.top)}`));
+  if (D.sellLiq) razoes.push(`💧 <strong>[Liquidez]</strong> BSL (Buy-side) acima em R$ ${fmt(D.sellLiq)}`);
+  if (D.buyLiq)  razoes.push(`💧 <strong>[Liquidez]</strong> SSL (Sell-side) abaixo em R$ ${fmt(D.buyLiq)}`);
+
+  // ══ 4. RENDERIZAR ══
+  const corConf = confluencia === 'DIVERGÊNCIA' ? '#e08c3c' : confCor;
+  const badgeConf = confluencia === 'FORTE'
+    ? `background:rgba(${confCor==='#5cb87a'?'92,184,122':'224,92,92'},.13);border-color:${confCor};`
+    : confluencia === 'MODERADO'
+    ? `background:rgba(${confCor==='#5cb87a'?'92,184,122':confCor==='#e05c5c'?'224,92,92':'200,181,96'},.09);border-color:${confCor};`
+    : confluencia === 'DIVERGÊNCIA'
+    ? 'background:rgba(224,140,60,.12);border-color:#e08c3c;'
+    : 'background:rgba(200,181,96,.1);border-color:#C8B560;';
+
+  function tfCard(label, timeframe, tf) {
+    const isAlta  = tf.tendencia === 'ALTA' || tf.tendencia === 'POSSIVELMENTE ALTA';
+    const isBaixa = tf.tendencia === 'BAIXA';
+    const corTf   = isAlta ? '#5cb87a' : isBaixa ? '#e05c5c' : '#C8B560';
+    const emojiTf = isAlta ? '▲' : isBaixa ? '▼' : '↔';
+    return `<div style="background:#fff;border:1px solid #d6d0bc;border-radius:10px;padding:14px;flex:1;min-width:200px;">
+      <div style="font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#1D3828;opacity:.5;margin-bottom:8px;">${label} · ${timeframe}</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <span style="font-size:18px;font-weight:800;color:${corTf};">${emojiTf}</span>
+        <span style="font-size:12px;font-weight:700;color:#1D3828;">${tf.bosStatus}</span>
+      </div>
+      <div style="font-size:11px;color:#555;line-height:1.6;margin-bottom:10px;">${tf.bosDesc}</div>
+      ${tf.obZone ? `<div style="font-size:10.5px;padding:6px 10px;background:${tf.obZone.isBull?'rgba(42,107,58,.08)':'rgba(192,57,43,.08)'};border-left:3px solid ${tf.obZone.isBull?'#2a6b3a':'#c0392b'};border-radius:0 6px 6px 0;color:${tf.obZone.isBull?'#2a6b3a':'#c0392b'};font-weight:700;margin-bottom:6px;">🏦 OB: R$ ${fmt(tf.obZone.bot)} – ${fmt(tf.obZone.top)}</div>` : ''}
+      ${tf.openFVGs.length > 0 ? tf.openFVGs.map(f=>`<div style="font-size:10.5px;padding:5px 10px;background:rgba(99,137,104,.07);border-radius:6px;color:#3a3a3a;margin-bottom:4px;">📊 FVG ${f.type}: R$ ${fmt(f.bot)}–${fmt(f.top)}</div>`).join('') : ''}
+      <div style="margin-top:8px;font-size:10px;color:#888;">Score parcial: <strong style="color:#1D3828;">${tf.score > 0 ? '+' : ''}${tf.score.toFixed(1)}</strong></div>
+    </div>`;
+  }
+
+  const smcHTML = `<div style="animation:fi .3s ease;">
+    ${isDemo ? `<div class="dtag">⚠ dados demonstrativos — ticker não encontrado na Brapi</div>` : ''}
+    <div style="background:#1D3828;border:1px solid #355E3B;border-radius:14px;padding:22px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;">
+        <div>
+          <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#C8B560;margin-bottom:6px;">Análise SMC Top-Down · ${ticker}</div>
+          <div style="font-size:32px;font-weight:800;color:#EEEAD6;letter-spacing:-0.5px;">R$ ${fmt(cp,'',' ',2)}</div>
+          <div style="display:flex;gap:12px;margin-top:6px;flex-wrap:wrap;">
+            <span style="font-size:10px;color:#638968;">📅 Semanal: <strong style="color:${W.tendencia==='ALTA'||W.tendencia==='POSSIVELMENTE ALTA'?'#5cb87a':W.tendencia==='BAIXA'?'#e05c5c':'#C8B560'};">${W.tendencia}</strong></span>
+            <span style="font-size:10px;color:#638968;">📈 Diário: <strong style="color:${D.tendencia==='ALTA'||D.tendencia==='POSSIVELMENTE ALTA'?'#5cb87a':D.tendencia==='BAIXA'?'#e05c5c':'#C8B560'};">${D.tendencia}</strong></span>
+          </div>
+        </div>
+        <div style="${badgeConf}border:2px solid;border-radius:12px;padding:16px 22px;text-align:center;min-width:180px;">
+          <div style="font-size:22px;margin-bottom:6px;">${confEmoji}</div>
+          <div style="font-size:12px;font-weight:800;color:${corConf};letter-spacing:.3px;line-height:1.3;">${confLabel}</div>
+          <div style="margin-top:8px;display:inline-block;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.08);font-size:9px;font-weight:700;color:${corConf};letter-spacing:1px;">${confluencia}</div>
+        </div>
+      </div>
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid #2d5236;font-size:12px;color:#EEEAD6;line-height:1.7;opacity:.9;">${confDesc}</div>
+    </div>
+    <div style="background:#EEEAD6;border:1px solid #C8B560;border-radius:12px;padding:18px;margin-bottom:14px;">
+      <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#1D3828;margin-bottom:10px;opacity:.55;">📖 Em linguagem simples</div>
+      <div style="font-size:13px;color:#1D3828;line-height:1.8;">${
+        confluencia === 'FORTE' && confCor === '#5cb87a'
+          ? `<strong style="color:#2a6b3a;">${ticker}</strong> está com estrutura altista nos dois timeframes — semanal e diário alinhados. Tanto o contexto de longo prazo quanto o movimento recente apontam para compradores no controle. Em SMC, esse é o cenário de maior confiança para viés de compra.`
+        : confluencia === 'FORTE' && confCor === '#e05c5c'
+          ? `<strong style="color:#c0392b;">${ticker}</strong> está com estrutura baixista nos dois timeframes — semanal e diário confirmando queda. Ambiente desfavorável para compras.`
+        : confluencia === 'DIVERGÊNCIA'
+          ? `<strong style="color:#8a5a00;">${ticker}</strong> apresenta sinal conflitante entre os timeframes. Em SMC, divergências pedem paciência — aguardar os dois se alinharem antes de tomar qualquer decisão.`
+        : confluencia === 'MODERADO'
+          ? `<strong style="color:#1D3828;">${ticker}</strong> tem sinal moderado. Um timeframe aponta direção, mas o outro ainda não confirmou. Vale monitorar e aguardar confirmação para um sinal mais robusto.`
+          : `<strong style="color:#8a6d00;">${ticker}</strong> está em indefinição nos dois timeframes. O mercado ainda não escolheu direção — aguardar é a postura mais prudente.`
+      }</div>
+    </div>
+    <div style="background:#f5f1e4;border:1px solid #d6d0bc;border-radius:12px;padding:18px;margin-bottom:14px;">
+      <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#1D3828;margin-bottom:14px;opacity:.55;">🔍 Análise por Timeframe</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        ${tfCard('Contexto Macro','📅 Semanal · 12 meses',W)}
+        ${tfCard('Refinamento','📈 Diário · 6 meses',D)}
+      </div>
+    </div>
+    <div style="background:#1D3828;border:1px solid #355E3B;border-radius:12px;padding:18px;margin-bottom:14px;">
+      <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#C8B560;margin-bottom:14px;">🧠 Raciocínio do algoritmo · Top-Down</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        ${razoes.map(r=>`<div style="font-size:12px;color:#EEEAD6;padding:9px 12px;background:rgba(255,255,255,.07);border-left:3px solid #638968;border-radius:0 7px 7px 0;line-height:1.5;">${r}</div>`).join('')}
+      </div>
+    </div>
+    <div style="border:1px solid #355E3B;border-radius:12px;overflow:hidden;margin-bottom:14px;">
+      <div style="background:#1D3828;padding:14px 18px;font-size:10px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#C8B560;cursor:pointer;display:flex;justify-content:space-between;align-items:center;"
+        onclick="const d=this.nextElementSibling;d.style.display=d.style.display==='none'?'block':'none';this.querySelector('.arr').textContent=d.style.display==='none'?'▼':'▲'">
+        📚 Como interpretar esta análise — conceitos SMC
+        <span class="arr" style="font-size:11px;color:#638968;">▼</span>
+      </div>
+      <div style="display:none;padding:18px;background:#f5f1e4;">
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="background:#fff;border-left:4px solid #C8B560;border-radius:0 8px 8px 0;padding:12px 14px;"><div style="font-size:11px;font-weight:800;color:#1D3828;margin-bottom:4px;">📅 Por que analisar o Semanal primeiro?</div><div style="font-size:11px;color:#444;line-height:1.6;">O timeframe maior representa o contexto institucional — onde fundos e grandes players estão posicionados. Entrar contra o semanal é como nadar contra a maré. O diário só tem validade dentro do contexto que o semanal estabelece.</div></div>
+          <div style="background:#fff;border-left:4px solid #638968;border-radius:0 8px 8px 0;padding:12px 14px;"><div style="font-size:11px;font-weight:800;color:#1D3828;margin-bottom:4px;">📈 O que o Diário adiciona?</div><div style="font-size:11px;color:#444;line-height:1.6;">O diário refina o timing. Dentro de uma tendência semanal de alta, o diário ajuda a identificar o momento exato de entrada — especialmente quando o preço retorna a um OB ou FVG como suporte.</div></div>
+          <div style="background:#fff;border-left:4px solid #e08c3c;border-radius:0 8px 8px 0;padding:12px 14px;"><div style="font-size:11px;font-weight:800;color:#1D3828;margin-bottom:4px;">🟠 O que fazer quando há divergência?</div><div style="font-size:11px;color:#444;line-height:1.6;">Divergência não é erro — é informação. A regra SMC é: não operar contra o semanal. Aguardar o diário realinhar. Paciência é parte da estratégia.</div></div>
+          <div style="background:#fff;border-left:4px solid #5cb87a;border-radius:0 8px 8px 0;padding:12px 14px;"><div style="font-size:11px;font-weight:800;color:#1D3828;margin-bottom:4px;">⚡ Quando o sinal é FORTE?</div><div style="font-size:11px;color:#444;line-height:1.6;">Força máxima = Semanal + Diário alinhados + Preço em OB ou FVG relevante. Quanto mais confluências, maior a probabilidade estatística de o cenário se confirmar — mas nunca é certeza.</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:9.5px;color:#638968;text-align:center;line-height:1.6;padding:8px;opacity:.55;">
+      Análise Top-Down · Semanal (12m) + Diário (6m) via Brapi.dev · Exclusivamente educacional · Não constitui recomendação de investimento (B3, CVM) · APARD Capital
+    </div>
+  </div>`;
+
+  res.innerHTML = smcHTML;
+}
+
 
 // ── RANKING ──
 function showRank(type,btn){
@@ -6069,6 +6822,156 @@ function montanteVF(capital, aporte, taxaAnual, taxaMensal, tipoTaxa, meses) {
   return capital * Math.pow(1 + tm, meses) + aporte * (Math.pow(1 + tm, meses) - 1) / tm;
 }
 
+/* ══════════════════════════════════════════
+   BENCHMARKS — API Banco Central do Brasil
+   Cache localStorage 24h | Fallback valores fixos
+   Séries SGS: CDI=12, Selic Meta=432, IPCA 12m=13522, Poupança=195
+   ══════════════════════════════════════════ */
+const BENCH_CACHE_KEY = 'apard_benchmarks';
+const BENCH_CACHE_TTL = 24 * 60 * 60 * 1000; // 24 horas em ms
+
+// Fallback para quando a API falhar (atualizar manualmente se necessário)
+const BENCH_FALLBACK = {
+  cdi:   14.65,   // CDI ≈ Selic − 0,10 p.p.
+  selic: 14.75,   // Meta Selic (Copom jan/2026)
+  ipca:   4.83,   // IPCA acumulado 12m (IBGE fev/2026)
+  poup:   6.17,   // Poupança (0,5% a.m. + TR ≈ 6,17% a.a. com Selic > 8,5%)
+  fonte: 'fallback',
+  data: 'mar/2026'
+};
+
+// Limpa cache antigo com estrutura BCB incompatível ao carregar
+(function limparCacheDesatualizado() {
+  try {
+    const c = localStorage.getItem('apard_benchmarks');
+    if (c) {
+      const p = JSON.parse(c);
+      // Se veio da API BCB antiga (fonte='bcb') ou não tem campo 'fonte', limpa
+      if (!p.data?.fonte && p.data?.fonte !== 'brapi') {
+        localStorage.removeItem('apard_benchmarks');
+      }
+    }
+  } catch(e) { localStorage.removeItem('apard_benchmarks'); }
+})();
+
+async function carregarBenchmarks() {
+  // ── Cache 24h no localStorage ──────────────────────────────────────────
+  try {
+    const cached = localStorage.getItem(BENCH_CACHE_KEY);
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      if (Date.now() - parsed.timestamp < BENCH_CACHE_TTL) {
+        renderBenchmarks(parsed.data, true);
+        return;
+      }
+    }
+  } catch(e) {}
+
+  // ── Loading ─────────────────────────────────────────────────────────────
+  ['bv-cdi','bv-selic','bv-ipca','bv-poup','bv-ipca5'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = '...'; el.className = 'bench-val loading'; }
+  });
+
+  // ── Busca via Brapi (mesma API já usada no módulo Ações) ────────────────
+  // Brapi /prime-rate → Selic/CDI   |   /inflation → IPCA
+  try {
+    const [rSelic, rIPCA] = await Promise.allSettled([
+      fetchP('https://brapi.dev/api/v2/prime-rate?country=brazil'),
+      fetchP('https://brapi.dev/api/v2/inflation?country=brazil'),
+    ]);
+
+    // ── Selic / CDI ──────────────────────────────────────────────────────
+    let selic = null;
+    try {
+      const sd = rSelic.value;
+      // Brapi retorna: { prime_rate: [{ value: 14.75, ... }] } ou [{ value: ... }]
+      const arr = sd?.prime_rate || (Array.isArray(sd) ? sd : null);
+      if (arr && arr.length > 0) {
+        selic = parseFloat(arr[0].value ?? arr[0].rate ?? arr[0].amount);
+      }
+    } catch(e) {}
+
+    // ── IPCA (acumulado 12 meses) ────────────────────────────────────────
+    let ipca12m = null;
+    try {
+      const id = rIPCA.value;
+      const arr = id?.inflation || (Array.isArray(id) ? id : null);
+      if (arr && arr.length > 0) {
+        // Verifica se há valor anual direto
+        const anual = arr.find(x => x.period === 'annual' || x.name === 'annual' || x.epochDate === 'annual');
+        if (anual?.value != null) {
+          ipca12m = parseFloat(anual.value);
+        } else {
+          // Acumula os últimos 12 valores mensais
+          const ult12 = arr.slice(0, 12);
+          const acum = ult12.reduce((acc, x) => {
+            const v = parseFloat(x.value ?? x.monthly ?? x.amount ?? 0);
+            return acc * (1 + v / 100);
+          }, 1);
+          ipca12m = (acum - 1) * 100;
+        }
+      }
+    } catch(e) {}
+
+    // ── Se pelo menos Selic carregou, monta o resultado ──────────────────
+    if (selic != null) {
+      // CDI ≈ Selic − 0,10 p.p. (convenção de mercado)
+      const cdi   = selic - 0.10;
+      // Poupança: quando Selic > 8,5% → 0,5% a.m. + TR ≈ 6,17% a.a.
+      //           quando Selic ≤ 8,5% → 70% da Selic
+      const poup  = selic > 8.5 ? (Math.pow(1 + 0.005, 12) - 1) * 100 : selic * 0.70;
+      const ipca  = ipca12m ?? BENCH_FALLBACK.ipca;
+      const agora = new Date().toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
+
+      const benchData = { cdi, selic, ipca, poup, fonte: 'brapi', data: agora };
+
+      try {
+        localStorage.setItem(BENCH_CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: benchData }));
+      } catch(e) {}
+
+      renderBenchmarks(benchData, false);
+      return;
+    }
+  } catch(err) {
+    console.warn('[APARD Benchmarks] Brapi falhou:', err);
+  }
+
+  // ── Fallback fixo (valores atualizados de março/2026) ───────────────────
+  renderBenchmarks(BENCH_FALLBACK, false);
+}
+
+function renderBenchmarks(d, fromCache) {
+  const fmt = v => v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%';
+
+  const setVal = (id, val) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = fmt(val);
+    el.className = 'bench-val';
+  };
+
+  setVal('bv-cdi',   d.cdi);
+  setVal('bv-selic', d.selic);
+  setVal('bv-ipca',  d.ipca);
+  setVal('bv-poup',  d.poup);
+  setVal('bv-ipca5', d.ipca + 5);
+
+  const statusEl = document.getElementById('bench-status');
+  const noteEl   = document.getElementById('bench-note');
+
+  if (d.fonte === 'brapi') {
+    if (statusEl) statusEl.innerHTML = `✅ dados ao vivo · ref. ${d.data}`;
+    if (noteEl)   noteEl.textContent = 'Fonte: Brapi.dev (Selic/CDI + IPCA). CDI = Selic − 0,10 p.p. Poupança calculada pela regra vigente. Ibovespa: média histórica ~13% a.a.';
+  } else if (d.fonte === 'fallback') {
+    if (statusEl) statusEl.innerHTML = '⚠️ dados offline · referência mar/2026';
+    if (noteEl)   noteEl.textContent = 'Não foi possível carregar dados ao vivo. Exibindo referências fixas. Verifique sua conexão e tente novamente.';
+  } else if (fromCache) {
+    if (statusEl) statusEl.innerHTML = `🗄️ cache (24h) · ref. ${d.data}`;
+    if (noteEl)   noteEl.textContent = 'Dados em cache. Atualização automática a cada 24 horas ao abrir o simulador.';
+  }
+}
+
 /* TABS */
 function showTab(id) {
   document.querySelectorAll('.calc-panel, .menu-panel').forEach(p => p.classList.remove('active'));
@@ -6078,6 +6981,8 @@ function showTab(id) {
   const order = ['menu','valorFuturo','aportes','taxa','prazo','simulacao'];
   const tabIdx = order.indexOf(id);
   if (tabIdx !== -1) document.querySelectorAll('.tab-btn')[tabIdx].classList.add('active');
+  // Carregar benchmarks ao abrir a aba Taxa
+  if (id === 'taxa') carregarBenchmarks();
   // scroll to top
   window.scrollTo(0, 0);
 }
@@ -6233,18 +7138,24 @@ function calcPrazo() {
   const totalInv = capital + aporte * meses;
   const rend     = meta - totalInv;
   const pComp    = consInf ? meta / Math.pow(1 + inflacao, anos) : null;
+  // Formato humano: "X anos e Y meses"
+  const anosInteiros  = Math.floor(meses / 12);
+  const mesesRestantes = Math.ceil(meses % 12);
+  const prazoHumano = anosInteiros > 0
+    ? (anosInteiros + ' ano' + (anosInteiros>1?'s':'') + (mesesRestantes>0 ? ' e ' + mesesRestantes + ' ' + (mesesRestantes===1?'mês':'meses') : ''))
+    : (Math.ceil(meses) + ' ' + (Math.ceil(meses)===1?'mês':'meses'));
   document.getElementById('pr_results').innerHTML = `
     <div class="result-highlight">
       <div>
         <div class="result-highlight-label">Prazo Necessário</div>
-        <div class="result-highlight-value">${anosArr} ano${anosArr>1?'s':''}</div>
-        <div class="result-highlight-sub">${Math.ceil(meses)} meses · (${anos.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})} anos exatos)</div>
+        <div class="result-highlight-value">${prazoHumano}</div>
+        <div class="result-highlight-sub">${Math.ceil(meses)} meses · equivalência exata</div>
       </div>
     </div>
     <div class="divider"></div>
     <div class="section-label">Detalhamento</div>
     <div class="result-item" style="${delay(0)}"><span class="result-label">Prazo em Meses</span><span class="result-value">${Math.ceil(meses)} meses</span></div>
-    <div class="result-item" style="${delay(1)}"><span class="result-label">Prazo em Anos</span><span class="result-value">${anos.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}</span></div>
+    <div class="result-item" style="${delay(1)}"><span class="result-label">Prazo Exato</span><span class="result-value">${anos.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})} anos</span></div>
     <div class="result-item" style="${delay(2)}"><span class="result-label">Total Investido</span><span class="result-value">${BRL(totalInv)}</span></div>
     <div class="result-item" style="${delay(3)}"><span class="result-label">Rendimento Total</span><span class="result-value positive">${BRL(rend)}</span></div>
     ${pComp !== null ? `<div class="divider"></div><div class="section-label">Ajuste pela Inflação (${N('pr_inflacao')}% a.a.)</div><div class="result-item" style="${delay(4)}"><span class="result-label">Poder de Compra do Montante no Prazo</span><span class="result-value gold">${BRL(pComp)}</span></div>` : ''}
