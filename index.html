@@ -842,7 +842,68 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 .mni{display:flex;align-items:center;gap:5px;padding:12px 14px;font-size:10px;font-weight:600;letter-spacing:.5px;color:rgba(29,56,40,.4);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;white-space:nowrap;text-transform:uppercase;user-select:none;flex-shrink:0;}
 .mni:hover{color:rgba(29,56,40,.7);}
 .mni.active{color:#1D3828;border-bottom-color:#C8B560;font-weight:700;}
+.mni.alice-tab-btn{color:rgba(200,181,96,.6);border-bottom-color:transparent;}
+.mni.alice-tab-btn:hover{color:rgba(200,181,96,.9);}
+.mni.alice-tab-btn.active{color:#C8B560;border-bottom-color:#C8B560;font-weight:700;}
+/* ── ALICE CHAT ── */
+.alice-wrap{display:flex;flex-direction:column;height:calc(100vh - 200px);min-height:500px;}
+.alice-header{background:#1D3828;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #C8B560;flex-shrink:0;}
+.alice-hinfo{display:flex;align-items:center;gap:12px;}
+.alice-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#C8B560,#a8913a);border:2px solid #ddd09a;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:17px;color:#1D3828;font-weight:600;flex-shrink:0;}
+.alice-name{font-size:15px;font-weight:600;color:#EEEAD6;letter-spacing:.3px;}
+.alice-role{font-size:10px;color:#ddd09a;letter-spacing:.5px;margin-top:1px;display:flex;align-items:center;gap:5px;}
+.alice-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite;flex-shrink:0;}
+.alice-clr{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(238,234,214,.65);padding:5px 12px;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.3px;font-family:var(--f);}
+.alice-clr:hover{background:rgba(255,255,255,.14);color:#EEEAD6;}
+/* Welcome Screen */
+.alice-welcome-screen{flex:1;background:#ece5d8;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 24px;gap:14px;text-align:center;overflow-y:auto;}
+.alice-wlc-av{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#C8B560,#a8913a);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:30px;color:#1D3828;font-weight:600;box-shadow:0 8px 24px rgba(200,181,96,.3);}
+.alice-wlc-name{font-family:'Fraunces',serif;font-size:22px;color:#1D3828;font-weight:600;}
+.alice-wlc-role{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#638968;}
+.alice-wlc-desc{font-size:13px;color:#6b6b6b;line-height:1.7;max-width:360px;}
+.alice-wlc-tags{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:2px;}
+.alice-tag{background:#fff;border:1px solid #ddd8c4;border-radius:20px;padding:5px 12px;font-size:11px;color:#1D3828;font-weight:500;}
+.alice-quick-title{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#638968;margin-top:4px;}
+.alice-quick-btns{display:flex;flex-direction:column;gap:7px;width:100%;max-width:380px;}
+.alice-quick-btn{background:#fff;border:1.5px solid #ddd8c4;border-radius:10px;padding:10px 14px;font-size:12px;color:#1D3828;font-family:var(--f);cursor:pointer;text-align:left;transition:all .2s;font-weight:500;}
+.alice-quick-btn:hover{border-color:#C8B560;background:#f5f2e4;}
+.alice-start-btn{background:#1D3828;color:#EEEAD6;border:none;border-radius:10px;padding:13px 32px;font-size:13px;font-weight:600;font-family:var(--f);letter-spacing:.5px;cursor:pointer;transition:background .2s;margin-top:6px;}
+.alice-start-btn:hover{background:#2a4f38;}
+/* Chat Screen */
+.alice-chat-screen{flex:1;display:none;flex-direction:column;overflow:hidden;}
+.alice-chat-screen.active{display:flex;}
+.alice-msgs{flex:1;overflow-y:auto;padding:14px 14px;display:flex;flex-direction:column;gap:8px;background:#ece5d8;}
+.alice-msgs::-webkit-scrollbar{width:3px;}.alice-msgs::-webkit-scrollbar-thumb{background:#ccc9b4;border-radius:2px;}
+.amsg-wrap{display:flex;flex-direction:column;animation:fi .22s ease;}
+.amsg-wrap.alice-m{align-items:flex-start;}
+.amsg-wrap.user-m{align-items:flex-end;}
+.amsg-sender{font-size:10px;font-weight:600;letter-spacing:.8px;margin-bottom:3px;padding:0 4px;}
+.amsg-wrap.alice-m .amsg-sender{color:#C8B560;}
+.amsg-wrap.user-m .amsg-sender{color:#8a7b3a;}
+.abubble{max-width:84%;padding:9px 13px;border-radius:16px;font-size:13.5px;line-height:1.65;word-break:break-word;}
+.amsg-wrap.alice-m .abubble{background:#fff;color:#2c2c2c;border-bottom-left-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.07);}
+.amsg-wrap.user-m .abubble{background:#dcf8c6;color:#2c2c2c;border-bottom-right-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.07);}
+.amsg-time{font-size:10px;color:#aaa;margin-top:2px;padding:0 4px;}
+.asys-msg{text-align:center;font-size:10.5px;color:#aaa;background:rgba(255,255,255,.55);border-radius:10px;padding:4px 12px;align-self:center;}
+/* Typing */
+.alice-typing-wrap{padding:0 14px 8px;display:none;flex-direction:column;align-items:flex-start;gap:3px;background:#ece5d8;}
+.alice-typing-wrap.on{display:flex;}
+.alice-typing-lbl{font-size:10px;font-weight:600;letter-spacing:.8px;color:#C8B560;padding:0 4px;}
+.alice-typing-bub{background:#fff;border-radius:16px;border-bottom-left-radius:4px;padding:11px 14px;display:flex;gap:4px;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,.07);}
+.atd{width:7px;height:7px;border-radius:50%;background:#C8B560;animation:atd 1.2s infinite;}
+.atd:nth-child(2){animation-delay:.2s}.atd:nth-child(3){animation-delay:.4s}
+@keyframes atd{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+/* Input */
+.alice-input-bar{background:#f0ede0;border-top:1px solid #ddd8c4;padding:9px 10px;display:flex;align-items:flex-end;gap:8px;flex-shrink:0;}
+.alice-inp{flex:1;background:#fff;border:1px solid #ccc9b4;border-radius:22px;padding:9px 15px;font-size:13.5px;font-family:var(--f);color:#2c2c2c;outline:none;resize:none;max-height:90px;line-height:1.5;transition:border-color .2s;}
+.alice-inp:focus{border-color:#C8B560;}
+.alice-inp::placeholder{color:#bbb;}
+.alice-send{width:42px;height:42px;border-radius:50%;background:#C8B560;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity .2s;}
+.alice-send:hover{opacity:.85;}
+.alice-send:disabled{opacity:.4;cursor:not-allowed;}
 .content{max-width:960px;margin:0 auto;padding:18px 22px;}
+.content:has(> #tab-alice.active){padding:0;max-width:100%;}
+#tab-alice.tab-panel.active{padding:0;}
 .tab-panel{display:none;}.tab-panel.active{display:block;animation:fi .3s ease;}
 @keyframes fi{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 .loading{text-align:center;padding:44px;}
@@ -1482,21 +1543,277 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 
 <div class="main-menu">
   <div class="mni active" onclick="switchTab('fund',this)">📊 Fundamentos</div>
-  <div class="mni" onclick="switchTab('preco',this)">📈 Preço</div>
+  <div class="mni" onclick="switchTab('smc',this)">🎯 Análise SMC</div>
   <div class="mni" onclick="switchTab('comp',this)">🆚 Comparador</div>
   <div class="mni" onclick="switchTab('rank',this)">🏆 Ranking</div>
   <div class="mni" onclick="switchTab('cart',this)">💼 Minha Carteira</div>
   <div class="mni" onclick="switchTab('graf',this)">🖥️ Gráfico TradingView</div>
   <div class="mni" onclick="switchTab('cal',this)">🌍 Calendário Econômico</div>
-  <div class="mni" onclick="switchTab('smc',this)">🎯 Análise SMC</div>
+  <div class="mni alice-tab-btn" onclick="switchTab('alice',this)">✨ Alice IA</div>
 </div>
 
 <div class="content">
   <div id="tab-fund" class="tab-panel active">
     <div id="fund-c"><div class="empty"><div class="empty-ico">📊</div><h3>Selecione uma ação</h3><p>Use a busca acima ou filtre por setor para começar sua análise.</p></div></div>
-  </div>
-  <div id="tab-preco" class="tab-panel">
-    <div id="preco-c"><div class="empty"><div class="empty-ico">📈</div><h3>Selecione uma ação</h3><p>Escolha uma ação para ver o histórico de preços.</p></div></div>
+
+    <!-- ══ GUIA DE INDICADORES FUNDAMENTALISTAS ══ -->
+    <div style="max-width:900px;margin:32px auto 0;">
+
+      <div style="border-top:1px solid rgba(29,56,40,.12);margin-bottom:28px;"></div>
+
+      <div style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#1D3828;margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+        <span style="font-size:16px;">📚</span> Guia dos Indicadores Fundamentalistas — O que cada um significa?
+      </div>
+      <div style="font-size:10.5px;color:#4a7a55;margin-bottom:24px;line-height:1.7;">
+        A <strong style="color:#1D3828;">análise fundamentalista</strong> avalia a saúde real de uma empresa — sua capacidade de lucrar, crescer e remunerar os acionistas. Os indicadores abaixo são os mais utilizados para decidir se uma ação vale o preço que está sendo negociado.
+      </div>
+
+      <!-- ── GRUPO 1: VALUATION ── -->
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#638968;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+        <span style="display:inline-block;width:18px;height:18px;background:rgba(91,155,213,.15);border:1px solid rgba(91,155,213,.4);border-radius:4px;font-size:10px;line-height:18px;text-align:center;color:#2d7dc4;font-weight:800;">V</span>
+        Valuation — A ação está cara ou barata?
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:24px;">
+
+        <!-- P/L -->
+        <div style="background:#fff;border:1px solid rgba(29,56,40,.11);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.05);">
+          <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#5B9BD5;border-radius:12px 0 0 12px;"></div>
+          <div style="padding-left:10px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <div style="background:rgba(91,155,213,.12);border:1px solid rgba(91,155,213,.35);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#2d7dc4;letter-spacing:.8px;">P/L</div>
+              <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Preço / Lucro</div>
+            </div>
+            <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+              <strong style="color:#1D3828;">O que é:</strong> Quantos anos de lucro atual seriam necessários para recuperar o valor pago pela ação.<br><br>
+              <strong style="color:#1D3828;">Analogia:</strong> Você compra uma padaria por R$ 100.000 que lucra R$ 10.000/ano. O P/L é 10x — você recupera em 10 anos.<br><br>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
+                <span style="background:rgba(46,125,50,.1);border:1px solid rgba(46,125,50,.25);color:#1b5e20;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Abaixo de 10 → Barata</span>
+                <span style="background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.3);color:#7a5500;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">10–20 → Justa</span>
+                <span style="background:rgba(198,40,40,.08);border:1px solid rgba(198,40,40,.2);color:#b71c1c;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Acima de 20 → Cara</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- P/VP -->
+        <div style="background:#fff;border:1px solid rgba(29,56,40,.11);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.05);">
+          <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#7B1FA2;border-radius:12px 0 0 12px;"></div>
+          <div style="padding-left:10px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <div style="background:rgba(123,31,162,.1);border:1px solid rgba(123,31,162,.3);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#6a1b9a;letter-spacing:.8px;">P/VP</div>
+              <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Preço / Valor Patrimonial</div>
+            </div>
+            <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+              <strong style="color:#1D3828;">O que é:</strong> Compara o preço de mercado da ação com o patrimônio líquido real da empresa por ação.<br><br>
+              <strong style="color:#1D3828;">Analogia:</strong> Uma casa vale R$ 300k e está sendo vendida por R$ 600k — P/VP de 2x. Você está pagando o dobro do valor real.<br><br>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
+                <span style="background:rgba(46,125,50,.1);border:1px solid rgba(46,125,50,.25);color:#1b5e20;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Abaixo de 1 → Abaixo do valor</span>
+                <span style="background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.3);color:#7a5500;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">1–3 → Razoável</span>
+                <span style="background:rgba(198,40,40,.08);border:1px solid rgba(198,40,40,.2);color:#b71c1c;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Acima de 3 → Prêmio alto</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LPA -->
+        <div style="background:#fff;border:1px solid rgba(29,56,40,.11);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.05);">
+          <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#00838F;border-radius:12px 0 0 12px;"></div>
+          <div style="padding-left:10px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <div style="background:rgba(0,131,143,.1);border:1px solid rgba(0,131,143,.3);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#006064;letter-spacing:.8px;">LPA</div>
+              <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Lucro por Ação</div>
+            </div>
+            <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+              <strong style="color:#1D3828;">O que é:</strong> Quanto do lucro total da empresa pertence a cada ação que você possui no período.<br><br>
+              <strong style="color:#1D3828;">Analogia:</strong> Uma pizzaria lucrou R$ 10.000 com 10 sócios — cada sócio tem direito a R$ 1.000. Esse é o LPA deles.<br><br>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
+                <span style="background:rgba(46,125,50,.1);border:1px solid rgba(46,125,50,.25);color:#1b5e20;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Positivo e crescente → Ótimo</span>
+                <span style="background:rgba(198,40,40,.08);border:1px solid rgba(198,40,40,.2);color:#b71c1c;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Negativo → Prejuízo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EBITDA -->
+        <div style="background:#fff;border:1px solid rgba(29,56,40,.11);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.05);">
+          <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#C8A820;border-radius:12px 0 0 12px;"></div>
+          <div style="padding-left:10px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <div style="background:rgba(200,168,32,.12);border:1px solid rgba(200,168,32,.4);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#8a6f00;letter-spacing:.8px;">EBITDA</div>
+              <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Geração de Caixa Operacional</div>
+            </div>
+            <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+              <strong style="color:#1D3828;">O que é:</strong> O caixa gerado pela operação pura da empresa, antes de pagar juros, impostos e depreciação. Mostra a força bruta do negócio.<br><br>
+              <strong style="color:#1D3828;">Analogia:</strong> Academia: receita das mensalidades menos professores e luz — antes de pagar o financiamento do prédio. Isso é o EBITDA.<br><br>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
+                <span style="background:rgba(46,125,50,.1);border:1px solid rgba(46,125,50,.25);color:#1b5e20;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Crescente → Negócio saudável</span>
+                <span style="background:rgba(198,40,40,.08);border:1px solid rgba(198,40,40,.2);color:#b71c1c;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Negativo → Operação no prejuízo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── GRUPO 2: RENTABILIDADE ── -->
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#638968;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+        <span style="display:inline-block;width:18px;height:18px;background:rgba(46,125,50,.12);border:1px solid rgba(46,125,50,.35);border-radius:4px;font-size:10px;line-height:18px;text-align:center;color:#1b5e20;font-weight:800;">R</span>
+        Rentabilidade — A empresa gera lucro com eficiência?
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:24px;">
+
+        <!-- ROE -->
+        <div style="background:#fff;border:1px solid rgba(29,56,40,.11);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.05);">
+          <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#2e7d32;border-radius:12px 0 0 12px;"></div>
+          <div style="padding-left:10px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <div style="background:rgba(46,125,50,.1);border:1px solid rgba(46,125,50,.35);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#1b5e20;letter-spacing:.8px;">ROE</div>
+              <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Retorno sobre o Patrimônio</div>
+            </div>
+            <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+              <strong style="color:#1D3828;">O que é:</strong> Quanto de lucro a empresa gera para cada real que os acionistas investiram. É a eficiência da empresa em usar seu próprio dinheiro.<br><br>
+              <strong style="color:#1D3828;">Analogia:</strong> Você investiu R$ 100k em um negócio e lucrou R$ 20k. ROE = 20%. Um bom gestor faz o dinheiro trabalhar duro.<br><br>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
+                <span style="background:rgba(46,125,50,.1);border:1px solid rgba(46,125,50,.25);color:#1b5e20;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Acima de 20% → Excelente</span>
+                <span style="background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.3);color:#7a5500;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">12–20% → Bom</span>
+                <span style="background:rgba(198,40,40,.08);border:1px solid rgba(198,40,40,.2);color:#b71c1c;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Abaixo de 5% → Fraco</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Margem Líquida -->
+        <div style="background:#fff;border:1px solid rgba(29,56,40,.11);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.05);">
+          <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#E8732A;border-radius:12px 0 0 12px;"></div>
+          <div style="padding-left:10px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <div style="background:rgba(232,115,42,.1);border:1px solid rgba(232,115,42,.35);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#b85500;letter-spacing:.8px;">ML</div>
+              <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Margem Líquida</div>
+            </div>
+            <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+              <strong style="color:#1D3828;">O que é:</strong> De cada R$ 100 que a empresa fatura, quanto sobra de lucro depois de pagar todos os custos, impostos e despesas.<br><br>
+              <strong style="color:#1D3828;">Analogia:</strong> Um restaurante fatura R$ 10.000 e sobram R$ 1.500 no caixa no final. A margem líquida é 15%.<br><br>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
+                <span style="background:rgba(46,125,50,.1);border:1px solid rgba(46,125,50,.25);color:#1b5e20;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Acima de 15% → Saudável</span>
+                <span style="background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.3);color:#7a5500;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">5–15% → Razoável</span>
+                <span style="background:rgba(198,40,40,.08);border:1px solid rgba(198,40,40,.2);color:#b71c1c;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Negativa → Prejuízo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── GRUPO 3: ENDIVIDAMENTO ── -->
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#638968;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+        <span style="display:inline-block;width:18px;height:18px;background:rgba(198,40,40,.1);border:1px solid rgba(198,40,40,.3);border-radius:4px;font-size:10px;line-height:18px;text-align:center;color:#b71c1c;font-weight:800;">D</span>
+        Endividamento — As dívidas estão sob controle?
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:24px;">
+
+        <!-- Dívida/PL -->
+        <div style="background:#fff;border:1px solid rgba(29,56,40,.11);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.05);">
+          <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#c62828;border-radius:12px 0 0 12px;"></div>
+          <div style="padding-left:10px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <div style="background:rgba(198,40,40,.1);border:1px solid rgba(198,40,40,.3);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#b71c1c;letter-spacing:.8px;">D/PL</div>
+              <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Dívida / Patrimônio Líquido</div>
+            </div>
+            <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+              <strong style="color:#1D3828;">O que é:</strong> Quanto a empresa se financia com dívida em relação ao patrimônio próprio. Uma empresa muito alavancada corre mais riscos em crises.<br><br>
+              <strong style="color:#1D3828;">Analogia:</strong> Apartamento de R$ 500k com R$ 100k de dívida = 20% (controlado). Com R$ 800k de dívida = 160% (risco alto).<br><br>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
+                <span style="background:rgba(46,125,50,.1);border:1px solid rgba(46,125,50,.25);color:#1b5e20;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Abaixo de 100% → Controlado</span>
+                <span style="background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.3);color:#7a5500;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">100–300% → Atenção</span>
+                <span style="background:rgba(198,40,40,.08);border:1px solid rgba(198,40,40,.2);color:#b71c1c;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Acima de 300% → Risco alto</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nota sobre setores -->
+        <div style="background:rgba(200,168,32,.05);border:1px solid rgba(200,168,32,.25);border-radius:12px;padding:18px;">
+          <div style="font-size:10.5px;font-weight:700;color:#7a5500;margin-bottom:8px;">💡 Atenção: contexto importa!</div>
+          <div style="font-size:10px;color:#3d6147;line-height:1.75;">
+            A dívida não é necessariamente má. <strong style="color:#1D3828;">Bancos e utilities</strong> (energia, saneamento) naturalmente têm mais alavancagem pelo modelo de negócio.<br><br>
+            <strong style="color:#1D3828;">Empresas de crescimento</strong> podem ter dívida alta para financiar expansão — o que importa é se o EBITDA cobre os juros com folga (<em>cobertura de juros</em>).<br><br>
+            Sempre compare a dívida com empresas do <strong style="color:#1D3828;">mesmo setor</strong>.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── GRUPO 4: DIVIDENDOS ── -->
+      <div style="font-size:10px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#638968;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+        <span style="display:inline-block;width:18px;height:18px;background:rgba(200,168,32,.15);border:1px solid rgba(200,168,32,.4);border-radius:4px;font-size:10px;line-height:18px;text-align:center;color:#8a6f00;font-weight:800;">$</span>
+        Dividendos — A empresa remunera os acionistas?
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:24px;">
+
+        <!-- DY -->
+        <div style="background:#fff;border:1px solid rgba(29,56,40,.11);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.05);">
+          <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#C8A820;border-radius:12px 0 0 12px;"></div>
+          <div style="padding-left:10px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <div style="background:rgba(200,168,32,.12);border:1px solid rgba(200,168,32,.4);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#8a6f00;letter-spacing:.8px;">DY</div>
+              <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Dividend Yield</div>
+            </div>
+            <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+              <strong style="color:#1D3828;">O que é:</strong> O percentual pago em dividendos nos últimos 12 meses em relação ao preço atual da ação. É o "aluguel" que você recebe por ser acionista.<br><br>
+              <strong style="color:#1D3828;">Analogia:</strong> Ação por R$ 100, empresa paga R$ 8/ano em dividendos → DY = 8%. Como o rendimento de um imóvel alugado.<br><br>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
+                <span style="background:rgba(46,125,50,.1);border:1px solid rgba(46,125,50,.25);color:#1b5e20;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Acima de 6% → Bom pagador</span>
+                <span style="background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.3);color:#7a5500;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">3–6% → Moderado</span>
+                <span style="background:rgba(198,40,40,.08);border:1px solid rgba(198,40,40,.2);color:#b71c1c;border-radius:5px;padding:2px 8px;font-size:9.5px;font-weight:700;">Abaixo de 3% → Baixo / Não paga</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nota DY -->
+        <div style="background:rgba(29,56,40,.04);border:1px solid rgba(29,56,40,.1);border-radius:12px;padding:18px;">
+          <div style="font-size:10.5px;font-weight:700;color:#1D3828;margin-bottom:8px;">💡 DY alto nem sempre é bom!</div>
+          <div style="font-size:10px;color:#3d6147;line-height:1.75;">
+            Um Dividend Yield muito alto pode ser sinal de que o <strong style="color:#1D3828;">preço da ação caiu muito</strong> — o que aumenta o percentual mesmo sem a empresa pagar mais.<br><br>
+            Prefira empresas com <strong style="color:#1D3828;">DY consistente e crescente</strong> ao longo dos anos, em vez de um pico isolado.<br><br>
+            Dividendos futuros <strong style="color:#1D3828;">nunca são garantidos</strong> — sempre consulte o histórico de pagamentos da empresa.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── COMO LER O PAINEL DE SAÚDE ── -->
+      <div style="background:#fff;border:1px solid rgba(29,56,40,.12);border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(29,56,40,.05);">
+        <div style="font-size:10.5px;font-weight:700;color:#1D3828;margin-bottom:14px;letter-spacing:.5px;">🧭 Como ler o Painel de Saúde Financeira</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
+          <div style="display:flex;align-items:flex-start;gap:8px;">
+            <div style="min-width:8px;height:8px;border-radius:50%;background:#5cb87a;margin-top:4px;"></div>
+            <div style="font-size:10px;color:#3d6147;line-height:1.6;"><strong style="color:#1D3828;">Verde — Bom:</strong> O indicador está dentro de parâmetros saudáveis para a maioria das empresas.</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:8px;">
+            <div style="min-width:8px;height:8px;border-radius:50%;background:#d4a843;margin-top:4px;"></div>
+            <div style="font-size:10px;color:#3d6147;line-height:1.6;"><strong style="color:#1D3828;">Amarelo — Atenção:</strong> Não é ruim, mas merece acompanhamento. Pode ser sazonal ou setor específico.</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:8px;">
+            <div style="min-width:8px;height:8px;border-radius:50%;background:#e05c5c;margin-top:4px;"></div>
+            <div style="font-size:10px;color:#3d6147;line-height:1.6;"><strong style="color:#1D3828;">Vermelho — Fraco:</strong> Indica problema ou ineficiência. Pesquise o motivo antes de investir.</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:8px;">
+            <span style="font-size:13px;flex-shrink:0;">📊</span>
+            <div style="font-size:10px;color:#3d6147;line-height:1.6;"><strong style="color:#1D3828;">Barras de saúde:</strong> Altura proporcional ao "sinal" de cada pilar. Compare sempre empresas do mesmo setor.</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:8px;">
+            <span style="font-size:13px;flex-shrink:0;">?</span>
+            <div style="font-size:10px;color:#3d6147;line-height:1.6;"><strong style="color:#1D3828;">Ícones de ajuda:</strong> Clique no <strong>?</strong> ao lado de cada indicador para ver explicações rápidas e analogias.</div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:8px;">
+            <span style="font-size:13px;flex-shrink:0;">⚠️</span>
+            <div style="font-size:10px;color:#3d6147;line-height:1.6;"><strong style="color:#1D3828;">Importante:</strong> Nunca analise um indicador isolado. A força vem da combinação de vários fatores juntos.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
   <div id="tab-comp" class="tab-panel">
     <div class="comp-header">
@@ -1568,7 +1885,7 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
 
   <!-- ══ ABA SMC ══ -->
   <div id="tab-smc" class="tab-panel">
-    <div style="max-width:780px;margin:0 auto;">
+    <div style="max-width:900px;margin:0 auto;">
 
       <!-- Disclaimer -->
       <div style="background:rgba(200,181,96,.08);border:1px solid rgba(200,181,96,.22);border-radius:10px;padding:12px 16px;margin-bottom:18px;font-size:10.5px;color:#C8B560;line-height:1.6;">
@@ -1576,7 +1893,7 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
       </div>
 
       <!-- Busca -->
-      <div style="background:rgba(29,56,40,.45);border:1px solid rgba(99,137,104,.18);border-radius:14px;padding:20px;margin-bottom:16px;">
+      <div style="background:rgba(29,56,40,.45);border:1px solid rgba(99,137,104,.18);border-radius:14px;padding:20px;margin-bottom:20px;">
         <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#C8B560;margin-bottom:14px;">🎯 Análise Smart Money Concept</div>
         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
           <input id="smc-ticker-inp" type="text" placeholder="Digite o ticker — ex: PETR4, VALE3, ITUB4..."
@@ -1608,6 +1925,244 @@ body{font-family:var(--f);background:var(--bg);color:#1D3828;min-height:100vh;}
           <div style="font-size:36px;margin-bottom:12px;">🎯</div>
           <div style="font-size:13px;font-weight:500;">Digite um ticker acima para iniciar a análise SMC</div>
           <div style="font-size:11px;margin-top:6px;opacity:.7;">Serão analisados 6 meses de dados OHLC via Brapi</div>
+        </div>
+      </div>
+
+      <!-- ══ GUIA DE INDICADORES SMC ══ -->
+      <div style="margin-top:28px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#1D3828;margin-bottom:16px;display:flex;align-items:center;gap:8px;">
+          <span style="font-size:16px;">📚</span> Guia dos Indicadores SMC — O que cada um significa?
+        </div>
+        <div style="font-size:10.5px;color:#4a7a55;margin-bottom:20px;line-height:1.6;">
+          O Smart Money Concept (SMC) é uma metodologia de análise técnica que busca identificar as pegadas dos <strong style="color:#1D3828;">grandes players do mercado</strong> — bancos, fundos e instituições — no gráfico de preços. Entender esses conceitos te ajuda a ler o mercado com mais profundidade.
+        </div>
+
+        <!-- Grid de cards de indicadores -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">
+
+          <!-- OB - Order Block -->
+          <div style="background:#fff;border:1px solid rgba(29,56,40,.12);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.06);">
+            <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#5B9BD5;border-radius:12px 0 0 12px;"></div>
+            <div style="padding-left:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+                <div style="background:rgba(91,155,213,.12);border:1px solid rgba(91,155,213,.35);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#2d7dc4;letter-spacing:.8px;">OB</div>
+                <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Order Block</div>
+              </div>
+              <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+                <strong style="color:#1D3828;">O que é:</strong> Zona onde grandes instituições colocaram ordens massivas de compra ou venda, criando um "bloco de ordens" no gráfico.<br><br>
+                <strong style="color:#1D3828;">Como usar:</strong> Quando o preço retorna a essa zona, é comum haver uma reação forte. Um <span style="color:#2e7d32;font-weight:600;">OB Bullish</span> fica abaixo do preço atual (suporte) e um <span style="color:#c62828;font-weight:600;">OB Bearish</span> fica acima (resistência).<br><br>
+                <strong style="color:#1D3828;">Analogia:</strong> Pense como um "armazém" onde os grandes compradores abasteceram suas posições. O preço tende a voltar lá.
+              </div>
+            </div>
+          </div>
+
+          <!-- FVG - Fair Value Gap -->
+          <div style="background:#fff;border:1px solid rgba(29,56,40,.12);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.06);">
+            <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#C8A820;border-radius:12px 0 0 12px;"></div>
+            <div style="padding-left:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+                <div style="background:rgba(200,168,32,.12);border:1px solid rgba(200,168,32,.4);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#8a6f00;letter-spacing:.8px;">FVG</div>
+                <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Fair Value Gap</div>
+              </div>
+              <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+                <strong style="color:#1D3828;">O que é:</strong> Uma lacuna (gap) de preço criada por um movimento muito brusco e rápido. O mercado "pulou" uma faixa de preço sem negociação suficiente.<br><br>
+                <strong style="color:#1D3828;">Como usar:</strong> O mercado tende a "fechar" esse gap voltando à região. Um <span style="color:#2e7d32;font-weight:600;">FVG Bullish</span> é uma lacuna de alta que pode virar suporte; um <span style="color:#c62828;font-weight:600;">FVG Bearish</span> é de baixa e pode virar resistência.<br><br>
+                <strong style="color:#1D3828;">Analogia:</strong> Como um elevador que subiu tão rápido que pulou andares — ele precisa voltar para buscar quem ficou pra trás.
+              </div>
+            </div>
+          </div>
+
+          <!-- Liquidity / Liquidez -->
+          <div style="background:#fff;border:1px solid rgba(29,56,40,.12);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.06);">
+            <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#E8732A;border-radius:12px 0 0 12px;"></div>
+            <div style="padding-left:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+                <div style="background:rgba(232,115,42,.1);border:1px solid rgba(232,115,42,.35);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#b85500;letter-spacing:.8px;">LIQ</div>
+                <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Liquidez (Liquidity)</div>
+              </div>
+              <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+                <strong style="color:#1D3828;">O que é:</strong> Regiões no gráfico onde há uma concentração de stops de outros traders. Os grandes players buscam essas zonas para executar suas ordens.<br><br>
+                <strong style="color:#1D3828;">Como usar:</strong> Topos e fundos anteriores geralmente têm liquidez acumulada. O preço pode fazer um movimento para "caçar" esses stops antes de reverter.<br><br>
+                <strong style="color:#1D3828;">Analogia:</strong> Imagine que todos deixaram o freio de mão no mesmo lugar — os grandes players vão lá buscar esse "combustível" para mover o mercado.
+              </div>
+            </div>
+          </div>
+
+          <!-- BOS - Break of Structure -->
+          <div style="background:#fff;border:1px solid rgba(29,56,40,.12);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.06);">
+            <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#2e7d32;border-radius:12px 0 0 12px;"></div>
+            <div style="padding-left:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+                <div style="background:rgba(46,125,50,.1);border:1px solid rgba(46,125,50,.35);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#1b5e20;letter-spacing:.8px;">BOS</div>
+                <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Break of Structure</div>
+              </div>
+              <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+                <strong style="color:#1D3828;">O que é:</strong> Quando o preço rompe um nível estrutural importante (topo ou fundo anterior), confirmando a continuação da tendência.<br><br>
+                <strong style="color:#1D3828;">Como usar:</strong> Um <span style="color:#2e7d32;font-weight:600;">BOS de alta</span> ocorre quando o preço supera o último topo significativo — sinal de que a tendência de alta continua. Um <span style="color:#c62828;font-weight:600;">BOS de baixa</span> faz o oposto.<br><br>
+                <strong style="color:#1D3828;">Analogia:</strong> Como um corredor que quebra o próprio recorde — isso confirma que ele está acelerando, não desacelerando.
+              </div>
+            </div>
+          </div>
+
+          <!-- CHoCH - Change of Character -->
+          <div style="background:#fff;border:1px solid rgba(29,56,40,.12);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.06);">
+            <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#7B1FA2;border-radius:12px 0 0 12px;"></div>
+            <div style="padding-left:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+                <div style="background:rgba(123,31,162,.1);border:1px solid rgba(123,31,162,.3);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#6a1b9a;letter-spacing:.8px;">CHoCH</div>
+                <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Change of Character</div>
+              </div>
+              <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+                <strong style="color:#1D3828;">O que é:</strong> Uma mudança na "personalidade" do mercado — o primeiro sinal de que a tendência pode estar se revertendo, antes mesmo do BOS.<br><br>
+                <strong style="color:#1D3828;">Como usar:</strong> Numa tendência de alta, um CHoCH ocorre quando o preço pela primeira vez rompe um fundo anterior, sugerindo que a força compradora está enfraquecendo.<br><br>
+                <strong style="color:#1D3828;">Analogia:</strong> Como um boxeador que pela primeira vez vai à lona — não significa que perdeu, mas é o primeiro sinal de que algo mudou.
+              </div>
+            </div>
+          </div>
+
+          <!-- Imbalance -->
+          <div style="background:#fff;border:1px solid rgba(29,56,40,.12);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.06);">
+            <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#00838F;border-radius:12px 0 0 12px;"></div>
+            <div style="padding-left:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+                <div style="background:rgba(0,131,143,.1);border:1px solid rgba(0,131,143,.3);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#006064;letter-spacing:.8px;">IMB</div>
+                <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Imbalance</div>
+              </div>
+              <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+                <strong style="color:#1D3828;">O que é:</strong> Um desequilíbrio no mercado causado por excesso de oferta ou demanda em um curto período. Muito parecido com o FVG — às vezes são usados como sinônimos.<br><br>
+                <strong style="color:#1D3828;">Como usar:</strong> O mercado tende a voltar para "equilibrar" essa região antes de continuar o movimento. É uma área de interesse para entradas.<br><br>
+                <strong style="color:#1D3828;">Analogia:</strong> Como uma balança inclinada — o mercado sempre tenta buscar o equilíbrio, voltando ao ponto de desequilíbrio.
+              </div>
+            </div>
+          </div>
+
+          <!-- Premium & Discount -->
+          <div style="background:#fff;border:1px solid rgba(29,56,40,.12);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.06);">
+            <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#E65100;border-radius:12px 0 0 12px;"></div>
+            <div style="padding-left:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+                <div style="background:rgba(230,81,0,.1);border:1px solid rgba(230,81,0,.3);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#bf360c;letter-spacing:.8px;">P&D</div>
+                <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Premium & Discount</div>
+              </div>
+              <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+                <strong style="color:#1D3828;">O que é:</strong> Conceito de saber se o preço está "caro" (Premium) ou "barato" (Discount) em relação a uma referência de range.<br><br>
+                <strong style="color:#1D3828;">Como usar:</strong> Busca-se <span style="color:#2e7d32;font-weight:600;">comprar no Discount</span> (abaixo do meio do range) e <span style="color:#c62828;font-weight:600;">vender no Premium</span> (acima do meio). O equilíbrio fica no ponto médio (50%).<br><br>
+                <strong style="color:#1D3828;">Analogia:</strong> Como comprar um imóvel abaixo do valor de mercado (Discount) e vender acima (Premium) — o princípio é o mesmo.
+              </div>
+            </div>
+          </div>
+
+          <!-- MSS - Market Structure Shift -->
+          <div style="background:#fff;border:1px solid rgba(29,56,40,.12);border-radius:12px;padding:18px;position:relative;overflow:hidden;box-shadow:0 2px 8px rgba(29,56,40,.06);">
+            <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:#c62828;border-radius:12px 0 0 12px;"></div>
+            <div style="padding-left:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+                <div style="background:rgba(198,40,40,.1);border:1px solid rgba(198,40,40,.3);border-radius:7px;padding:4px 10px;font-size:10px;font-weight:800;color:#b71c1c;letter-spacing:.8px;">MSS</div>
+                <div style="font-size:11.5px;font-weight:700;color:#1D3828;">Market Structure Shift</div>
+              </div>
+              <div style="font-size:10.5px;color:#3d6147;line-height:1.75;">
+                <strong style="color:#1D3828;">O que é:</strong> Uma mudança confirmada na estrutura de mercado — mais forte que o CHoCH. Indica que a tendência anterior foi invalidada e uma nova está em formação.<br><br>
+                <strong style="color:#1D3828;">Como usar:</strong> Após um MSS, busca-se operar na nova direção, aguardando retests em zonas de OB ou FVG para entradas com melhor risco/retorno.<br><br>
+                <strong style="color:#1D3828;">Analogia:</strong> Como uma eleição — não é o primeiro sinal de insatisfação (CHoCH), mas sim a virada definitiva de poder.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Legenda de como ler o resultado -->
+        <div style="background:#fff;border:1px solid rgba(29,56,40,.12);border-radius:12px;padding:18px;margin-top:18px;box-shadow:0 2px 8px rgba(29,56,40,.06);">
+          <div style="font-size:10.5px;font-weight:700;color:#1D3828;margin-bottom:12px;letter-spacing:.5px;">🧭 Como ler o resultado da análise</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;">
+            <div style="display:flex;align-items:flex-start;gap:8px;">
+              <span style="font-size:14px;flex-shrink:0;">📍</span>
+              <div style="font-size:10px;color:#4a7a55;line-height:1.6;"><strong style="color:#1D3828;">Sinais Identificados:</strong> Lista os padrões SMC encontrados nos últimos 6 meses de dados.</div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;">
+              <span style="font-size:14px;flex-shrink:0;">📊</span>
+              <div style="font-size:10px;color:#4a7a55;line-height:1.6;"><strong style="color:#1D3828;">Viés do mercado:</strong> Indica se a estrutura atual favorece alta (Bullish), baixa (Bearish) ou indefinição (Neutro).</div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;">
+              <span style="font-size:14px;flex-shrink:0;">🎯</span>
+              <div style="font-size:10px;color:#4a7a55;line-height:1.6;"><strong style="color:#1D3828;">Zonas de interesse:</strong> Preços onde há concentração de OBs, FVGs ou Liquidez relevantes.</div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;">
+              <span style="font-size:14px;flex-shrink:0;">⚡</span>
+              <div style="font-size:10px;color:#4a7a55;line-height:1.6;"><strong style="color:#1D3828;">Força do sinal:</strong> Avalia a consistência dos padrões encontrados — quanto mais sinais convergentes, mais forte o sinal.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══ ABA ALICE IA ══ -->
+  <div id="tab-alice" class="tab-panel">
+    <div class="alice-wrap">
+
+      <!-- Header fixo -->
+      <div class="alice-header">
+        <div class="alice-hinfo">
+          <div class="alice-avatar">A</div>
+          <div>
+            <div class="alice-name">Alice</div>
+            <div class="alice-role"><span class="alice-dot"></span>Sua consultora de investimentos</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <button class="alice-clr" onclick="aliceGoBack()" id="alice-back-btn" style="display:none;">← Início</button>
+          <button class="alice-clr" onclick="aliceClear()" id="alice-clear-btn" style="display:none;">🗑 Limpar</button>
+          <span style="font-size:9px;color:rgba(200,181,96,.4);border:1px solid rgba(200,181,96,.2);padding:3px 8px;border-radius:4px;letter-spacing:1px;text-transform:uppercase;">Área de Membros</span>
+        </div>
+      </div>
+
+      <!-- TELA DE BOAS-VINDAS -->
+      <div class="alice-welcome-screen" id="alice-welcome-screen">
+        <div class="alice-wlc-av">A</div>
+        <div class="alice-wlc-name">Alice</div>
+        <div class="alice-wlc-role">Sua consultora de investimentos · APARD Capital</div>
+        <div class="alice-wlc-desc">Tire suas dúvidas sobre mercado financeiro, análise de ativos, estratégias de carteira e muito mais.</div>
+        <div class="alice-wlc-tags">
+          <span class="alice-tag">Renda Fixa</span>
+          <span class="alice-tag">Ações & FIIs</span>
+          <span class="alice-tag">Análise Fundamentalista</span>
+          <span class="alice-tag">Carteira</span>
+          <span class="alice-tag">IR sobre Investimentos</span>
+        </div>
+        <div class="alice-quick-title">Perguntas frequentes</div>
+        <div class="alice-quick-btns">
+          <button class="alice-quick-btn" onclick="aliceStartWithMsg('Como monto uma carteira para longo prazo?')">Como monto uma carteira para longo prazo?</button>
+          <button class="alice-quick-btn" onclick="aliceStartWithMsg('Qual a diferença entre Tesouro IPCA+ e CDB?')">Qual a diferença entre Tesouro IPCA+ e CDB?</button>
+          <button class="alice-quick-btn" onclick="aliceStartWithMsg('Vale a pena investir em FIIs com a Selic alta?')">Vale a pena investir em FIIs com a Selic alta?</button>
+          <button class="alice-quick-btn" onclick="aliceStartWithMsg('O que devo olhar antes de comprar uma ação?')">O que devo olhar antes de comprar uma ação?</button>
+        </div>
+        <button class="alice-start-btn" onclick="aliceStartChat()">Fazer uma pergunta →</button>
+      </div>
+
+      <!-- TELA DE CHAT -->
+      <div class="alice-chat-screen" id="alice-chat-screen">
+        <div class="alice-msgs" id="alice-msgs"></div>
+        <div class="alice-typing-wrap" id="alice-typing">
+          <div class="alice-typing-lbl">Alice</div>
+          <div class="alice-typing-bub">
+            <div class="atd"></div><div class="atd"></div><div class="atd"></div>
+          </div>
+        </div>
+        <div class="alice-input-bar">
+          <textarea
+            class="alice-inp"
+            id="alice-inp"
+            placeholder="Pergunte sobre investimentos..."
+            rows="1"
+            onkeydown="aliceKey(event)"
+            oninput="aliceResize(this)"
+          ></textarea>
+          <button class="alice-send" id="alice-send" onclick="aliceSend()">
+            <svg viewBox="0 0 24 24" width="19" height="19" fill="#1D3828"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
         </div>
       </div>
 
@@ -7224,6 +7779,220 @@ function calcSimulacao() {
       }
     }
   });
+}
+
+// ══════════════════════════════════════════════════════════
+// ── ALICE · Consultora de Investimentos APARD (oficial) ──
+// ══════════════════════════════════════════════════════════
+
+const ALICE_PROMPT = `Você se chama Alice e é a Consultora de Investimentos da APARD Capital.
+
+Você existe para apoiar os alunos do Código do Investidor — responder dúvidas, explicar conceitos e orientar sobre mercado financeiro de um jeito que qualquer pessoa entenda.
+
+Seu criador é Marcos Banuth — consultor de valores mobiliários credenciado pela CVM e certificado CEA pela ANBIMA. A missão da APARD é democratizar o conhecimento financeiro. Tagline: "Cuidar do que sustenta."
+
+Se perguntarem se você é IA: "Sou a Alice, consultora virtual da APARD Capital. Fui criada pelo Marcos para te ajudar aqui na plataforma."
+
+QUEM VOCÊ É:
+Você é como aquela amiga que entende muito de investimentos e explica tudo sem deixar ninguém pra trás. Inteligente, calorosa, direta. Você domina o mercado financeiro de verdade — mas nunca usa isso para impressionar, usa para simplificar. Sua maior habilidade é pegar um assunto complicado e transformar em algo claro, leve e fácil de aplicar.
+
+Você é mulher. Seu tom é feminino, próximo, acolhedor — mas com firmeza e segurança de quem sabe do que está falando.
+
+REGRAS DE OURO DA COMUNICAÇÃO:
+1. Máximo 3 linhas por mensagem. Sempre. Sem exceção.
+2. Pergunta ampla ou aberta → faça UMA pergunta de contexto antes de qualquer explicação. Não tente responder e perguntar na mesma mensagem.
+3. Só aprofunde depois que entender o nível e o objetivo da pessoa.
+4. Zero economês sem explicação. Se usar termo técnico, traduza em seguida numa frase curta.
+5. Use analogias do dia a dia — simples e concretas.
+6. Sem listas. Se precisar listar, no máximo 2 itens por vez, em mensagens separadas.
+7. Sem markdown: sem negrito (**), itálico ou # títulos.
+8. Emojis: 1 por resposta, só quando vier natural. Nunca forçado.
+
+COMO RESPONDER — siga essa ordem:
+
+Pergunta ampla (ex: "como monto uma carteira?", "como começo a investir?"):
+→ Primeira mensagem: UMA pergunta de contexto. Nada mais.
+→ Exemplo: "Você já tem algum investimento hoje, ou está começando do zero?"
+→ Só depois da resposta dela, explique de forma direcionada.
+
+Pergunta específica (ex: "o que é CDI?", "como funciona o Tesouro Selic?"):
+→ Responda diretamente em 2-3 linhas com uma analogia simples.
+→ Pergunte se ficou claro ou se quer saber mais.
+
+Pergunta sobre ativo (ex: "o que você acha de PETR4?"):
+→ 2-3 linhas sobre o setor e o que observar.
+→ Finalize: "a decisão final é sua, de acordo com seu perfil."
+
+Dúvida de planejamento (ex: "quanto devo guardar por mês?"):
+→ Primeira mensagem: entenda a situação. "Você já tem reserva de emergência?"
+→ Oriente por etapas, uma de cada vez.
+
+CONHECIMENTO (use com leveza, não como lista):
+Renda fixa: CDB, Tesouro Direto, LCI, LCA, CRI, CRA, poupança — rentabilidade, liquidez, IR, quando usar cada um.
+Renda variável: ações, FIIs, ETFs, BDRs — como analisar, o que olhar, riscos e oportunidades.
+Fundos: como funcionam, taxas, diferença entre tipos.
+Macro: Selic, CDI, IPCA, câmbio — como afetam os investimentos no dia a dia.
+Planejamento: reserva de emergência, aposentadoria, metas, alocação por perfil.
+IR: tabela regressiva, isenções, quando e como declarar.
+
+LIMITES:
+- Nunca diga "compre X" ou "venda Y" de forma imperativa. Oriente, explique, compare — mas a decisão é sempre do aluno.
+- Nunca prometa rendimento garantido.
+- Se não tiver dados em tempo real (cotação atual, último balanço), diga com naturalidade: "Não tenho acesso a dados ao vivo — para isso, dá uma olhada no Status Invest ou Fundamentus."
+- Se o aluno estiver prestes a tomar uma decisão arriscada, alerte com cuidado — sem assustar, mas sem omitir.`;
+
+// URL do backend Vercel oficial da Alice
+const ALICE_API = 'https://consultoraalice-investimentos.vercel.app/api/chat';
+
+let aliceHistorico = [];
+let aliceBusy = false;
+
+function aliceGetTime() {
+  return new Date().toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'});
+}
+
+function aliceAddMessage(texto, papel) {
+  const msgs = document.getElementById('alice-msgs');
+  if (!msgs) return;
+  const wrap = document.createElement('div');
+  wrap.className = `amsg-wrap ${papel === 'alice' ? 'alice-m' : 'user-m'}`;
+  const sender = document.createElement('div');
+  sender.className = 'amsg-sender';
+  sender.textContent = papel === 'alice' ? 'Alice' : 'Você';
+  const bubble = document.createElement('div');
+  bubble.className = 'abubble';
+  bubble.textContent = texto; // textContent para segurança — sem HTML injetado
+  const time = document.createElement('div');
+  time.className = 'amsg-time';
+  time.textContent = aliceGetTime();
+  wrap.appendChild(sender);
+  wrap.appendChild(bubble);
+  wrap.appendChild(time);
+  msgs.appendChild(wrap);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function aliceAddSys(txt) {
+  const msgs = document.getElementById('alice-msgs');
+  if (!msgs) return;
+  const d = document.createElement('div');
+  d.className = 'asys-msg';
+  d.textContent = txt;
+  msgs.appendChild(d);
+}
+
+function aliceSetTyping(on) {
+  const t = document.getElementById('alice-typing');
+  if (t) t.className = 'alice-typing-wrap' + (on ? ' on' : '');
+  if (on) {
+    const msgs = document.getElementById('alice-msgs');
+    if (msgs) msgs.scrollTop = 99999;
+  }
+}
+
+async function aliceCall(msg) {
+  const msgs = aliceHistorico.map(h => ({
+    role: h.papel === 'user' ? 'user' : 'assistant',
+    content: h.texto
+  }));
+  msgs.push({ role: 'user', content: msg });
+
+  const res = await fetch(ALICE_API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ system: ALICE_PROMPT, messages: msgs })
+  });
+
+  if (!res.ok) throw new Error('API error ' + res.status);
+  const data = await res.json();
+  return data.content?.[0]?.text || 'Desculpe, tente novamente.';
+}
+
+function aliceShowChat() {
+  document.getElementById('alice-welcome-screen').style.display = 'none';
+  const chat = document.getElementById('alice-chat-screen');
+  chat.className = 'alice-chat-screen active';
+  document.getElementById('alice-msgs').innerHTML = '';
+  document.getElementById('alice-back-btn').style.display = '';
+  document.getElementById('alice-clear-btn').style.display = '';
+  aliceAddSys('Alice · Sua consultora de investimentos · APARD Capital');
+}
+
+function aliceStartChat() {
+  aliceShowChat();
+  document.getElementById('alice-inp')?.focus();
+}
+
+async function aliceStartWithMsg(msg) {
+  aliceShowChat();
+  aliceAddMessage(msg, 'user');
+  aliceHistorico.push({ papel: 'user', texto: msg });
+  aliceSetTyping(true);
+  aliceBusy = true;
+  const send = document.getElementById('alice-send');
+  if (send) send.disabled = true;
+  try {
+    const resp = await aliceCall(msg);
+    aliceSetTyping(false);
+    aliceAddMessage(resp, 'alice');
+    aliceHistorico.push({ papel: 'alice', texto: resp });
+  } catch(e) {
+    aliceSetTyping(false);
+    aliceAddMessage('Erro de conexão. Verifique sua internet e tente novamente.', 'alice');
+  }
+  aliceBusy = false;
+  if (send) send.disabled = false;
+}
+
+async function aliceSend() {
+  if (aliceBusy) return;
+  const inp = document.getElementById('alice-inp');
+  const txt = (inp?.value || '').trim();
+  if (!txt) return;
+  inp.value = '';
+  inp.style.height = 'auto';
+  aliceAddMessage(txt, 'user');
+  aliceHistorico.push({ papel: 'user', texto: txt });
+  aliceSetTyping(true);
+  aliceBusy = true;
+  const send = document.getElementById('alice-send');
+  if (send) send.disabled = true;
+  try {
+    const resp = await aliceCall(txt);
+    aliceSetTyping(false);
+    aliceAddMessage(resp, 'alice');
+    aliceHistorico.push({ papel: 'alice', texto: resp });
+  } catch(e) {
+    aliceSetTyping(false);
+    aliceAddMessage('Erro de conexão. Verifique sua internet e tente novamente.', 'alice');
+  }
+  aliceBusy = false;
+  if (send) send.disabled = false;
+  inp?.focus();
+}
+
+function aliceGoBack() {
+  aliceHistorico = [];
+  const chat = document.getElementById('alice-chat-screen');
+  chat.className = 'alice-chat-screen';
+  document.getElementById('alice-welcome-screen').style.display = '';
+  document.getElementById('alice-back-btn').style.display = 'none';
+  document.getElementById('alice-clear-btn').style.display = 'none';
+}
+
+function aliceClear() {
+  aliceHistorico = [];
+  document.getElementById('alice-msgs').innerHTML = '';
+  aliceAddSys('Alice · Sua consultora de investimentos · APARD Capital');
+}
+
+function aliceKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); aliceSend(); }
+}
+
+function aliceResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 90) + 'px';
 }
 </script>
 </body>
